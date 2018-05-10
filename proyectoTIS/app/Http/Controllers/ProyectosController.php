@@ -10,10 +10,10 @@ class ProyectosController extends Controller
     {
 
     }
-    public function index(){
+    public function add(){
         return view('proyecto.registrarProy');
     }
-    public function index2(){
+    public function addLote(){
         return view('proyecto.registrarProyLote');
     }
 }

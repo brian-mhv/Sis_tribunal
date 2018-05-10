@@ -16,16 +16,21 @@ Route::get('home', 'HomesController@index');
 
 Route::get('login','AuthsController@index');
 
-Route::get('/docente/registrarProf', 'ProfesionalesController@index');
-Route::get('/docente/registrarProfLote', 'ProfesionalesController@index2');
+Route::get('/docentes', 'DocentesController@index');
+Route::get('/docentes/registrar', 'DocentesController@add');
+Route::get('/docentes/registrarlote', 'DocentesController@addLote');
 
-Route::get('/proyecto/registrarProy', 'ProyectosController@index');
-Route::get('/proyecto/registrarProyLote', 'ProyectosController@index2');
+Route::get('/invitados', 'ProfesionalesController@invitados');
+Route::get('/invitados/registrar', 'ProfesionalesController@add');
+Route::get('/invitados/registrarlote', 'ProfesionalesController@addLote');
+
+Route::get('/proyecto/registrar', 'ProyectosController@add');
+Route::get('/proyecto/registrarlote', 'ProyectosController@addLote');
 
 Route::get('/areas', 'AreasController@index');
 Route::post('/areas', 'AreasController@save');
-Route::get('/areas/registrarArea', 'AreasController@add');
-Route::get('/areas/registrarAreaLote', 'AreasController@addLote');
+Route::get('/areas/registrar', 'AreasController@add');
+Route::get('/areas/registrarlote', 'AreasController@addLote');
 
 Route::get('help', 'HelpsController@index');
 

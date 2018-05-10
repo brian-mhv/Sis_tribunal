@@ -10,27 +10,18 @@ class Profesional extends Model
     protected $primaryKey='idProfesional';
     public $timestamps=false;
 
-    protected $fillable =[
-        'nombreArea',
-        'descripcion',
-        'idSubarea'
-    ];
+    protected $fillable =[];
 
     protected $guarded =[];
 
-    public function all(){
-        $profesionales=\DB::table($table)->select('id', 'nombre', 'apellido_pat', 
-        'apellidoMat', 'titulo', 'idDocente')->get();
+    public function getAll(){
+        $profesionales=\DB::table('profesional')->select('codigo', 'nombre', 'apellido_paterno', 
+        'apellido_materno', 'titulo', 'cod_docente')->get();
         return $profesionales;
     }
     public function invitados(){
-        $invitados=\DB::table($table)->select('id', 'nombre', 'apellido_pat', 
-        'apellido_mat', 'titulo', 'id_docente')->where('id_docente', '=', 0)->get();
-        return $profesionales;
-    }
-    public function docentes(){
-        $invitados=\DB::table($table)->select('id', 'nombre', 'apellido_pat', 
-        'apellido_mat', 'titulo', 'id_docente')->where('id_docente', '>', 0)->get();
-        return $profesionales;
+        $invitados=\DB::table('profesional')->select('codigo', 'nombre', 'apellido_paterno', 
+        'apellido_materno', 'titulo', 'cod_docente')->where('codigo', '=', 0)->get();
+        return $invitados;
     }
 }

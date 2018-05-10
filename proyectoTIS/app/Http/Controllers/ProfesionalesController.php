@@ -20,12 +20,17 @@ class ProfesionalesController extends Controller
         //$profesionales = new Profesional;
         return view('invitados.index');//, compact('invitados'), ['areas'=>$profesionales->invitados()]);
     }*/
-    public function index(){
-        //$profesionales = new Profesional;
-        return view('docente.registrarProf');//, compact('docentes'), ['areas'=>$profesionales->docentes()]);
+    public function invitados(){
+        $invitados = new Profesional;
+        return view('invitados.index', compact('docente'), ['profesionales'=>$invitados->invitados()]);
     }
-    public function index2(){
+    public function add(){
         //$profesionales = new Profesional;
-        return view('docente.registrarProfLote');//, compact('docentes'), ['areas'=>$profesionales->docentes()]);
+        return view('invitados.registrar');//, compact('docentes'), ['areas'=>$profesionales->docentes()]);
     }
+    public function addLote(){
+        //$profesionales = new Profesional;
+        return view('invitados.registrarLote');//, compact('docentes'), ['areas'=>$profesionales->docentes()]);
+    }
+    
 }

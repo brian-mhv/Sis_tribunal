@@ -104,16 +104,30 @@
             
             <!--Pagina de PROFESIONAL del sistema-->
             <li class="treeview">
-              <a href="/profesionales">
+              <a href="/docentes">
                 <i class="fa fa-users"></i>
-                <span>Profesionales</span>
+                <span>Docentes</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <!--li><a href="../profesionales/docentes"><i class="fa fa-circle-o"></i> Lista de docentes</a></li>
-                <li><a href="../profesionales/invitados"><i class="fa fa-circle-o"></i> Lista de invitados</a></li-->
-                <li><a href="../docente/registrarProf"><i class="fa fa-circle-o"></i> Registrar Profesional</a></li>
-                <li><a href="../docente/registrarProfLote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
+                <li><a href="../docentes"><i class="fa fa-circle-o"></i> Lista de docentes</a></li>
+                <!--li><a href="../profesionales/invitados"><i class="fa fa-circle-o"></i> Lista de invitados</a></li-->
+                <li><a href="../docentes/registrar"><i class="fa fa-circle-o"></i> Registrar Docente</a></li>
+                <li><a href="../docentes/registrarlote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="/docentes">
+                <i class="fa fa-users"></i>
+                <span>Invitados</span>
+                 <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="../invitados"><i class="fa fa-circle-o"></i> Lista de invitados</a></li>
+                <!--li><a href="../profesionales/invitados"><i class="fa fa-circle-o"></i> Lista de invitados</a></li-->
+                <li><a href="../invitados/registrar"><i class="fa fa-circle-o"></i> Registrar Invitado</a></li>
+                <li><a href="../invitados/registrarlote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
               </ul>
             </li>
             
@@ -125,22 +139,22 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../proyecto/registrarProy"><i class="fa fa-circle-o"></i> Registrar Proyecto</a></li>
-                <li><a href="../proyecto/registrarProyLote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
+                <li><a href="../proyecto/registrar"><i class="fa fa-circle-o"></i> Registrar Proyecto</a></li>
+                <li><a href="../proyecto/registrarlote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
               </ul>
             </li>
              
             <!--Pagina de AREA del sistema-->
             <li class="treeview">
-              <a href="#">
+              <a href="../areas">
                 <i class="fa fa-th"></i>
                 <span>Areas</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <!--li><a href="../areas"><i class="fa fa-circle-o"></i> Lista de areas</a></li-->
-                <li><a href="../areas/registrarArea"><i class="fa fa-circle-o"></i> Registrar area</a></li>
-                <li><a href="../areas/registrarAreaLote"><i class="fa fa-circle-o"></i> Registrar por lote</a></li>
+                <li><a href="../areas"><i class="fa fa-circle-o"></i> Lista de areas</a></li>
+                <li><a href="../areas/registrar"><i class="fa fa-circle-o"></i> Registrar area</a></li>
+                <li><a href="../areas/registrarlote"><i class="fa fa-circle-o"></i> Registrar por lote</a></li>
               </ul>
             </li>
 
@@ -192,7 +206,7 @@
         <div class="pull-right hidden-xs">
           <b>Version</b> 1.0
         </div>
-        <strong>Copyright &copy; 2018 <a href="www.HashTag.com">Hashtag Co.</a>.</strong> Todos los derechos reservados.
+        <strong>Copyright &copy; 2018 <a href="www.HashTag.com">Hashtag Co.</a></strong> Todos los derechos reservados.
       </footer>
 
       

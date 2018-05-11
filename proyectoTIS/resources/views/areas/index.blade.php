@@ -1,13 +1,12 @@
 @extends ('layouts.master')
 @section ('contenido')
-    <h3 class="box-title">Sistema de Asignacion de Tribunales</h3>
-</div>
+
     <!-- /.box-header -->
     <div class="box-body">
         <div class="row">
 	        <div class="col-md-12">
                 <h2> Areas</h2>
-                    <div class="box box-primary">               
+                    <div class="box box-primary"></div>             
                         <table class="table">
                             <thread>
                                 <tr>
@@ -47,5 +46,5 @@
                     </div>
             </div>
         </div><!-- /.row -->
-    </div><!-- /.box-body -->
+    
 @endsection

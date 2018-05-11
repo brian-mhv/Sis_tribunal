@@ -8,26 +8,43 @@
 <div class="container-fluid">                       
 
     <!--Añadir contenido-->
-    <form role="form">
+    <form id="form" action="/invitados" method="POST" role="form">
+        {{ csrf_field() }}
+        @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
       <div class="form-group">
         <label>Nombres</label>
-        <input class="form-control" placeholder="Introduzca el nombre">
+        <input name="nombre" class="form-control" placeholder="Introduzca el nombre">
       </div>
       <div class="form-group">
         <label>Apellido Paterno</label>
-        <input class="form-control" placeholder="Introduzca apellido paterno">
+        <input name="apPat" class="form-control" placeholder="Introduzca apellido paterno">
       </div>
       <div class="form-group">
         <label>Apellido Materno</label>
-        <input class="form-control" placeholder="Introduzca apellido materno">
+        <input name="apMat" class="form-control" placeholder="Introduzca apellido materno">
       </div>
       <div class="form-group">
         <label>Correo Electronico</label>
-        <input class="form-control" placeholder="Introduzca el correo">
+        <input name="correo" type="text" class="form-control" placeholder="Introduzca apellido materno">
       </div>
       <div class="form-group">
         <label>Titulo</label>
-        <input class="form-control" placeholder="Titulo del profesional">
+        <select class="form-control" name="titulo">    
+          <option value="1">Lic.</option>    
+          <option value="2">Ing.</option>    
+          <option value="3">Msc.</option>    
+          <option value="4">Msc. Lic.</option>    
+          <option value="5">Msc. Ing.</option>  
+          <option value="6">Doc.</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="sub-area">Area afin</label>

@@ -29,15 +29,14 @@ class AreasController extends Controller
         $this->validate($request, [
             'nombre' => 'required|string'
         ]);
-        echo($request->input('nombre'));
-        echo($request->input('descripcion'));
-        print_r($request->input());
+        //echo($request->input('nombre'));
+        //echo($request->input('descripcion'));
+        //print_r($request->input());
         $area = new Area;
         $area->nombre_area = $request->input('nombre');
         if($request->input('descripcion') != ""){
             $area->descripcion = $request->input('descripcion');
         }
-        //$area->descripcion = $request->input('descripcion');
         $area->save();
     return view('areas.index', compact('areas'), ['areas'=>$area->getAll()]);
     }

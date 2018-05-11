@@ -21,6 +21,7 @@ Route::get('/docentes/registrar', 'DocentesController@add');
 Route::get('/docentes/registrarlote', 'DocentesController@addLote');
 
 Route::get('/invitados', 'ProfesionalesController@invitados');
+Route::post('/invitados', 'ProfesionalesController@save');
 Route::get('/invitados/registrar', 'ProfesionalesController@add');
 Route::get('/invitados/registrarlote', 'ProfesionalesController@addLote');
 

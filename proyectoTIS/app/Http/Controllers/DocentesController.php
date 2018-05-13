@@ -4,19 +4,37 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Docente;
+use App\Profesional;
 use App\Http\Requests;
 
 class DocentesController extends Controller
 {
     public function index(){
-        $docentes = new Docente;
-        return view('docente.index', compact('docente'), ['profesionales'=>$docentes->getAll()]);
+        $docente = new Docente;
+        return view('docentes.index', compact('docentes'), ['docentes'=>$docente->getAll()]);
     }
     public function add(){
         //$profesionales = new Profesional;
-        return view('docente.registrarProf');//, compact('docentes'), ['areas'=>$profesionales->docentes()]);
+        return view('docentes.registrarProf');//, compact('docentes'), ['areas'=>$profesionales->docentes()]);
     }
     public function addLote(){
-        return view('docente.registrarProfLote');
+        return view('docentes.registrarProfLote');
+    }
+    public function save(Request $request){
+        $this->validate($request, [
+        'nombre' => 'required|string',
+        'apPat' => 'required|string',
+        'apMat' => 'required|string',
+        'correo' => 'required|string',
+        'titulo' => 'required|Int'
+        ]);
+        $docente = new Docente;
+        $docente->carga_horaria = $request->input('carga');
+        $docente->telefono = $request->input('telefono');
+        $docente->direccion = $request->input('direccion');
+        $docente->ci = $request->input('carnet');
+        $docente->save();
+        $id = $docente->addProfesional($request);
+        return view('docentes.index', compact('docentes'), ['docentes'=>$docente->getAll()]);
     }
 }

@@ -17,6 +17,7 @@ Route::get('home', 'HomesController@index');
 Route::get('login','AuthsController@index');
 
 Route::get('/docentes', 'DocentesController@index');
+Route::post('/docentes', 'DocentesController@save');
 Route::get('/docentes/registrar', 'DocentesController@add');
 Route::get('/docentes/registrarlote', 'DocentesController@addLote');
 
@@ -25,8 +26,9 @@ Route::post('/invitados', 'ProfesionalesController@save');
 Route::get('/invitados/registrar', 'ProfesionalesController@add');
 Route::get('/invitados/registrarlote', 'ProfesionalesController@addLote');
 
-Route::get('/proyecto/registrar', 'ProyectosController@add');
-Route::get('/proyecto/registrarlote', 'ProyectosController@addLote');
+Route::get('/proyectos', 'ProyectosController@index');
+Route::get('/proyectos/registrar', 'ProyectosController@add');
+Route::get('/proyectos/registrarlote', 'ProyectosController@addLote');
 
 Route::get('/areas', 'AreasController@index');
 Route::post('/areas', 'AreasController@save');

@@ -104,7 +104,7 @@
             
             <!--Pagina de PROFESIONAL del sistema-->
             <li class="treeview">
-              <a href="/docentes">
+              <a href="../docentes">
                 <i class="fa fa-users"></i>
                 <span>Docentes</span>
                  <i class="fa fa-angle-left pull-right"></i>
@@ -125,7 +125,6 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="../invitados"><i class="fa fa-circle-o"></i> Lista de invitados</a></li>
-                <!--li><a href="../profesionales/invitados"><i class="fa fa-circle-o"></i> Lista de invitados</a></li-->
                 <li><a href="../invitados/registrar"><i class="fa fa-circle-o"></i> Registrar Invitado</a></li>
                 <li><a href="../invitados/registrarlote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
               </ul>
@@ -139,8 +138,9 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../proyecto/registrar"><i class="fa fa-circle-o"></i> Registrar Proyecto</a></li>
-                <li><a href="../proyecto/registrarlote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
+                <li><a href="../proyectos"><i class="fa fa-circle-o"></i> Lista de proyectos</a></li>
+                <li><a href="../proyectos/registrar"><i class="fa fa-circle-o"></i> Registrar Proyecto</a></li>
+                <li><a href="../proyectos/registrarlote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
               </ul>
             </li>
              
@@ -187,12 +187,10 @@
           <div class="row">
             <div class="col-md-12">
               <div class="box">
-                <div class="box-header with-border">          
-		                
+                <div class="box-header with-border">
                     <!--Contenido-->
                       @yield('contenido')
 		                <!--Fin Contenido-->
-
                 </div>
               </div><!-- /.box -->
             </div><!-- /.col -->

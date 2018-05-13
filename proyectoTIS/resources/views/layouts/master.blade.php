@@ -118,7 +118,7 @@
             </li>
 
             <li class="treeview">
-              <a href="/docentes">
+              <a href="/invitados">
                 <i class="fa fa-users"></i>
                 <span>Invitados</span>
                  <i class="fa fa-angle-left pull-right"></i>
@@ -155,6 +155,18 @@
                 <li><a href="../areas"><i class="fa fa-circle-o"></i> Lista de areas</a></li>
                 <li><a href="../areas/registrar"><i class="fa fa-circle-o"></i> Registrar area</a></li>
                 <li><a href="../areas/registrarlote"><i class="fa fa-circle-o"></i> Registrar por lote</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="/estudiantes">
+                <i class="fa fa-users"></i>
+                <span>Estudiantes</span>
+                 <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="../estudiantes"><i class="fa fa-circle-o"></i> Lista de estudiantes</a></li>
+                <li><a href="../estudiantes/registrar"><i class="fa fa-circle-o"></i> Registrar Estudiante</a></li>
               </ul>
             </li>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Docente;
 use App\Profesional;
+use App\Area;
 use App\Http\Requests;
 
 class DocentesController extends Controller
@@ -14,8 +15,8 @@ class DocentesController extends Controller
         return view('docentes.index', compact('docentes'), ['docentes'=>$docente->getAll()]);
     }
     public function add(){
-        //$profesionales = new Profesional;
-        return view('docentes.registrarProf');//, compact('docentes'), ['areas'=>$profesionales->docentes()]);
+        $area = new Area;
+        return view('docentes.registrarProf', compact('docentes'), ['areas'=>$area->all()]);
     }
     public function addLote(){
         return view('docentes.registrarProfLote');

@@ -66,9 +66,14 @@
         <input name="direccion" type="text" class="form-control" placeholder="Introduzca apellido materno">
       </div>
       <div class="form-group">
-        <label for="sub-area">Area afin</label>
-        <input class="form-control" id="sub-area">
-      </div>
+      <label>Areas afin</label>
+      <select name="area" class="form-control">
+      <?php foreach($areas as $rows) {?>
+          <option value="<?php echo $rows->idArea; ?>">
+          <?php printf($rows->nombre_area);?></option>
+      <?php } ?>
+      </select>
+    </div>
       <div class="form-group">
       <a href="#dialogo" class="btn btn-primary" data-toggle="modal">Registrar</a>
       <div class="modal fade" id="dialogo">

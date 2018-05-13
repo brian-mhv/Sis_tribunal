@@ -35,6 +35,10 @@ Route::post('/areas', 'AreasController@save');
 Route::get('/areas/registrar', 'AreasController@add');
 Route::get('/areas/registrarlote', 'AreasController@addLote');
 
+Route::get('/estudiantes', 'EstudiantesController@index');
+Route::post('/estudiantes', 'EstudiantesController@save');
+Route::get('/estudiantes/registrar', 'EstudiantesController@add');
+
 Route::get('help', 'HelpsController@index');
 
 Route::get('about', 'AboutsController@index');

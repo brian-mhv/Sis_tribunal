@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Docente extends Model
 {
     protected $table='docente';
-    protected $table2='docente';
+    protected $table2='profesional';
     protected $primaryKey='codigo';
     public $timestamps=false;
 

@@ -22,28 +22,24 @@
     <input name="proyecto" class="form-control" placeholder="Introduce titulo del proyecto">
   </div>
   <div class="form-group">
-    <label>Nombre del Tutor</label>
-    <input name="tutor" class="form-control" placeholder="Nombres del tutor del proyecto">
+    <label>Tutor</label>
+    <select name="tutor" class="form-control">
+    <?php foreach($tutores as $rows) {?>
+        <option value="<?php echo $rows->codigo; ?>">
+        <?php printf($rows->nombre); ?> <?php echo ($rows->apellido_paterno); ?> <?php echo ($rows->apellido_materno);?>
+        </option>
+    <?php } ?>
+    </select>
   </div>
   <div class="form-group">
-    <label for="sub-area">Apellido paterno del tutor</label>
-    <input name="appTutor" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="sub-area">Apellido materno del tutor</label>
-    <input name="apmTutor" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="sub-area">Nombre del Postulante</label>
-    <input name="postulante" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="sub-area">Apellido paterno del postulante</label>
-    <input name="appPost" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="sub-area">Apellido materno del postulante</label>
-    <input name"apmPost" class="form-control">
+    <label>Postulante</label>
+    <select name="estudiante" class="form-control">
+    <?php foreach($postulantes as $rows) {?>
+        <option value="<?php echo $rows->codigo; ?>">
+        <?php printf($rows->nombre); ?> <?php echo ($rows->apellido_pat); ?> <?php echo ($rows->apellido_mat);?>
+        </option>
+    <?php } ?>
+    </select>
   </div>
   <div class="form-group">
     <label for="sub-area">Modalidad de Titulacion</label>
@@ -56,25 +52,23 @@
     </select>
   </div>
   <div class="form-group">
-    <label for="sub-area">Carrera</label>
-    <select name="carrera" class="form-control">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="sub-area">Areas</label>
-    <select class="form-control">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-    </select>
-  </div>
+  <label>Carrera</label>
+  <select name="carrera" class="form-control">
+  <?php foreach($carreras as $rows) {?>
+      <option value="<?php echo $rows->codigo; ?>">
+      <?php printf($rows->nombre);?></option>
+  <?php } ?>
+  </select>
+</div>
+<div class="form-group">
+  <label>Areas de estudio</label>
+  <select name="area" class="form-control">
+  <?php foreach($areas as $rows) {?>
+      <option value="<?php echo $rows->idArea; ?>">
+      <?php printf($rows->nombre_area);?></option>
+  <?php } ?>
+  </select>
+</div>
   <div class="form-group">
         <a href="#dialogo" class="btn btn-primary" data-toggle="modal">Registrar</a>
         <div class="modal fade" id="dialogo">

@@ -4,7 +4,7 @@
 <div class="box-body">
     <div class="row">
 	    <div class="col-md-12">
-                <h2>Responsables</h2>
+                <h2>Invitados</h2>
                 <div class="box box-primary">
                 </div>
                 <table class="table">

@@ -4,8 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Proyecto extends Model
+class Carrera extends Model
 {
-    protected $table='tesis';
+    protected $table='carrera';
+    protected $primaryKey='codigo';
     public $timestamps=false;
 }

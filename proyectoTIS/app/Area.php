@@ -22,4 +22,15 @@ class Area extends Model
         $areas=\DB::table('area')->select('idArea', 'nombre_area', 'descripcion', 'id_subarea')->get();
         return $areas;
     }
+
+    public function up()
+    {
+        Schema::create('area', function (Blueprint $table) {
+            $table->increments('idArea');
+            $table->string('nombre_area');
+            $table->string('descripcion');
+            $table->string('id_subarea');
+            $table->timestamps();
+        });
+    }
 }

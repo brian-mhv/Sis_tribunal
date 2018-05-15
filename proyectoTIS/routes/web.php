@@ -42,3 +42,5 @@ Route::get('/estudiantes/registrar', 'EstudiantesController@add');
 Route::get('help', 'HelpsController@index');
 
 Route::get('about', 'AboutsController@index');
+
+Route::get('import', 'ImportAreaController@import');

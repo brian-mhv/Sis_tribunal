@@ -11,6 +11,7 @@ class Area extends Model
     public $timestamps=false;
 
     protected $fillable =[
+        'idArea',
         'nombre_area',
         'descripcion',
         'id_subarea'

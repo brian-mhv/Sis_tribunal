@@ -10,7 +10,14 @@ class Profesional extends Model
     protected $primaryKey='idProfesional';
     public $timestamps=false;
 
-    protected $fillable =[];
+    protected $fillable =[
+        'codigo',
+        'nombre',
+        'apellido_paterno',
+        'apellido_materno',
+        'titulo',
+        'cod_docente'
+    ];
 
     protected $guarded =[];
 
@@ -24,4 +31,16 @@ class Profesional extends Model
         'titulo.nombre as titulo')->where('cod_docente', '=', null)->get();
         return $invitados;
     }
+
+public function up()
+    {
+        Schema::create('docente', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('author');
+            $table->integer('year');
+            $table->timestamps();
+        });
+    }
+
 }

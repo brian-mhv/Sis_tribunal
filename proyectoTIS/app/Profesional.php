@@ -13,32 +13,36 @@ class Profesional extends Model
     protected $fillable =[
         'codigo',
         'nombre',
-        'apellido_paterno',
-        'apellido_materno',
+        'ape_pat',
+        'ape_mat',
         'titulo',
+        'correo',
         'cod_docente'
     ];
 
     protected $guarded =[];
 
     public function getAll(){
-        $profesionales=\DB::table('profesional')->select('codigo', 'nombre', 'apellido_paterno', 'apellido_materno', 'correo')->get();
+        $profesionales=\DB::table('profesional')->select('codigo', 'nombre', 'ape_pat', 'ape_mat', 'correo')->get();
         return $profesionales;
     }
     public function invitados(){
         $invitados=\DB::table('profesional')->join('titulo', 'titulo.codigo', '=', 'profesional.titulo')->select('profesional.codigo', 'profesional.nombre', 
-        'profesional.apellido_paterno', 'profesional.apellido_materno', 'profesional.correo', 
+        'profesional.ape_pat', 'profesional.ape_mat', 'profesional.correo', 
         'titulo.nombre as titulo')->where('cod_docente', '=', null)->get();
         return $invitados;
     }
 
-public function up()
+    public function up()
     {
-        Schema::create('docente', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('author');
-            $table->integer('year');
+        Schema::create('profesional', function (Blueprint $table) {
+            $table->increments('codigo');
+            $table->string('nombre');
+            $table->string('ape_pat');
+            $table->string('ape_mat');
+            $table->integer('titulo');
+            $table->string('correo');
+            $table->integer('cod_docente');
             $table->timestamps();
         });
     }

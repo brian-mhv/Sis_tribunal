@@ -44,4 +44,5 @@ Route::get('help', 'HelpsController@index');
 
 Route::get('about', 'AboutsController@index');
 
-Route::get('import', 'ImportAreaController@import');
+Route::get('importArea', 'ImportAreaController@import');
+Route::get('importProfesional', 'ImportProfesionalController@import');

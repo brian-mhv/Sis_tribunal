@@ -22,4 +22,9 @@ class Area extends Model
         $areas=\DB::table('area')->select('idArea', 'nombre_area', 'descripcion', 'id_subarea')->get();
         return $areas;
     }
+    public function getId(){
+        $codigo=\DB::table('area')->select('idArea')->get();
+        $id = $codigo[count($codigo) - 1];
+        return $id->idArea;
+    }
 }

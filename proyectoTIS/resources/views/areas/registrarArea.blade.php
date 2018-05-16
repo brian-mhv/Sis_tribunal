@@ -19,6 +19,7 @@
             </ul>
         </div>
         @endif
+        <input type="hidden" name="elementos" id="var">
         <div class="form-group">
             <label>Nombre</label>
             <input name="nombre" class="form-control" placeholder="Nombre de area">
@@ -31,7 +32,7 @@
 
         <div id="subarea" class="form-group">
         <h5><label id="0">Agregar subarea </label>
-        <a id="icon" ><i class="fa fa-plus-circle" ></i></a></h5>
+        <a id="icon" ><i class="fa fa-plus" ></i></a></h5>
         </div>
 
         <div class="form-group">
@@ -52,30 +53,23 @@
         </div>
         </form>
         <script>
+            $var = 0;
+            $var2 = 0;
             document.getElementById("icon").addEventListener("click", function( event ) {
             // display the current click count inside the clicked div
-                var newNombre = document.createElement("div"); 
-                var newlabel1 = document.createElement("label"); 
+                var newNombre = document.createElement("div");
                 var input1 = document.createElement("input");
-                input1.name = (document.getElementById("0").id) + 1;
-                document.getElementById("0").name = input1.name;
-                newNombre.appendChild(newlabel1);
+                input1.class = "form-control";
+                input1.placeholder = "Nombre de Subarea";
+                input1.name = $var + 1;
+                $var = $var + 1;
+                $var2 = $var;
                 newNombre.appendChild(input1);
-
-                var newDesc = document.createElement("div"); 
-                var newlabel2 = document.createElement("label"); 
-                var input2 = document.createElement("textarea");
-                newDesc.appendChild(newlabel2);
-                newDesc.appendChild(input2);
 
                 var newSubarea = document.getElementById("subarea");
                 newSubarea.appendChild(newNombre);
-                newSubarea.appendChild(newDesc); //añade texto al div creado. 
-                
-                // añade el elemento creado y su contenido al DOM 
+                document.getElementById("var").value = $var2; 
             });
         </script>
-    <!--Fin contenido-->
-
 </div>
 @endsection

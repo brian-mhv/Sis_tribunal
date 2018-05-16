@@ -1,12 +1,13 @@
 @extends ('layouts.master')
 @section ('contenido')
+
 <h2>Registro 
     <small> Proyecto de Grado </small>
 </h2>
 <div class="box box-primary"></div>
 <div class="container-fluid">                       
     <!--Añadir contenido-->
-    <form id="form" action="/invitados" method="POST" role="form">
+    <form id="form" action="/proyectos" method="POST" role="form">
         {{ csrf_field() }}
         @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -18,25 +19,29 @@
         </div>
         @endif
   <div class="form-group">
+    <label>Codigo Tesis</label>
+    <input name="codtesis" class="form-control">
+  </div>
+  <div class="form-group">
     <label>Titulo del Proyecto Final</label>
     <input name="proyecto" class="form-control" placeholder="Introduce titulo del proyecto">
   </div>
   <div class="form-group">
-    <label>Tutor</label>
+    <label>Tutor</label><a href="../invitados/registrar"> <i class="fa fa-plus"> </i></a>
     <select name="tutor" class="form-control">
     <?php foreach($tutores as $rows) {?>
         <option value="<?php echo $rows->codigo; ?>">
-        <?php printf($rows->nombre); ?> <?php echo ($rows->apellido_paterno); ?> <?php echo ($rows->apellido_materno);?>
+        <?php echo($rows->nombre); ?> <?php echo($rows->apellido_paterno); ?> <?php echo ($rows->apellido_materno);?>
         </option>
     <?php } ?>
     </select>
   </div>
   <div class="form-group">
-    <label>Postulante</label>
+    <label>Postulante</label><a href="../estudiantes/registrar"> <i class="fa fa-plus"> </i></a>
     <select name="estudiante" class="form-control">
     <?php foreach($postulantes as $rows) {?>
         <option value="<?php echo $rows->codigo; ?>">
-        <?php printf($rows->nombre); ?> <?php echo ($rows->apellido_pat); ?> <?php echo ($rows->apellido_mat);?>
+        <?php echo($rows->nombre); ?> <?php echo ($rows->apellido_pat); ?> <?php echo ($rows->apellido_mat);?>
         </option>
     <?php } ?>
     </select>
@@ -60,15 +65,31 @@
   <?php } ?>
   </select>
 </div>
-<div class="form-group">
-  <label>Areas de estudio</label>
-  <select name="area" class="form-control">
-  <?php foreach($areas as $rows) {?>
-      <option value="<?php echo $rows->idArea; ?>">
-      <?php printf($rows->nombre_area);?></option>
-  <?php } ?>
-  </select>
-</div>
+  <div class="form-group">
+    <label>Areas de estudio</label><a href="../areas/registrar"> <i class="fa fa-plus"> </i></a>
+    <select name="area" class="form-control">
+        <?php foreach($areas as $rows) {?>
+        <option value="<?php echo $rows->idArea; ?>">
+        <?php printf($rows->nombre_area);?></option>
+        <?php } ?>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Descripcion</label>
+    <input name="descripcion" class="form-control" type="text">
+  </div>
+  <div class="form-group">
+    <label>Estado</label>
+    <input name="estado" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Fecha registro</label>
+    <input name="fecha" class="form-control" type="int">
+  </div>
+  <div class="form-group">
+    <label>Objetivo General</label>
+    <input name="objetivo" class="form-control">
+  </div>
   <div class="form-group">
         <a href="#dialogo" class="btn btn-primary" data-toggle="modal">Registrar</a>
         <div class="modal fade" id="dialogo">

@@ -12,11 +12,12 @@
                     <tr>
                         <td>CODIGO</td>
                         <td>COD. TESIS</td>
-                        <td>TITULO PROYECTO</td>
                         <td>TUTOR</td>
                         <td>POSTULANTE</td>
-                        <td>CARRERA</td>
-                        <td>AREAS</td>
+                        <td>TITULO PROYECTO</td>
+                        <td>ESTADO</td>
+                        <td>MODALIDAD</td>
+
                     </tr>
                     </thread>
                     <tbody>
@@ -25,11 +26,12 @@
                     <tr>
                         <td><?php echo $rows->codigo; ?></td>
                         <td><?php echo $rows->codigo_tesis; ?></td>
+                        <td><?php echo $rows->cod_prof;?> <?php echo $rows->apellido_paterno;?> <?php echo $rows->apellido_materno;?></td>
+                        <td><?php echo $rows->cod_alumno;?> <?php echo $rows->apellido_pat;?> <?php echo $rows->apellido_mat;?></td>
                         <td><?php echo $rows->nombre; ?></td>
-                        <td><?php echo $rows->descripcion; ?></td>
                         <td><?php echo $rows->estado; ?></td>
-                        <td><?php echo $rows->dir_dorm; ?></td>
-                        <td><?php echo $rows->obj_gral; ?></td>
+                        <td><?php echo $rows->cod_modalidad; ?></td>
+                        
                     </tr>
                     <?php }?>
                 </tbody>

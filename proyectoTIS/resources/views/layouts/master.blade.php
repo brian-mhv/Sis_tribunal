@@ -139,8 +139,8 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="../proyectos"><i class="fa fa-circle-o"></i> Lista de proyectos</a></li>
-                <li><a href="../proyectos/registrar"><i class="fa fa-circle-o"></i> Registrar Proyecto</a></li>
-                <li><a href="../proyectos/registrarlote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
+                <li><a href="../proyectos/registrarProy"><i class="fa fa-circle-o"></i> Registrar Proyecto</a></li>
+                <li><a href="../proyectos/registrarProyLote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
               </ul>
             </li>
              
@@ -158,7 +158,7 @@
               </ul>
             </li>
 
-            <li class="treeview">
+            <!--li class="treeview">
               <a href="/estudiantes">
                 <i class="fa fa-users"></i>
                 <span>Estudiantes</span>

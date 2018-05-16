@@ -8,10 +8,6 @@ use App\Http\Requests;
 
 class AreasController extends Controller
 {
-    public function __construct()
-    {
-
-    }
     public function index()
     {    
         $miArea = new Area;
@@ -19,7 +15,7 @@ class AreasController extends Controller
     }
     public function add()
     {
-        return view('areas.registrarArea');
+        return view('areas.registrarArea', compact('areas'), ['var'=>0]);
     }
     public function addLote()
     {
@@ -31,14 +27,19 @@ class AreasController extends Controller
         ]);
         //echo($request->input('nombre'));
         //echo($request->input('descripcion'));
-        //print_r($request->input());
         $area = new Area;
         $area->nombre_area = $request->input('nombre');
         if($request->input('descripcion') != ""){
             $area->descripcion = $request->input('descripcion');
         }
         $area->save();
+        $id = $area->getId();
+        for($i=1; $i<=$request->input('elementos'); $i ++){
+            $subarea = new Area;
+            $subarea->nombre_area = $request->input($i);
+            $subarea->id_subarea = $id; 
+            $subarea->save();
+        }
     return view('areas.index', compact('areas'), ['areas'=>$area->getAll()]);
     }
-
 }

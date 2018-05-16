@@ -51,7 +51,7 @@
             │   ├── api.php
             │   ├── console.php
             │   └── web.php
-            ├── Sgl
+            ├── Sql
             ├── Storage
             ├── tests
             ├── vendor

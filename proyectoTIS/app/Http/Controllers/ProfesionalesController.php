@@ -26,8 +26,6 @@ class ProfesionalesController extends Controller
         'nombre' => 'required|string',
         'apPat' => 'required|string',
         'apMat' => 'required|string',
-        'correo' => 'required|string',
-        'titulo' => 'required|Int'
         ]);
         $invitado = new Profesional;
         $invitado->nombre = $request->input('nombre');

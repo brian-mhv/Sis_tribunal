@@ -1,7 +1,7 @@
 @extends ('layouts.master')
-@extends ('layouts.master')
-
 @section ('contenido')
+
+
 <h2>Registro 
     <small> Profesional - Docente </small>
 </h2>
@@ -66,12 +66,13 @@
         <input name="direccion" type="text" class="form-control" placeholder="Introduzca apellido materno">
       </div>
       <div class="form-group">
-      <label>Areas afin</label>
+      <label>Areas afin</label><a href="../areas/registrar"> <i class="fa fa-plus"> </i></a>
       <select name="area" class="form-control">
-      <?php foreach($areas as $rows) {?>
+        <option value="0"> </option>
+        <?php foreach($areas as $rows) {?>
           <option value="<?php echo $rows->idArea; ?>">
           <?php printf($rows->nombre_area);?></option>
-      <?php } ?>
+        <?php } ?>
       </select>
     </div>
       <div class="form-group">

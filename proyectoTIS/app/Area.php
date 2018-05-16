@@ -34,4 +34,9 @@ class Area extends Model
             $table->timestamps();
         });
     }
+    public function getId(){
+        $codigo=\DB::table('area')->select('idArea')->get();
+        $id = $codigo[count($codigo) - 1];
+        return $id->idArea;
+    }
 }

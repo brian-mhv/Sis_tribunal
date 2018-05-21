@@ -17,6 +17,7 @@
                         <td>TITULO PROYECTO</td>
                         <td>ESTADO</td>
                         <td>MODALIDAD</td>
+                        <td>OBJ. GRAL.</td>
 
                     </tr>
                     </thread>
@@ -31,7 +32,7 @@
                         <td><?php echo $rows->nombre; ?></td>
                         <td><?php echo $rows->estado; ?></td>
                         <td><?php echo $rows->cod_modalidad; ?></td>
-                        
+                        <td><?php echo $rows->obj_gral; ?></td>
                     </tr>
                     <?php }?>
                 </tbody>

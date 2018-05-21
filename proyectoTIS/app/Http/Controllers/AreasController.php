@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Area;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -9,17 +10,21 @@ use App\Http\Requests;
 class AreasController extends Controller
 {
     public function index()
-    {    
+    {   
         $miArea = new Area;
-        return view('areas.index', compact('areas'), ['areas'=>$miArea->getAll()]);
+        return view('areas.index', compact('areas'), ['areas'=>$miArea->getAll(), 'user'=>$this->getUser()]);
     }
-    public function add()
-    {
-        return view('areas.registrarArea', compact('areas'), ['var'=>0]);
+    public function add(){
+        if($this->getUser() && $this->getUser()[0]->nivel <= 3){
+            return view('areas.registrarArea', compact('areas'), ['var'=>0, 'user'=>$this->getUser()]);
+        }
+        return view('home', ['user'=>$this->getUser()]);
     }
-    public function addLote()
-    {
-        return view('areas.registrarAreaLote');
+    public function addLote(){
+        if($this->getUser() && $this->getUser()[0]->nivel <= 3){
+            return view('areas.registrarAreaLote', ['user'=>$this->getUser()]);
+        }
+        return view('../home', ['user'=>$this->getUser()]);
     }
     public function save(Request $request){
         $this->validate($request, [
@@ -40,6 +45,6 @@ class AreasController extends Controller
             $subarea->id_subarea = $id; 
             $subarea->save();
         }
-    return view('areas.index', compact('areas'), ['areas'=>$area->getAll()]);
+        return view('areas.index', compact('areas'), ['areas'=>$area->getAll(), 'user'=>$this->getUser()]);
     }
 }

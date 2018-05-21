@@ -14,18 +14,24 @@ class ProyectosController extends Controller
 {
     public function index(){
         $proyecto = new Proyecto;
-        return view('proyectos.index', compact('proyectos'), ['proyectos'=>$proyecto->getAll()]);
+        return view('proyectos.index', compact('proyectos'), ['proyectos'=>$proyecto->getAll(), 'user'=>$this->getUser()]);
     }
     public function add(){
-        $tutor = new Profesional;
-        $area = new Area;
-        $postulante = new Estudiante;
-        $carrera = new Carrera;
-        return view('proyectos.registrarProy', ['tutores'=>$tutor->all(), 
-        'carreras'=>$carrera->all(), 'postulantes'=>$postulante->all(), 'areas'=>$area->all()]);
+        if($this->getUser() && $this->getUser()[0]->nivel == 1){
+            $tutor = new Profesional;
+            $area = new Area;
+            $postulante = new Estudiante;
+            $carrera = new Carrera;
+            return view('proyectos.registrarProy', ['tutores'=>$tutor->all(), 
+            'carreras'=>$carrera->all(), 'postulantes'=>$postulante->all(), 'areas'=>$area->all(), 'user'=>$this->getUser()]);
+        }
+        return view('home', ['user'=>$this->getUser()]);
     }
     public function addLote(){
-        return view('proyectos.registrarProyLote');
+        if($this->getUser() && $this->getUser()[0]->nivel == 1){
+            return view('proyectos.registrarProyLote', ['user'=>$this->getUser()]);
+        }
+        return view('home', ['user'=>$this->getUser()]);
     }
     public function save(Request $request){
         $this->validate($request, [
@@ -45,6 +51,6 @@ class ProyectosController extends Controller
             $proyecto->carrera = $request->input('carrera');
             $proyecto->save();
             $proyecto->saveProject($request);
-            return view('proyectos.index', compact('proyectos'), ['proyectos'=>$proyecto->all()]);
+            return view('proyectos.index', compact('proyectos'), ['proyectos'=>$proyecto->all(), 'user'=>$this->getUser()]);
     }
 }

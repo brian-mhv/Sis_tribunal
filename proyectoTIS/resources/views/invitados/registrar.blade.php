@@ -49,6 +49,7 @@
       <div class="form-group">
       <label>Areas afin</label><a href="../areas/registrar"> <i class="fa fa-plus"> </i></a>
       <select name="area" class="form-control">
+      <option value="0"> </option>
       <?php foreach($areas as $rows) {?>
           <option value="<?php echo $rows->idArea; ?>">
           <?php printf($rows->nombre_area);?></option>

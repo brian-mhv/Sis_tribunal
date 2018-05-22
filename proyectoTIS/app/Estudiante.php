@@ -20,6 +20,15 @@ class Estudiante extends Model
         $estcarrera->cod_est = $id->codigo;
         $estcarrera->cod_carrera = $request->input('carrera');
         $estcarrera->save();
-
+    }
+    public function addSesion(){
+        $codigo = \DB::table('estudiante')->select('codigo', 'correo')->get();
+        $id = $codigo[count($codigo) - 1];
+        $sesion = new Sesion;
+        $sesion->usuario = $id->codigo;
+        $sesion->correo = $id->correo;
+        $sesion->pass = "hashtag";
+        $sesion->nivel = 4;
+        $sesion->save();
     }
 }

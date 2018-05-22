@@ -12,7 +12,9 @@
 */
 //rutas de las diferentes paginas 
 Route::get('/', 'HomesController@index');
-Route::get('home', 'HomesController@index');
+Route::get('/home', 'HomesController@index');
+Route::post('/home', 'HomesController@getSesion');
+Route::get('/logout', 'HomesController@logout');
 
 Route::get('login','AuthsController@index');
 
@@ -46,3 +48,8 @@ Route::get('about', 'AboutsController@index');
 
 Route::get('importArea', 'ImportAreaController@import');
 Route::get('importProfesional', 'ImportProfesionalController@import');
+
+Route::get('/misAreas', 'PerfilDocente@addAreas');
+//Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

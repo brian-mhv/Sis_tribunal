@@ -11,15 +11,20 @@ class ProfesionalesController extends Controller
 {
     public function invitados(){
         $invitado = new Profesional;
-        return view('invitados.index', compact('invitados'), ['invitados'=>$invitado->invitados()]);
+        return view('invitados.index', compact('invitados'), ['invitados'=>$invitado->invitados(), 'user'=>$this->getUser()]);
     }
     public function add(){
-        $area = new Area;
-        return view('invitados.registrar' , compact('invitados'), ['areas'=>$area->all()]);//, compact('docentes'), ['areas'=>$profesionales->docentes()]);
+        if($this->getUser() && $this->getUser()[0]->nivel == 1){
+            $area = new Area;
+            return view('invitados.registrar' , compact('invitados'), ['areas'=>$area->all(), 'user'=>$this->getUser()]);
+        }
+        return view('home', ['user'=>$this->getUser()]);
     }
     public function addLote(){
-        //$profesionales = new Profesional;
-        return view('invitados.registrarLote');//, compact('docentes'), ['areas'=>$profesionales->docentes()]);
+        if($this->getUser() && $this->getUser()[0]->nivel == 1){
+            return view('invitados.registrarLote', ['user'=>$this->getUser()]);
+        }
+        return view('home', ['user'=>$this->getUser()]);
     }
     public function save(Request $request){
         $this->validate($request, [
@@ -34,6 +39,8 @@ class ProfesionalesController extends Controller
         $invitado->correo = $request->input('correo');
         $invitado->titulo = $request->input('titulo');
         $invitado->save();
-        return view('invitados.index', compact('invitados'), ['invitados'=>$invitado->invitados()]);
+        $invitado->addArea($request->input('area'));
+        $invitado->addSesion();
+        return view('invitados.index', compact('invitados'), ['invitados'=>$invitado->invitados(), 'user'=>$this->getUser()]);
     }
 }

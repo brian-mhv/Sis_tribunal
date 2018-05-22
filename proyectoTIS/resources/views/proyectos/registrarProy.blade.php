@@ -67,7 +67,7 @@
 </div>
   <div class="form-group">
     <label>Areas de estudio</label><a href="../areas/registrar"> <i class="fa fa-plus"> </i></a>
-    <select name="area" class="form-control">
+    <select name="area[]" class="form-control" multiple>
         <?php foreach($areas as $rows) {?>
         <option value="<?php echo $rows->idArea; ?>">
         <?php printf($rows->nombre_area);?></option>
@@ -108,6 +108,6 @@
       </div>
 </form>
     <!--Fin contenido-->
-
 </div>
+
 @endsection

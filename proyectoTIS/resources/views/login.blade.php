@@ -24,37 +24,63 @@
         <a><b>Tribunal</b> - SIS</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">Inicia sesíon para comenzartu sesíon</p>
-        <form action="home" method="post">
-          <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="@Correo Electronico">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <p class="login-box-msg">Iniciar Sesion</p>
+        <form id="form" action="/home" method="POST" role="form">
+          {{ csrf_field() }}
+          @if (count($errors) > 0)
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{$error}}</li>
+                  @endforeach
+              </ul>
           </div>
-          <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Contraseña">
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          @endif
+          <div class="form-group">
+            <input name="correo" type="email" class="form-control" placeholder="@Correo Electronico">
           </div>
-          <div class="social-auth-links">
-            <a href="login.#myModal">Olvidé mi contraseña</a><br>     
-           </div><!-- /.social-auth-links -->
-          <div class="row">
-          
-            <div class="col-xs-8">
-              <div class="checkbox icheck">
-                <label>
-                  <input type="checkbox"> Recuérdame
-                </label>
-              </div>
-            </div><!-- /.col -->
-            
-            <div class="col-xs-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Iniciar Sesíon</button>
-            </div><!-- /.col -->
+          <div class="form-group">
+            <input name="pass" type="password" class="form-control" placeholder="Contraseña">
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Iniciar Sesion">
           </div>
         </form>
+        <div class="social-auth-links">
+          <a href="#reestablecer" data-toggle="modal">Olvidé mi contraseña</a><br>     
+          <div class="modal fade" id="reestablecer">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Reestablecer Contraseña</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <input type="email" class="form-control" placeholder="Introduzca correo electronico para reestablecer su contraseña">
+                        </div>
+                        <div class="form-group">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                          <input type="submit" href="#dialogo" class="btn btn-primary" value="Enviar" data-toggle="modal">
+                        </div>
+                      </form>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="dialogo">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                  <h4>Su contraseña ha sido enviada</h4>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="social-auth-links text-center">
-          <p>-------------------------------------------------------------------------</p>
           <p>¿No tienes Cuenta?</p>
         <a href="register.html" class="text-center">Registrate</a>
         </div><!-- /.social-auth-links -->

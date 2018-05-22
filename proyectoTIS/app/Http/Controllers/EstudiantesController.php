@@ -10,13 +10,17 @@ use App\Http\Requests;
 
 class EstudiantesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
     public function index(){
         $estudiante = new Estudiante;
-        return view('estudiantes.index', compact('estudiantes'), ['estudiantes'=>$estudiante->all()]);
+        return view('estudiantes.index', compact('estudiantes'), ['estudiantes'=>$estudiante->all(), 'user'=>$this->getUser()]);
     }
     public function add(){
         $carrera = new Carrera;
-        return view('estudiantes.registrar', compact('estudiantes'), ['carreras'=>$carrera->all()]);
+        return view('estudiantes.registrar', compact('estudiantes'), ['carreras'=>$carrera->all(), 'user'=>$this->getUser()]);
     }
     public function save(Request $request){
         $this->validate($request, [
@@ -36,6 +40,7 @@ class EstudiantesController extends Controller
         $estudiante->ci = $request->input('carnet');
         $estudiante->save();
         $estudiante->addEstCarrera($request);
-        return view('estudiantes.index', compact('estudiantes'), ['estudiantes'=>$estudiante->all()]);
+        $estudiante->addSesion();
+        return view('estudiantes.index', compact('estudiantes'), ['estudiantes'=>$estudiante->all(), 'user'=>$this->getUser()]);
     }
 }

@@ -47,34 +47,40 @@
               
               <!-- User Account: style can be found in dropdown.less-->
               <li class="dropdown user user-menu">
+              
+              @if($user == null)
                 <a href="../login" class="dropdown-toggle" > 
-                 
                   <span class="hidden-xs">Iniciar Sesion</span>                  
                 </a>
-                  <!--creacion de box de perfil de usuario-->
-                <!--ul class="dropdown-menu"-->
-                  <!-- User image>
-                  <li class="user-header">
-                    
-                    <p>
-                      www.incanatoit.com - Desarrollando Software
-                      <small>www.youtube.com/jcarlosad7</small>
-                    </p>
-                  </li>
-                  
-                  <Menu Footer>
-                  <li class="user-footer">
-                    
-                    <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Cerrar</a>
-                    </div>
-                  </li>
-                </ul-->
+              @endif
+              @if($user != null)
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                  <span class="hidden-xs"> <?php echo$user[0]->correo; ?> <i class="fa fa-angle-down pull-right"></i></span>               
+              </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Ver perfil</a></li>
+                  @if($user[0]->nivel == 4)
+                  <li><a href="#">Informacion del proyecto</a></li>
+                  <li><a href="#">Informacion del tutor</a></li>
+                  <li><a href="#">Estado de proyecto</a></li>
+                  @endif
+                  @if($user[0]->nivel == 2 || $user[0]->nivel == 3)
+                  <li><a href="#">Tribunales asignados</a></li>
+                  <li><a href="#">Proyectos para revision</a></li>
+                  <li><a href="../misAreas">Anadir areas de interes</a></li>
+                  @endif
+                  @if($user[0]->nivel == 2)
+                  <li><a href="#">Anadir areas de conocimiento</a></li>
+                  @endif
+                  @if($user[0]->nivel == 1)
+                  <li><a href="#">Anadir administrador</a></li>
+                  @endif
+                  <li><a href="/logout">Cerrar sesion</a></li>
+                </ul>
+              @endif
               </li>
-              
             </ul>
           </div>
-
         </nav>
       </header>
 <!--/////////////////////////////////////////////////////////////////////////////
@@ -102,7 +108,6 @@
               </a>
             </li>
             
-            <!--Pagina de PROFESIONAL del sistema-->
             <li class="treeview">
               <a href="../docentes">
                 <i class="fa fa-users"></i>
@@ -111,7 +116,6 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="../docentes"><i class="fa fa-circle-o"></i> Lista de docentes</a></li>
-                <!--li><a href="../profesionales/invitados"><i class="fa fa-circle-o"></i> Lista de invitados</a></li-->
                 <li><a href="../docentes/registrar"><i class="fa fa-circle-o"></i> Registrar Docente</a></li>
                 <li><a href="../docentes/registrarlote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
               </ul>
@@ -153,7 +157,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="../areas"><i class="fa fa-circle-o"></i> Lista de areas</a></li>
-                <li><a href="../areas/registrar"><i class="fa fa-circle-o"></i> Registrar area</a></li>
+                <li id="regAreas"><a href="../areas/registrar"><i class="fa fa-circle-o"></i> Registrar area</a></li>
                 <li><a href="../areas/registrarlote"><i class="fa fa-circle-o"></i> Registrar por lote</a></li>
               </ul>
             </li>
@@ -219,7 +223,12 @@
         <strong>Copyright &copy; 2018 <a href="www.HashTag.com">Hashtag Co.</a></strong> Todos los derechos reservados.
       </footer>
 
-      
+      <script>
+            document.getElementById("logout").addEventListener("click", function( event ) {
+            // display the current click count inside the clicked div
+              <?php $user = null; ?> 
+            });
+        </script>
     <!-- jQuery 2.1.4 -->
     <script src={{asset('js/jQuery-2.1.4.min.js')}}></script>
     <!-- Bootstrap 3.3.5 -->

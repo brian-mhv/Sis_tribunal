@@ -16,6 +16,7 @@ DROP TABLE IF EXISTS `GestionPer` ;
 DROP TABLE IF EXISTS `Tesis` ;
 DROP TABLE IF EXISTS `Tribunal` ;
 DROP TABLE IF EXISTS `Estudiante` ;
+DROP TABLE IF EXISTS `Sesion` ;
 DROP TABLE IF EXISTS `Area` ;
 DROP TABLE IF EXISTS `AreasProfesional` ;
 DROP TABLE IF EXISTS `AreaTesis` ;
@@ -265,6 +266,17 @@ CREATE  TABLE IF NOT EXISTS `Estudiante` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
+-- Table `baseDatosTis`.`Sesion`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `Sesion` (
+  `usuario` INT NOT NULL ,
+  `correo` VARCHAR(45) NOT NULL,
+  `pass` VARCHAR(45) NOT NULL DEFAULT 'hashtag',
+  `nivel` INT NOT NULL ,
+  PRIMARY KEY (`usuario`, `pass`, `nivel`) )
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
 -- Table `Area`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `Area` (
@@ -336,6 +348,8 @@ CREATE  TABLE IF NOT EXISTS `Carrera` (
   UNIQUE INDEX `codigo_UNIQUE` (`codigo` ASC) ,
   UNIQUE INDEX `nombre_UNIQUE` (`nombre` ASC) )
 ENGINE = InnoDB;
+
+INSERT INTO `tis`.`sesion` (`usuario`, `correo`, `pass`, `nivel`) VALUES ('0', 'jhojannjr@gmail.com', 'admin', '1');
 
 INSERT INTO `tis`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('1', 'Trabajo Dirigido', 'Consiste en trabajos prácticos evaluados y supervisados en instituciones, empresas públicas o privadas, encargadas de proyectar o implementar obras para lo cual y sobre la base de un temario se proyecta, dirige o fiscaliza bajo la dirección de un supervisor o guía de la institución o empresa, también otro campo de acción es el de verificar las soluciones de problemas específicos, demostrando dominio amplio del tema y capacidad para resolver.');
 INSERT INTO `tis`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('2', 'Proyecto de Grado', 'Es el trabajo de investigación, análisis y diseño de <b>objetos de fin social</b> y que cumple con exigencias de metodología cientifica con profundidad similar al de un proyecto de investigación (tesis).');

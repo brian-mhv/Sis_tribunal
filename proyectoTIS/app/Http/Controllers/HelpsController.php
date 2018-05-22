@@ -11,6 +11,6 @@ class HelpsController extends Controller
 
     }
     public function index(){
-        return view('help');
+        return view('help',['user'=>$this->getUser()]);
     }
 }

@@ -18,31 +18,26 @@
                             </thread>
                             <tbody>
                                 <?php
-                                    foreach($areas as $rows) {
-                                        if($rows->id_subarea == null){?>
-                                    <tr>
-                                        <td><?php echo $rows->idArea; ?></td>
-                                        <td>
-                                        
-                                        <div class="box box-default collapsed-box box-solid">
-                                            <div class="box-header with-border" data-widget="collapse">
-                                                <?php echo $rows->nombre_area; ?><i class="fa fa-angle-down pull-right"></i>
-                                                <div class="box-tools">
-                                                <button class="btn btn-box-tool" ></button>
-                                                </div><!-- /.box-tools -->
-                                            </div><!-- /.box-header -->
-                                            <div class="box-body">
-                                            <?php foreach($areas as $subareas) {
-                                                if($rows->idArea == $subareas->id_subarea){?>
-                                                    <?php echo $subareas->nombre_area;?><br>
-                                                <?php } 
-                                            } ?>
-                                            </div><!-- /.box-body -->
-                                        </div><!-- /.box -->
-                                        
-                                        </td>
-                                        <td><?php echo $rows->descripcion; ?></td>
-                                        <td><a><i class="fa fa-plus" ></i></a></td>
+                                foreach($areas as $rows) {
+                                if($rows->id_subarea == null){?>
+                                <tr>
+                                    <td><?php echo $rows->idArea; ?></td>
+                                    <td>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <span class="hidden-xs"><?php echo $rows->nombre_area; ?><i class="fa fa-angle-down pull-right"></i></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                        <?php foreach($areas as $subareas) { ?>
+                                            <?php if($rows->idArea == $subareas->id_subarea){?>
+                                            <a href="#">
+                                                <li><?php echo $subareas->nombre_area;?></li>
+                                            </a>
+                                            <?php } ?>
+                                        <?php } ?>
+                                        </ul>
+                                    </td>
+                                    <td><?php echo $rows->descripcion; ?></td>
+                                    <td><a><i class="fa fa-plus" ></i></a></td>
                                     </tr>
                                 <?php }
                              } ?>

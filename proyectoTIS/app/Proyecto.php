@@ -20,7 +20,7 @@ class Proyecto extends Model
         ->join('esttesis', 'esttesis.cod_tes', 'tesis.codigo')
         ->join('profesional', 'profesional.codigo', '=', 'proftesis.cod_prof')
         ->join('estudiante', 'estudiante.codigo', '=', 'esttesis.cod_alumno')
-        ->select('tesis.codigo', 'tesis.codigo_tesis', 'tesis.nombre', 'tesis.estado', 
+        ->select('tesis.*', 
         'modalidad.nombre as cod_modalidad', 'profesional.nombre as cod_prof', 
         'profesional.apellido_paterno', 'profesional.apellido_materno', 'estudiante.nombre as cod_alumno', 
         'estudiante.apellido_pat', 'estudiante.apellido_mat')->get();

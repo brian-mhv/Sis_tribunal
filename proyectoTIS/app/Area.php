@@ -20,7 +20,7 @@ class Area extends Model
     protected $guarded =[];
 
     public function getAll(){
-        $areas=\DB::table('area')->select('idArea', 'nombre_area', 'descripcion', 'id_subarea')->get();
+        $areas=\DB::table('area')->select('*')->get();
         return $areas;
     }
 

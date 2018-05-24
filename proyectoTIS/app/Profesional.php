@@ -10,12 +10,20 @@ class Profesional extends Model
     protected $primaryKey='idProfesional';
     public $timestamps=false;
 
-    protected $fillable =[];
+    protected $fillable =[
+        'codigo',
+        'nombre',
+        'ape_pat',
+        'ape_mat',
+        'titulo',
+        'correo',
+        'cod_docente'
+    ];
 
     protected $guarded =[];
 
     public function getAll(){
-        $profesionales=\DB::table('profesional')->select('codigo', 'nombre', 'apellido_paterno', 'apellido_materno', 'correo')->get();
+        $profesionales=\DB::table('profesional')->select('codigo', 'nombre', 'ape_pat', 'ape_mat', 'correo')->get();
         return $profesionales;
     }
     public function invitados(){
@@ -23,6 +31,21 @@ class Profesional extends Model
         ->select('profesional.*', 'titulo.nombre as titulo')->where('cod_docente', '=', null)->get();
         return $invitados;
     }
+
+    public function up()
+    {
+        Schema::create('profesional', function (Blueprint $table) {
+            $table->increments('codigo');
+            $table->string('nombre');
+            $table->string('ape_pat');
+            $table->string('ape_mat');
+            $table->integer('titulo');
+            $table->string('correo');
+            $table->integer('cod_docente');
+            $table->timestamps();
+        });
+    }
+
     public function addSesion(){
         $codigo = \DB::table('profesional')->select('codigo', 'correo')->get();
         $id = $codigo[count($codigo) - 1];

@@ -281,8 +281,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `Area` (
   `idArea` INT NOT NULL AUTO_INCREMENT ,
-  `nombre_area` VARCHAR(45) NOT NULL ,
-  `descripcion` VARCHAR(45) NULL DEFAULT 'Area de conocimiento o area de interes' ,
+  `nombre_area` VARCHAR(100) NOT NULL ,
+  `descripcion` VARCHAR(450) NULL DEFAULT 'Descripcion no disponible' ,
   `id_subarea` INT NULL,
   PRIMARY KEY (`idArea`) ,
   INDEX `id_subarea_idx` (`id_subarea` ASC) ,

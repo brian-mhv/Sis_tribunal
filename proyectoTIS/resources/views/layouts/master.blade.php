@@ -184,7 +184,7 @@
             <!--Pagina de ACER DE del sistema-->
             <li>
               <a href="../about">
-                <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
+                <i class="fa fa-info-circle"></i> <span>Acerca De</span>
                 <small class="label pull-right bg-blue">HashTag.com</small>
               </a>
             </li>              

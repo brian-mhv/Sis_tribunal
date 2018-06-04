@@ -1,0 +1,512 @@
+idArea,nombre_area,descripcion,id_subarea
+1,Base de Datos,Almacenamiento de informacion,0
+2,Comercio Electronico,,0
+3,Computacion Grafica,,0
+4,Evaluacion y Auditoria de Sistemas,,0
+5,Ingenieria de Produccion,,0
+6,Ingenieria de Software,,0
+7,Inteligencia Artificial,,0
+8,Interaccion Humano Computador,,0
+9,Investigacion Operativa,,0
+10,Matematica Computacional,,0
+11,Programacion en Internet,,0
+12,Redes y Sistemas Distribuidos,,0
+13,Simulacion,,0
+14,Sistemas de Informacion,,0
+15,Tecnologias de Control,,0
+16,Teoria de la Computacion,,0
+17,Bases de Datos,,1
+18,Bases de Datos Orientados a Objetos,,1
+22,Sistemas Multimedios e Hipermedios,,1
+23,Sintesis de Imagenes,,3
+24,Animacion,,3
+25,Procesamiento de Imagenes,,3
+26,Modelamiento Geometrico,,3
+27,Sistemas CAD,,3
+28,Dise&ntilde;o de Interfaces,,3
+29,Realidad Virtual,,3
+30,Antropometria,,5
+31,Ergonomia,,5
+32,Fisiologia,,5
+33,Interfaces Cooperativas,,5
+34,Interfaces de Usuario,,5
+35,Psicologia Cognitiva,,5
+36,Arquitectura de Software,,6
+37,Desarrollo de Sistemas Orientados a Objetos,,6
+38,Especificacion y Dise&ntilde;o de Software,,6
+39,Gerencia del Proceso de Desenvolvimiento y Mantenimiento de Software,,6
+40,Metodologias de Programacion,,6
+41,Objetos Distribuidos,,6
+42,Reingenieria,,6
+44,Sistemas de Informacion Geogr�fica,,6
+46,Algoritmos Gen�ticos,,7
+47,Aut�matas Celulares,,7
+48,L�gica Matematica,,7
+49,L�gicas no Cl�sicas y Probadores de Teoremas,,7
+51,Procesamiento de Lenguaje Natural,,7
+52,Redes Neuronales,,7
+53,Rob�tica,,7
+54,Sistemas Bayesianos,,7
+55,Sistemas de Programacion de Produccion,,7
+57,Log�stica,,8
+58,Planeamiento y Control de Produccion,,8
+59,Sistemas de Gestion de C�lidad y Produccion,,8
+60,Contabilidad,,10
+61,Estad�stica,,10
+62,M�todos N�mericos,,10
+63,Proyectos y An�lisis de Algoritmos,,10
+64,Comunicacion de Datos: Protocolos y Sistemas,,12
+65,Procesamiento Paralelo,,12
+66,Programacion Concurrente,,12
+70,Control y Automatizacion Industrial,,15
+71,Microcontroladores,,15
+72,Sistemas de Tiempo Real,,15
+73,Algoritmos Geom�tricos,,16
+74,Animacion de Algoritmos,,16
+75,Compiladores,,16
+76,Construccion de Compiladores Orientados a Objeto,,16
+77,Especificacion Formal de Lenguajes de Programacion,,16
+78,Lenguaje Natural,,16
+79,M�todos Formales de la Ingenieria de Software,,16
+80,Modelamiento del Proceso de Desenvolvimiento de Software,'',16
+83,Portales Web, ,11
+84,Paradigma Orientado a Objetos, ,16
+85,Bioinformatica, ,
+86,Interfaces Cooperativas, ,85
+87,Telecomunicaciones , ,
+91,Generacion de Codigo Interfaz , ,8
+92,Vida Artificial  , ,7
+93,Ingenieria de Requerimientos , ,6
+94,Ambientes automatizados  , ,6
+95,Sistemas Evolutivos, ,7
+96,Base deDatos Temporales, ,1
+97,Base de Datos Distribuidos, ,1
+98,Matematica computacional, ,13
+99,Base de Datos Multidimensional, ,1
+100,Programacion Funcional , ,
+102,Sistemas Operativos , ,
+103,Sistemas Operativos de PC , ,102
+104,Sistemas academicos,"El proposito de estos sistemas es la capacitacion de los estudiantes en el uso manejo, construcion, modificacion y disenio de sistemas operativos",102
+105,Sistemas transaccionales,Estos sistemas basan su funcionamiento en el tipo de transacciones que realizan,14
+106,Recuperacion de la informacion,Sistemas cuya problematica central en la manera en que recuperan la informacion,
+108,Programacion para Internet,Todo lo referente a la programacion en Internet,11
+109,Simulacion de Sistemas,El uso de modelos matematicos para la simulacion de sistemas ,10
+110,Automatizacion de procesos,En esta �rea se tratan los temas de automatizacion de procesos en todos los campos,
+111,Bases de Datos Dinamica,Bases de Datos Dinamica,1
+112,Sistema de Gestion empresarial,D,14
+113,Base de Datos Relacionales,Sin informacion,1
+114,Sistemas Administrativos,Sin informacion,14
+115,M�todos num�ricos algebraicos,Sin informacion,10
+116,Ingenieria de Sistemas,Sin informacion,
+117,Ingenieria de la usabilidad,Sin informacion,
+118,Usabilidad,Sin informacion,117
+119,Trabajos Colaborativos,Sin informacion,12
+120,Arquitectura de Computadoras,Sin informacion.,15
+123,Evaluacion y Auditoria de Sistemas, ,4
+124,Sistema educativo,Sin Informacion,6
+125,Servidores de Audio,Sin Informacion,102
+126,Sistemas Inteligentes,Sin Informacion,7
+127,Interfaz de Usuario,Sin informacion,
+128,Accesibilidad,Sin informacion,127
+129,Seguridad en Redes,Sin informacion,12
+130,Trabajo Colaborativo,Sin informacion,11
+131,Desarrollo e Investigacion,Sin descripcion,8
+133,Redes de Optimizacion,Sin descripcion,9
+134,Sistemas Multiagente,Sin descripcion,7
+135,Comunidades Virtuales,Sin descripcion,11
+136,Tecnologia de Informacion y Comunicacion (TIC),Sin descripcion,
+137,Disenio de Sistemas,Sin descripcion,14
+138,Entornos virtuales,Sin descripcion,6
+139,An�lisis de Patrones,Sin descripcion,3
+140,Educacion Superior en Inf.,Sin descripcion,
+141,Epistemologia,Sin descripcion,140
+142,Meto. de disenio curricular,Sin descripcion,140
+143,Tecnologias de Desarrollo,Sin descripcion,
+144,Procesos de Desarrollo,Procesos de desarrollo de software,6
+145,Metodologia de desarrollo,Metodologias de desarrollo de software,6
+146,Frameworks,Uso de frameworks para el desarrollo de aplicaciones,11
+148,Computacion Grafica,-,3
+149,Seguridad Inform�tica,Seguridad Inform�tica en Sistemas Computacionales,
+150,Criptografia Aplicada,-,149
+151,Gestion de Sistemas,"La informacion que se maneja en una base de datos de una entidad financiera es de vital importancia, para ello se lleva un proceso el cual se desarrollar� para verificar como se encuentran los datos, como actuar�n ellos tras alg�n percance que pueda ocurrir y sobre todo la continuidad que puede tener la entidad con estos problemas y como se resolver�n para que no ocurran en un futuro y mantenerlos controlados.",
+152,Accesibilidad Web,'',
+153,Motores de B�squeda,'',
+154,Ingenieria de Software Educativo,'',
+155,Servicios Web,SW es un conjunto de protocolos y estandares que sirven para intercambiar datos entre aplicaciones.,217
+156,Sistemas de Telecomunicaion,'',
+157,Sistemas de Telecomunicacion,'',
+158,Migracion de contenidos de CMS,'',
+159,Sistemas de Informacion Web,'',
+160,"Planificacion, Control y Gestion",'',
+161,M�sica Artificial,Creacion de musica a travez de algoritmos que proveen mecanismos de composicion,
+162,Gestion de Transacciones,Se trata el problema de asegurar la bd en un estado consistente a�n en casos de acceso concurrente,
+163,Simulacion de Redes,Sin descripcion,12
+164,Vision por Computador,Descripcion,7
+165,Ingenieria de tecnologia e informacion (IT),'',
+166,Modelacion y simulacion,'',
+167,Dinamica de sistemas,'',
+168,Contend Management Systems (CMS),"Sistemas de administracion de contenido, archivos, p�ginas web, blogs,entre otros",
+169,Sistemas de Telecomunicaciones,'',
+170,Sistemas de Informacion Geogr�fico,'',
+171,Ciencias Juridicas,Ciencias Juridicas,
+172,Programacion y Aplicaciones Web,El estudio y programacion de aplicaciones web,
+173,Estandares Web,Especifica los estandares formales y otras especificaciones que definen  aspectos de la worl wide we,
+174,Tecnologia Web,'',
+175,PLANEACIoN Y CONTROL DE PRODUCCIoN DE LA MANO DE OBRA DIRECTA.,Controlar la parte productiva del personal de planta,
+176,Redes Multimedia,'',
+177,E-learning,aprendizaje por internet,
+178,Did�ctica y Multimedia Interactiva,'',
+179,business intelligence,Se denomina inteligencia empresarial o inteligencia de negocios o BI,
+180,Dinamica de sistemas,es una metodologia para la construccion de modelos de simulacion para sistemas complejos,
+181,Ingenieria de Calidad,Referido a control de calidad en productos de software.,
+182,Ingenieria de Calidad,Referido a control de calidad de productos de software,
+183,Business Intelligence,Se denomina inteligencia empresarial o inteligencia de negocios o BI,
+184,Dom�tica,"Se entiende por dom�tica al conjunto de sistemas capaces de automatizar una vivienda, aportando servicios de gestion energ�tica, seguridad, bienestar y comunicacion",
+185,Telemetria,La telemetria es una tecnologia que permite la medicion remota de magnitudes f�sicas y el posterior env�o de la informacion hacia el operador,
+186,Base de Datos Relacionales Difusas,"La Base de Datos Relacionales Difusas, nos ayuda a poder realizar consultas con tipos de datos imprecisa.",
+187,Seguridad en base de datos,Seguridad en base de datos,
+188,Electronica,'',
+189,Multimedia Interactivo,'',
+190,Seguridad en Aplicaciones Web,Seguridad en Aplicaciones Web,
+191,Administracion de Servidores,'',
+192,Disenio Avanzado de Software,Disenio Avanzado de Software,
+193,Interaccion Humano-Computadora,Interaccion Humano-Computadora,
+194,Linguistica Computacional,'',
+195,sistemas orientados a objetos,'',
+196,Interfaces Gr�ficas de Usuario WEB,Interfaces Gr�ficas de Usuario WEB,
+197,Gestion y Administracion de Informacion,'',
+198,Contabilidad de Costos,'',
+199,Estados Financieros,'',
+200,Sistemas de informacion Web,'',
+201,Arquitectura de la Informacion,'',
+202,Seguridad con sistemas informaticos,Seguridad domiciliaria y empresarial con sistemas informaticos,
+203,Programacion Funcional Aplicada,Desarrollo de aplicaciones utilizando lenguajes funcioanles.,
+204,simulacion,'',
+205,Aeron�utica,"La aeron�utica es la ciencia relacionada con el estudio, disenio, manufactura y t�cnicas de control de aeronaves.",
+206,Infografia,Im�genes generadas por ordenador,
+207,Redes de Computadoras,Estudio de los niveles del modelo tpc/ip,
+208,bd new,asd asd,
+209,Programacion y Aplicaciones Web,'',
+210,Contenedor CMS,"Un sistema de gestion de contenidos (content management system, abreviado CMS) es un programa que permite crear una estructura de soporte (framework) para la creacion y administracion de contenidos, principalmente en p�ginas web, por parte de los participantes.",
+211,Redes Inalambricas,'',
+212,Toma de Desiciones Administrativas,'',
+213,Reconocimiento de voz,Reconocimiento de voz,
+214,Reconocimiento de la voz,'',
+215,Desarrollo de Software Inteligente ,Aplicacion de la Inteligencia Artificial al desarrollo de software,
+216,Ambientes automatizados de apoyo para productos de construccion de software,'',
+217,Programacion Movil,Desarrollo de aplicaciones para los dispocitivos moviles (Celulares),
+218,Seguridad biometrica,Desarrollo de aplicaciones de seguridad utilizando biometria de tecleo,
+219,Software Educativo,En esta �rea se engloban todo software orientados a la educacion en sus diferentes grados.,
+220,Seguridad  y Gestion de Redes,'',
+221,Programacion abajo Nivel,Uso del lenguaje de segunda generacion assembler ,
+222,taller de programacion  a bajo nivel,"Se trata de aplicar los conocimientos adquiridos en la programacion con assembler, aprovechando al maximo la arquitectura de un computador y el sistema operativo.",
+223,Aplicaciones WEB,"Aplicaciones creadas para el servicio web, orientadas a proveer un servicio a los usuarios.",
+224,Servicio WEB,"Servicios orientados a los usuarios, con fines educativos, informativos, etc.",
+225,Sistema de procesamiento de transacciones,'',
+226,Educacion Superior en Ingenieria de Sistemas,'',
+227,patrones de disenio,"El Patr�n de Disenio DAO busca el acoplamiento con el patr�n Modelo Vista Controlador (MVC). Creando las clases necesarias para el Modelo (CRUD), Controlador (Action), Vista, JSP.",
+228,Informatica,'',
+229,Sistema  de Apoyo a la Toma de decisiones,'',
+230,Redes de computadoras intranet,'',
+231,Aplicacion Web,'',
+232,ingenieria de software,descripcion,207
+233,sistema web,'',
+234,"M-Commerce, M-Payment",Areas en las que se realizan distintas transacciones concretamente de pago y compra de bienes o servicios utilizando como herramineta un dispositivo movil. ,
+235,Sistema de Informacion Administrativo,'',
+236,Android,"Android es un sistema operativo orientado a dispositivos m�viles basado en una version modificada del n�cleo Linux.Inicialmente fue desarrollado por Android Inc., compa�ia que fue comprada despu�s por Google, y en la actualidad lo desarrollan los miembros de la Open Handset Alliance (liderada por Google).
+La presentacion de la plataforma Android se realiz� el 5 de noviembre de 2007 junto con la fundacion Open Handset Alliance, un consorcio de 48 compa�ias de hardware, software y telecomunicaciones comprometidas con la promocion de est�ndares abiertos para dispositivos m�viles.Esta plataforma permite el desarrollo de aplicaciones por terceros a trav�s del SDK, proporcionada por el mismo Google, y mediante el lenguaje de programacion Java.Una alternativa es el uso del NDK (Native Development Kit) de Google para emplear el lenguaje de programacion C.
+
+El c�digo fuente de Android est� disponible bajo diversas licencias de software libre y c�digo abierto destacando la version 2 de la licencia Apache.
+Caracteristicas:
+    * Framework  de aplicaciones: permite reutilizacion y reemplazo de componentes.
+    * M�quina virtual Dalvik: optimizada para dispositivos m�viles.
+    * Navegador integrado: basado en el motor de c�digo abierto WebKit.
+    * Gr�ficos optimizados, con una biblioteca de gr�ficos 2D; gr�ficos 3D basado en la especificacion OpenGL ES 1.0 (aceleracion por hardware opcional).
+    * SQLite para almacenamiento de datos estructurados.
+    * Soporte para medios con formatos comunes de audio, v�deo e im�genes planas (MPEG4, H.264, MP3, OGG, AAC, AMR, JPG, PNG, GIF)
+    * Telefonia GSM (dependiente del hardware)
+    * Bluetooth, EDGE, 3G, y WiFi (dependiente del hardware)
+    * C�mara, GPS, br�jula, y aceler�metro (dependiente del hardware)
+    * Ambiente rico de desarrollo incluyendo un emulador de dispositivo, herramientas para depurar, perfiles de memoria y rendimiento, y un complemento para el IDE Eclipse.
+    * Pantalla t�ctil
+    * Android Market permite que los desarrolladores pongan sus aplicaciones, gratuitas o de pago, en el mercado a trav�s de esta aplicacion accesible desde la mayoria de los tel�fonos con Android.
+",
+237,Telecomunicaciones,"Se refiere a todo procedimiento que permite a un usuario hacer llegar a uno o varios usuarios determinados (ej. telefonia) o eventuales (ej. radio, television), informacion de cualquier naturaleza (documento escrito, impreso, imagen fija o en movimiento, videos, voz, m�sica, seiales visibles, seiales audibles, seiales de mandos mec�nicos, etc.), empleando para dicho procedimiento, cualquier sistema electromagn�tico para su transmision y/o recepcion (transmision el�ctrica por hilos, radioel�ctrica, �ptica, o una combinacion de estos diversos sistemas)",291
+238,Sistemas de Gestion Web,Toda informacion sera manejada mediante el internet en linea con el apoyo de la herramienta Zend para Php,
+239,Programacion Web,'',
+240,Reconocimiento de Voz,ninguna,7
+241,Redes de computadoras e internet,Redes de computadoras que se relacionan con internet,
+242,Tecnologia Informatica en Educacion,'',
+243,Sistema de Produccion,'',
+244,Entornos Virtuales de Aprendizaje,'',
+245,Workflow,'',
+246,Redes de Comunicacion,'',
+247,Desarrollo Web,Desarrollo Web,6
+248,VOZ IP,En esta area esta relacionanda con las telecomunicaciones el cual utiliza la transmicion de voz sobre ips como tambien tipos de compresion para la voz el cual seran transmitidos,
+249,Telefonia IP,"La telefonia IP re�ne la transmision de voz y de datos, lo que posibilita la utilizacion de las redes inform�ticas para efectuar llamadas telef�nicas. Adem�s, �sta tecnologia al desarrollar una �nica red encargada de cursar todo tipo de comunicacion, ya sea de voz, datos o video, se denomina red convergente o red multiservicios.La telefonia IP surge como una alternativa a la telefonia tradicional, brindando nuevos servicios al cliente y una serie de beneficios econ�micos y tecnol�gicos",
+250,Centrales Telefonicas IP,"En la nueva era de las comunicaciones digitales, las centrales de telefonia han evolucionado, hasta convertirse en potentes maquinas de enrutamiento y gestion de llamadas, capaces de usar telefonia IP",
+251,Aseguramiento de la calidad del software,"Area encargada de validar , verificar y controlar la calidad del producto de software",
+252,Centrales Telef�nicas IP,"En la nueva era de las comunicaciones digitales, las centrales de telefonia han evolucionado, hasta convertirse en potentes maquinas de enrutamiento y gestion de llamadas, capaces de usar telefonia IP.",
+253,programacion web,permite realizar la comunicacion via paginas web mediante internet,
+254,Aseguramiento de Calidad de Software.,'',
+255,Aseguramiento de Calidad de Software,Control de Calidad,
+256,Tecnologia de Informacion y Comunicacion (TIC) en la educacion,Tecnologias de Informacion y Comunicacion (TIC) aplicadas a la educacion.,
+257,Disenio de interfaces,'',
+258,Seguridad de la Informacion,"Es el area que se encarga de buscar, formas de proteger la informacion de terceras personas, como con la criptografia, esteganografia, marcas de agua, etc.",
+259,Esteganografia,"Esta tecnica es el arte y ciencia de enviar informacion secreta de tal forma que nadie fuera de quien lo envia y quien lo recibe sabe de su existencia, en contraste con la criptografia, en donde la existencia del mensaje es clara pero esta obscurecido. Por lo general la informacion  enviada de este tipo parece ser simplemente una imagen o foto. La esteganografia logra ocultar informacion en una imagen utilizando el bit menos significativo de cada color en los pixeles.",
+260,Aseguramiento de la Calidad del Software,'',
+261,Computacion Cient�fica,Es el campo de estudio relacionado con la construccion de modelos matematicos y t�cnicas num�ricas para resolver problemas cient�ficos,
+262,MODELO DIGITAL DEL TERRENO,'',
+263,Programacion Web,'',
+264,Programacion Web,programacion web,258
+265,Calidad de Software,'',
+266,Dinamica de Sistemas,'',
+267,Sistemas Tutoriales,'',
+268,Autoevaluacion,'',
+269,Optimizacion Combinatoria,'',
+270,Aseguramiento de la calidad de software,'',
+271,Aplicaciones Web,'',
+272,Desarrollo de Aplicaciones Web,Desarrollo de Aplicaciones Web,14
+273,Disenio de compiladores,'',
+274,Sistemas Colaborativos,sistemas colaborativos,6
+276,Estrategias Heur�sticas para la toma de  decisiones ,"Se comportan como recursos organizativos del proceso de resolucion, que contribuyen especialmente a determinar la via de solucion del problema abordado",
+277,Sistemas Expertos,'',
+278,Sistema Experto,sistema experto,7
+279,Disenio e Implementacion de un Compilador,'',
+280,Telefonia Ip,'',
+281,telecomunicaciones,Servicios de telecomuniciones,
+282,Control de calidad de software,'',
+283,Material Educativo Computarizado (M.E.C.),'',
+284,Monitoreo de Servidores,Herramientas �tiles para los administradores de servidores o personal de TI,
+285,Ambientes automatizados de apoyo,'',
+286,Control de Calidad del Software,'',
+287,Aseguramiento de la Calidad de Software,'',
+288,Sistemas de Aprendizaje,Sistemas de aprendizaje,
+290,"Inteligencia Artificial, Base de Datos",'',
+291,Redes,'',
+292,Redes de Telecomunicaciones,'',
+293,Sistemas Operativos,'',
+294,Transferencia de Datos Protocolo IP,'',
+295,Sistema de Escaneado Optimo,'',
+296,Control de Calidad de software,'',
+297,Servicio Web,'',
+298,CMS,Content Management System,
+299,Software educativo,'',
+300,Procesamiento de datos Meteorol�gicos,'',
+301,Software de Gestion,'',
+302,Disenio e implementacion de software,'',
+303,Web sem�ntica,'',
+304,Redes de Datos,'',
+305,Tecnicas de Animacion 3D,"se hace uso de las tecnicas de animacion 3D como ser Keyframe,procedural las cuales permiten generar una animacion en 3D haciendo uso de herramientas de disenio 3D,tambien se puede hacer uso de la tecnica de rotoscopia el cual captura informacion de movimiento mediante sensores de objetos reales pero este requiere de equipos especiales.",
+306,Calidad de software,"evaluacion de material multimedia, para obtener la calidad de la aplicacion.",6
+307,Ambientes automatizados de apoyo para productos de construccion de software,'',
+308,"Base de Datos, Web",'',
+309,Herramienta SIG,'',
+310,Sistemas Integrados de Gestion,'',
+311,Sistemas web,'',
+312,Control de calidad de Software,'',
+313,Sistemas de Informacion geogr�fica,'',
+314,Sistemas de Gestion,'',
+315,Sistemas Colaborativos en la Educacion,'',
+316,Computacion en la nube,'',
+317,Telefonia y Comunicaciones,'',
+318,Sistema de Reportes,"En la ingenieria de software se necesita gr�ficas para analizar el trabajo de cada desarrollador, que representados en reportes gr�ficos son mas entendibles para los administradores de equipos de desarrollo",
+319,Redes Moviles,Esta sub�rea se refiere a la interconexion de celulares por medio wifi.,
+320,Realidad Aumentada,'',
+321,Sistema Web,"Un sistema web es el conjunto de tecnologias de la informacion y las comunicaciones que sirven de soporte a la utilizacion de Internet en el seno de la misma, tanto como herramienta para la obtencion y procesamiento de la informacion en la toma de decisiones como en la interrelacion de la empresa con su mercado y su entorno.",
+322,Redes de computadoras en internet,'',
+323,Administracion de servidores,Aplicaciones creadas sobre plataformas de dispositivos m�viles para administrar servicios en servidores de produccion,
+324,programacion funcional,'',
+325,Ingenieria de Produccion,Dentro del area de Sistemas de informacion se trabaja para dar soluciones al area de la ingenieria de produccion,
+326,Sistemas Web,"Similar a Desarrollo Web, con caracteristicas dinamicas y estaticas basados en la Web y gestion de Base de Datos.",
+327,Control de Calidad de Software,'',
+328,Sistemas de Soporte a la Administracion,'',
+329,Sistema de Archivos,'',
+330,Programacion en la Nube,'',
+331,Software para dispositivos m�viles,'',
+332,Desarrollo web,,370
+333,Mashups,"En desarrollo web, un mashup es una p�gina web o aplicacion que usa y combina datos, presentaciones y funcionalidad procedentes de una o m�s fuentes para crear nuevos servicios. El t�rmino implica integracion f�cil y r�pida, usando a menudo APIs abiertos y fuentes de datos para producir resultados enriquecidos que no fueron la raz�n original para la que fueron producidos los datos en crudo originales.",
+334,Web Scraping,Web Scraping es una t�cnica utilizada por softwares de computadora para extraer informacion de sitios webs,
+335,Realidad aumentada,'',
+336,Redes de distribucion,'',
+337,Aplicacion android,desarrollo de aplicaciones para Android,
+338,Sistema CRM,'',
+339,Metodos de Busqueda heuristica o solucion de problemas,"En computacion, dos objetivos fundamentales son encontrar algoritmos con buenos tiempos de ejecucion y buenas soluciones, usualmente las �ptimas. Una heur�stica es un algoritmo que abandona uno o ambos objetivos; por ejemplo, normalmente encuentran buenas soluciones, aunque no hay pruebas de que la solucion no pueda ser arbitrariamente err�nea en algunos casos; o se ejecuta razonablemente r�pido, aunque no existe tampoco prueba de que siempre ser� as�. Las heur�sticas generalmente son usadas cuando no existe una solucion �ptima bajo las restricciones dadas (tiempo, espacio, etc.), o cuando no existe del todo.
+A menudo, pueden encontrarse instancias concretas del problema donde la heur�stica producir� resultados muy malos o se ejecutar� muy lentamente. Aun as�, estas instancias concretas pueden ser ignoradas porque no deberian ocurrir nunca en la pr�ctica por ser de origen te�rico. Por tanto, el uso de heur�sticas es muy com�n en el mundo real.",
+340,Sistemas de apoyo a la docencia,'',
+341,Accesibilidad audiovisual web,'',
+343,Compiladores e interpretadores,"Sub area de compiladores e interpretadores
+
+",
+344,Analisis y filtrado,'',
+345,Interpretes y compiladores,'',
+346,Ambientes automatizados de apoyo para construccion de productos de software,'',
+347,Medios de Comunicacion Digitales,'',
+348,Sistemas de gestion de calidad de produccion.,'',
+349,Investigacion,'',
+350,Hidrologia,'',
+351,Recuperacion de la Informacion,'',
+352,Automatizacion,"Sistema tecnol�gico basado en la ingenieria y la inform�tica, que proporciona una optimizacion de los procesos productivos mediante la regulacion autom�tica.",
+353,Redes de telecomunicaiones,'',
+354,Punto de Venta,'',
+355,Simulacion de Sistemas,'',
+356,Disenio de Aerogeneradores,'',
+357,Ambientes automatizados de apoyo para productos de construccion de software ,'',
+358,Ingenieria de yacimientos,"La ingenieria de yacimientos es la parte fundamental de la ingenieria de petr�leo, aplicando conocimientos cient�ficos, permite  una explotacion racional de las acumulaciones de hidrocarburos, para obtener su m�xima recuperacion al menor costo ",
+359,Data Science,,
+360,Procesamiento Informacion de Redes Sociales,,359
+361,Sistema Multimedia,,10
+362,Sistemas Virtuales,'',
+363,"Comunicacion de datos, Sistemas de tiempo real, Intranet/Internet",'',
+364,E-Learning,'',
+365,Modelo relacional de base de datos,'',
+366,Aplicacion Web,'',
+367,Protocolos de acceso a directorio,'',
+368,Sistema de Informacion Gerencial,'',6
+369,Automatizacion,'',
+370,H.C.I,'',
+371,"Telefonia Movil, M-Payment, Modem Gateway",'',
+372,Juegos Didacticos,'',
+373,Programacion y Aplicacion web,'',
+374,Computacion Paralela,'',
+375,Sem�ntica de datos,'',
+376,Interaccion persona-computador para educacion,'',
+377,Composicion Algoritmica,'',
+378,Servidor OwnCloud,'',
+379,Redes de telecomunicaciones,'',
+380,Software para dispositivos Moviles,"desarrollo de software para dispositivos moviles  usando metodos, tecnicas y teorias de ingeniera de software.",
+381,Administracion de inventarios,'',
+382,Aplicacion movil,"Aplicacion movil para el manejo de inventarios
+",
+383,Tecnologias Web,'',
+384,Comunicacion en Tiempo Real,Tecnologias web que permiten comunicacion en tiempo real.,
+385,TICs en la educacion,'',
+386,Computacion y Sociedad,'',
+387,Ejercitacion y Pr�ctica,'',
+388,Planificacion y Organizacion Empresarial,'',
+389,Gestion Estrat�gica de Empresas,'',
+390,T�cnologias de Informacion Educativa,Sistemas de informacion dedicada al estudio y apoyo a la educacion mediante un sistema de informacion. ,
+391,Tecnologias de Informacion Educativa,'',
+392,Taller de Programacion a Bajo Nivel,'',
+393,Aplicacion de Sistemas Operativos,'',
+394,procesamiento de imagenes digitales,'',
+395,Administrador de archivos,"Sistema especializado en la administracion de documentacion, a partir de la cual se crea un repositorio, el que podr� ser accedido, compartido, eliminado seg�n la necesidad o requerimientos del administrador o usuarios",
+396,Sistemas basados en conocimiento,'',
+397,Ling��stica  Computacional,'',
+398,Programacion y Algoritmos,'',
+399,Sistemas de Telecomunicacion,'',
+400,Mineria de datos ,'',
+401,Aplicacion Movil,'',
+402,Inform�tica de la salud,'',
+403,TICs aplicadas a la Educacion,'',
+404,Programacion Web reactiva,'',
+405,Gestion y planificacion de empresas,'',
+406,Television Digital,'',
+407,Modelos de proceso,'',
+408,Gestion de empresas,'',
+409,Internet,'',
+410,Sistemas Distribuidos,'',
+411,Desarrollo de Software,Herramientas y recursos que son utilizados en el proceso de fabricacion de software,
+412,APIs para interfaz de usuario,Interfaz de usuario,411
+413,Tecnologia de Informacion y Comunicacion (TIC) de la educacion,'',
+414,Sistemas de Informacion Web,Desarrollo de sistemas web,
+415,TICs de la educacion,'',
+416,Tecnologia de Apoyo a Estadistica,'',
+417,Administracion y gestion de proyectos,'',
+418,Aplicacion M�vil,'',
+419,modelacion de sistemas,'',
+420,e-learning,El e-learning consiste en la educacion y capacitacion a trav�s de Internet. Este tipo de enseianza online permite la interaccion del usuario con el material mediante la utilizacion de diversas herramientas inform�ticas.,
+421,Desarrollo de videojuegos,'',
+422,Enrutamiento,La funcion de enrutamiento es una funcion de la Capa 3 del modelo OSI. El enrutamiento es un esquema de organizacion jer�rquico que permite que se agrupen direcciones individuales. Estas direcciones individuales son tratadas como unidades �nicas hasta que se necesita la direccion destino para la entrega final de los datos. El enrutamiento es el proceso de hallar la ruta m�s eficiente desde un dispositivo a otro. El dispositivo primario que realiza el proceso de enrutamiento es el Router.,
+423,Ling��stica Computacional  ,'',
+424,Disenio,Patrones de disenio,
+425,Sistemas Control de Procesos,'',
+426,Comercio electr�nico,"Comercio electr�nico tambien conocido como e-commerce, conciste en la compra y venta de productos o servicios a traves de medios electr�nicos tales como internet y otras redes informaticas",
+427,Aplicacion de GPS,Aplicacion de GPS (Sistema de posicionamiento global) en dispositivos m�viles,
+428,aprendizaje por computadora,"el aprendizaje autom�tico (Machine Learning) es una rama de la inteligencia artificial el cual busca desarrollar t�cnicas que permitan crear programas capaces de procesar y analizar grandes cantidades de datos para posteriormente agruparlas y consolidarlas en porciones pequeias de informacion �til, que permita reconocer y decodificar patrones complejos y predecir tendencias o comportamientos futuros, estos programas deben aprender y mejorar con la experiencia a trav�s el tiempo, refinando sus modelos que son usados para predecir los posibles resultados con el fin de facilitar la toma de decisiones inteligentes basadas en esa informacion.",
+429,Vision Artificial,'',
+430,Aprendizaje autom�tico,'',
+431,Laboratorios virtuales basados en WWW.,'',
+432,Base de Datos - Ingenieria de Software,'',
+433,Automatizacion de Procesos,'',
+434,control de procesos,'',
+435,Domotica,'',
+436,Sistema en tiempo real y control de procesos,'',
+437,Ingenieria de control,'',
+438,Programacion en Ginga-NCL,'',
+439,Computacion Educativa,'',
+440,Telefonia IP,'',
+441,sistema de informacion administrativa web,"es un conjunto de elementos orientados al tratamiento y administracion de datos e informacion ,organizados y listos para su uso posterior o un objetivo.
+Que formarian parte de algunas de las siguientes partes (personas , actividades, datos. etc), para obtener informacion mas exacta y mas clara al momento de utilizar dicha informacion.
+la parte de administrar esta informacion en el area web es que ayude y evite pasos extras al momento de manejo de informacion hace que sea dinamico las busqueadas y otros procedimientos de la misma aplicacion web.
+",
+442,Aplicacion Intranet ,'',
+443,Prueba de intrusion,"Es una pr�ctica para poner a prueba un sistema inform�tico, red o aplicacion web para encontrar vulnerabilidades que un atacante podria explotar.",
+444,Encriptacion de datos,Es el proceso mediante el cual cierta informacion o texto sin formato es cifrado de forma que el resultado sea ilegible a menos que se conozca los datos necesarios para su interpretacion.,
+445,Programacion Ginga NCL/Lua,Ginga NCL/Lua herramienta desarrollada por la puc de Rio para el desarrollo de aplicaciones interactivas para Television Digital,
+446,CSCW,"Computer Supported Coopertive Work CSCW, Trabajo cooperativo asistido por computadora.
+CSCW es un T�rmino utilizado para describir cualquier tecnologia que combina recursos de hardware y software para permitir a grupos de personas colaborar y compartir tecnologia.",
+447,Visualizacion de datos,La visualizacio&#769;n de datos trata de la creacio&#769;n de meta&#769;foras visuales y el estudio de comunicar la informacio&#769;n de manera ma&#769;s clara y efectiva a trave&#769;s de estas.,
+448,Herramienta y m�todos de ingenieria de software,'',
+449,Integracion de tecnologias moviles,'',
+450,Entornos Virtuales de Aprendizaje ,'',
+451,Planificacion Autom�tica,"La planificacion autom�tica es una disciplina de la inteligencia artificial que tiene por objeto la produccion de planes (es decir, una planificacion), t�picamente para la ejecucion de un robot u otro agente.",
+452,Dinamica de Sistemas,'',
+453,Aplicaciones m�viles,'',
+454,aplicacion m�vil (app),'',
+455,"Programacion M�vil, GPS",'',
+456,Television Digital Interactiva,'',
+457,Procesamiento del lenguaje natural,'',
+458,Aprendizaje de m�quina,'',
+459,Ingenieria Economica,"Area de la matematica financiera muy usado en la toma de decisiones, el manejo de amortizaciones de deudas y manejo de las tasas de interes muy usado en la vida cotidiana. ",
+460,Aplicaciones Hibridas,'',
+461,Teoria de Grafos,Teoria de Grafos,
+462,Redes aleatorias,Redes aleatorias,
+463,Disenio de Interfaces - Desarrollo de Sistemas Orientados a Objetos,'',
+464,Gestion Administrativa,Gestion de los procesos administrativos,
+465,Aplicacion de Sistemas Operativos,'',
+466,Servicios Telematicos,'',
+467,Realidad Mixta,'',
+468,Graficacion por Computadora,'',
+469,Servicios Web REST,"La Transferencia de Estado Representacional (REST - Representational State Transfer) fue ganando amplia adopcion en toda la web como una alternativa m�s simple a SOAP y a los servicios web basados en el Lenguage de Descripcion de Servicios Web (Web Services Descripcion Language - WSDL).REST define un set de principios arquitect�nicos por los cuales se diseian servicios web haciendo foco en los recursos del sistema, incluyendo c�mo se accede al estado de dichos recursos y c�mo se transfieren por HTTP hacia clientes escritos en diversos lenguajes.",
+470,Almac�n de Eventos,"Del ingl�s -Event sourcing- involucra el modelado de cambio de estados hechos a una aplicacion como una secuencia inmutable o registro de eventos. 
+
+En lugar modificar el estado de la aplicacion directamente, un almac�n de eventos almacena el evento que lanzo el cambio de estado en un registro inmutable y modela los cambios de estados como respuestas a los eventos en el registro.",
+471,Modelacion y Optimizacion,'',
+472,Sistema de Informacion,"Los sistemas de Informacion dan soporte a las operaciones empresariales, la gestion y la toma de decisiones, proporcionando a las personas la informacion que necesitan mediante el uso de las tecnologias de la informacion. ",
+473,INTELIGENCIA DE NEGOCIOS,"SE ENTIENDE POR INTELIGENCIA DE NEGOCIOS (BUSINESS INTELLIGENCE) AL CONJUNTO DE METODOLOGIAS , APLICACIONES, PRACTICAS Y CAPACIDADES ENFOCADAS A LA CREACION Y ADMINISTRACION DE LA INFORMACION QUE PERMITE TOMAR MEJORES DECISIONES A LOS USUARIOS DE UN ORGANIZACION.
+EN RESUMEN SE PUEDE UTILIZAR DATOS DE AYER Y HOY PARA TOMAR MEJORES DECISIONES MAiANA.",
+474,Sistemas de Informacion,'',
+475,Bots,'',
+476,Cloud Computing,'',
+477,Programacion movil,'',
+478,Programacion m�vil,'',
+479,Programacion Movil,'',
+480,"Base de Datos,Aplicacion Web y Sistemas de informacion",'',
+481,An�lisis de contenido de p�ginas web.,'',
+482,Seguridad Informatica,"Es el �rea relacionada con la inform�tica y la telem�tica que se enfoca en la proteccion de la infraestructura computacional y todo lo relacionado con esta y, especialmente, la informacion contenida en una computadora o circulante a trav�s de las redes de computadoras.",
+483,Recuperacion de la Informacion ,"Proceso donde se accede a una informacion previamente almacenada, mediante herramientas inform�ticas que permiten establecer ecuaciones de b�squeda espec�ficas. Dicha informacion ha debido de ser estructura previamente a su almacenamiento.",
+484,Patrones de disenio,Los patrones de disenio de diagramas de clase son soluciones comprobadas a diferentes problemas bajo cierto contexto.,
+485,Servicio Movil Nativa,"servicio del dispositivo movil nativa 
+",
+486,Data Warehouse y Mineria de Datos,'',
+487,"Data Mining, Data Science",'',
+488,Realidad virtual,'',
+489,Realidad mixta,'',
+490, sistema de informacion,"Un Sistema de Informacion es un conjunto de componentes que interactian entre s�, orientado a la recoleccion, almacenamiento, procesamiento y recuperacion de informacion.
+Se estudian las caracter�sticas resultantes de esas interacciones y qu� mecanismos se pueden utilizar para el desarrollo y adaptacion de estos sistemas de forma que puedan se explotados en las organizaciones con el mayor retorno posible.",
+491,Programacion M�vil,'',
+492,An�lisis de video,"Describe un amplio n�mero de nuevas tecnologias y evoluciones en el campo de la vigilancia con v�deo y la seguridad.
+Algunas aplicaciones del an�lisis de v�deo son la deteccion de objetos abandonados en lugares llenos de gente, controlar obras de arte en los museos y detectar veh�culos no autorizados que ingresen a determinadas �reas. La deteccion de matr�culas de veh�culos, congestion de tr�nsito,tecnologias mas de reconocimiento facial.",
+493,Aplicacion web,'',
+494,programacion Movil,programacion movil,
+495,sistema gestion del conocimiento,'',
+496,PROGRAMACIoN MOVIL,"desarrollo de aplicaciones para aparatos como celulares, smartphones, PDAs, PocketPCs y dispositivos con recursos limitados.",
+497,Aprendizaje en profundidad,'',
+498,Algoritmos,"Algoritmos pueden realizar calculos, procesamiento de datos y tareas de razonamiento automatizado.",
+499,Optimizacion,"Es la seleccion del mejor elemento con respecto a algun criterio de un conjunto de elementos disponibles.
+",
+500,Aprendizaje automatico,"Aprendizaje supervisado
+Apredizaje no supervisado
+Aprendizaje por refuerzo",
+501,Aplicacion WEB,Sistema de Informacion que esta en la Nube,

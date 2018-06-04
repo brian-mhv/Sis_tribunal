@@ -116,8 +116,8 @@ ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `Profesional` (
   `codigo` INT NOT NULL AUTO_INCREMENT ,
   `nombre` VARCHAR(45) NOT NULL ,
-  `apellido_paterno` VARCHAR(45) NOT NULL ,
-  `apellido_materno` VARCHAR(45) NOT NULL ,
+  `apellido_paterno` VARCHAR(45) NULL ,
+  `apellido_materno` VARCHAR(45) NULL ,
   `titulo` INT NOT NULL ,
   `cod_docente` INT NULL,
   `correo` VARCHAR(45) NULL,
@@ -281,17 +281,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `Area` (
   `idArea` INT NOT NULL AUTO_INCREMENT ,
-  `nombre_area` VARCHAR(45) NOT NULL ,
-  `descripcion` VARCHAR(45) NULL DEFAULT 'Area de conocimiento o area de interes' ,
+  `nombre_area` VARCHAR(100)  NULL,
+  `descripcion` VARCHAR(450) NULL DEFAULT 'Descripcion no disponible' ,
   `id_subarea` INT NULL,
   PRIMARY KEY (`idArea`) ,
   INDEX `id_subarea_idx` (`id_subarea` ASC) ,
-  UNIQUE INDEX `idArea_UNIQUE` (`idArea` ASC) ,
-  CONSTRAINT `id_subarea`
-    FOREIGN KEY (`id_subarea` )
-    REFERENCES `Area` (`idArea` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  UNIQUE INDEX `idArea_UNIQUE` (`idArea` ASC) )
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------

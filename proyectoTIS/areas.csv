@@ -1,73 +1,73 @@
 idArea,nombre_area,descripcion,id_subarea
-1,Base de Datos,Almacenamiento de informacion,0
-2,Comercio Electrónico,,0
-3,Computación Gráfica,,0
-4,Evaluación y Auditoria de Sistemas,,0
-5,Ingeniería de Producción,,0
-6,Ingeniería de Software,,0
-7,Inteligencia Artificial,,0
-8,Interacción Humano Computador,,0
-9,Investigación Operativa,,0
-10,Matemática Computacional,,0
-11,Programación en Internet,,0
-12,Redes y Sistemas Distribuidos,,0
-13,Simulación,,0
-14,Sistemas de Información,,0
-15,Tecnologías de Control,,0
-16,Teoría de la Computación,,0
-17,Bases de Datos,,1
-18,Bases de Datos Orientados a Objetos,,1
-22,Sistemas Multimedios e Hipermedios,,1
-23,Sintesis de Imagenes,,3
-24,Animación,,3
-25,Procesamiento de Imagenes,,3
-26,Modelamiento Geometrico,,3
-27,Sistemas CAD,,3
-28,Dise&ntilde;o de Interfaces,,3
-29,Realidad Virtual,,3
-30,Antropometría,,5
-31,Ergonomía,,5
-32,Fisiología,,5
-33,Interfaces Cooperativas,,5
-34,Interfaces de Usuario,,5
-35,Psicología Cognitiva,,5
-36,Arquitectura de Software,,6
-37,Desarrollo de Sistemas Orientados a Objetos,,6
-38,Especificación y Dise&ntilde;o de Software,,6
-39,Gerencia del Proceso de Desenvolvimiento y Mantenimiento de Software,,6
-40,Metodologías de Programación,,6
-41,Objetos Distribuidos,,6
-42,Reingeniería,,6
-44,Sistemas de Información Geográfica,,6
-46,Algoritmos Genéticos,,7
-47,Autómatas Celulares,,7
-48,Lógica Matemática,,7
-49,Lógicas no Clásicas y Probadores de Teoremas,,7
-51,Procesamiento de Lenguaje Natural,,7
-52,Redes Neuronales,,7
-53,Robótica,,7
-54,Sistemas Bayesianos,,7
-55,Sistemas de Programación de Producción,,7
-57,Logística,,8
-58,Planeamiento y Control de Producción,,8
-59,Sistemas de Gestión de Cálidad y Producción,,8
-60,Contabilidad,,10
-61,Estadística,,10
-62,Métodos Númericos,,10
-63,Proyectos y Análisis de Algoritmos,,10
-64,Comunicación de Datos: Protocolos y Sistemas,,12
-65,Procesamiento Paralelo,,12
-66,Programación Concurrente,,12
-70,Control y Automatización Industrial,,15
-71,Microcontroladores,,15
-72,Sistemas de Tiempo Real,,15
-73,Algoritmos Geométricos,,16
-74,Animación de Algoritmos,,16
-75,Compiladores,,16
-76,Construcción de Compiladores Orientados a Objeto,,16
-77,Especificación Formal de Lenguajes de Programación,,16
-78,Lenguaje Natural,,16
-79,Métodos Formales de la Ingeniería de Software,,16
+1,Base de Datos,manejo de informacion,
+2,Comercio Electrónico,'',
+3,Computación Gráfica,'',
+4,Evaluación y Auditoria de Sistemas,'',
+5,Ingeniería de Producción,'',
+6,Ingeniería de Software,'',
+7,Inteligencia Artificial,'',
+8,Interacción Humano Computador,'',
+9,Investigación Operativa,io de inds,
+10,Matemática Computacional,'',
+11,Programación en Internet, ,
+12,Redes y Sistemas Distribuidos,'',
+13,Simulación,'',
+14,Sistemas de Información,'',
+15,Tecnologías de Control,'',
+16,Teoría de la Computación,'',
+17,Bases de Datos,'',1
+18,Bases de Datos Orientados a Objetos,'',1
+22,Sistemas Multimedios e Hipermedios,'',1
+23,Sintesis de Imagenes,'',3
+24,Animación,'',3
+25,Procesamiento de Imagenes,'',3
+26,Modelamiento Geometrico,'',3
+27,Sistemas CAD,'',3
+28,Dise&ntilde;o de Interfaces,'',3
+29,Realidad Virtual,'',3
+30,Antropometría,'',5
+31,Ergonomía,'',5
+32,Fisiología,'',5
+33,Interfaces Cooperativas,'',5
+34,Interfaces de Usuario,'',5
+35,Psicología Cognitiva,'',5
+36,Arquitectura de Software,'',6
+37,Desarrollo de Sistemas Orientados a Objetos,'',6
+38,Especificación y Dise&ntilde;o de Software,'',6
+39,Gerencia del Proceso de Desenvolvimiento y Mantenimiento de Software,'',6
+40,Metodologías de Programación,'',6
+41,Objetos Distribuidos,'',6
+42,Reingeniería,'',6
+44,Sistemas de Información Geográfica,'',6
+46,Algoritmos Genéticos,'',7
+47,Autómatas Celulares,'',7
+48,Lógica Matemática,'',7
+49,Lógicas no Clásicas y Probadores de Teoremas,'',7
+51,Procesamiento de Lenguaje Natural,'',7
+52,Redes Neuronales,'',7
+53,Robótica,'',7
+54,Sistemas Bayesianos,'',7
+55,Sistemas de Programación de Producción,'',7
+57,Logística,'',8
+58,Planeamiento y Control de Producción,'',8
+59,Sistemas de Gestión de Cálidad y Producción,'',8
+60,Contabilidad,'',10
+61,Estadística,'',10
+62,Métodos Númericos,'',10
+63,Proyectos y Análisis de Algoritmos,'',10
+64,Comunicación de Datos: Protocolos y Sistemas,'',12
+65,Procesamiento Paralelo,'',12
+66,Programación Concurrente,'',12
+70,Control y Automatización Industrial,'',15
+71,Microcontroladores,'',15
+72,Sistemas de Tiempo Real,'',15
+73,Algoritmos Geométricos,'',16
+74,Animación de Algoritmos,'',16
+75,Compiladores,'',16
+76,Construcción de Compiladores Orientados a Objeto,'',16
+77,Especificación Formal de Lenguajes de Programación,'',16
+78,Lenguaje Natural,'',16
+79,Métodos Formales de la Ingeniería de Software,'',16
 80,Modelamiento del Proceso de Desenvolvimiento de Software,'',16
 83,Portales Web, ,11
 84,Paradigma Orientado a Objetos, ,16

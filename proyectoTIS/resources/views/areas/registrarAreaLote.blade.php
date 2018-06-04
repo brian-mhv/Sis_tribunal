@@ -11,6 +11,20 @@
     <div class="panel-header">
       <div class="box-header hidden-xs hidden-sm">
         <h3 class="box-title">Importar Areas</h3>
+        <form action="ImportAreaController.php" method="POST" enctype="multipart/form-data">
+            <center>
+            <table>
+                <tr>
+                    <td class="letra" width="250"><strong>Subir Archivo CSV:</strong></td>  
+                    <td><input type="file" name="foto" id="foto"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="submit" name="enviar" value="SUBIR" class="boton"></td>
+                </tr>            
+                </table>
+            </center>
+        </form>  
+
           <form class="form-inline pull-right row">
             <ng-csv-import
               content="csv.content"

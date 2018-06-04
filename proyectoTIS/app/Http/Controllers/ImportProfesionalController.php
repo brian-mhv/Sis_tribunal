@@ -14,18 +14,17 @@ class ImportProfesionalController extends Controller
     {
     	Excel::load('profesionales.csv', function($reader) {
  
-     foreach ($reader->get() as $profesional) {
-     Profesional::create([
-        'codigo' => $profesional->codigo,
-        'nombre' => $profesional->nombre,
-        'ape_pat' => $profesional->ape_pat,
-        'ape_mat' => $profesional->ape_mat,
-        'titulo' => $profesional->titulo,
-        'correo' => $profesional->correo,
-        'cod_docente' => $profesional->cod_docente
-     ]);
-       }
- });
- return Profesional::all();
+        foreach ($reader->get() as $profesional) {
+            Profesional::create([
+                'codigo' => $profesional->codigo,
+                'nombre' => $profesional->nombre,
+                'ape_pat' => $profesional->ape_pat,
+                'ape_mat' => $profesional->ape_mat,
+                'titulo' => $profesional->titulo,
+                'correo' => $profesional->correo,
+                'cod_docente' => $profesional->cod_docente
+            ]);
+        }});
+        return Profesional::all();
     }
 }

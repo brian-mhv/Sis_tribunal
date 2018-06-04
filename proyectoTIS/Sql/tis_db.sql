@@ -120,7 +120,7 @@ CREATE  TABLE IF NOT EXISTS `Profesional` (
   `apellido_materno` VARCHAR(45) NOT NULL ,
   `titulo` INT NOT NULL ,
   `cod_docente` INT NULL,
-  `correo` VARCHAR(45) NULL ,
+  `correo` VARCHAR(45) NULL,
   PRIMARY KEY (`codigo`) ,
   UNIQUE INDEX `id_UNIQUE` (`codigo` ASC) ,
   INDEX `titulo_idx` (`titulo` ASC) ,
@@ -257,7 +257,7 @@ CREATE  TABLE IF NOT EXISTS `Estudiante` (
   `telefono` INT NULL ,
   `direccion` VARCHAR(45) NULL ,
   `cod_cue` VARCHAR(45) NULL ,
-  `correo` VARCHAR(45) NULL ,
+  `correo` VARCHAR(45) NULL,
   `ci` VARCHAR(45) NULL ,
   `dir_fot` INT NULL ,
   PRIMARY KEY (`codigo`) ,
@@ -271,7 +271,7 @@ ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `Sesion` (
   `usuario` INT NOT NULL ,
   `correo` VARCHAR(45) NOT NULL,
-  `pass` VARCHAR(45) NOT NULL DEFAULT 'hashtag',
+  `pass` VARCHAR(45) NULL DEFAULT 'hashtag',
   `nivel` INT NOT NULL ,
   PRIMARY KEY (`usuario`, `pass`, `nivel`) )
 ENGINE = InnoDB;
@@ -319,8 +319,8 @@ ENGINE = InnoDB;
 -- Table `AreaTesis`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `AreaTesis` (
-  `id_tesis` INT NOT NULL ,
   `id_area` INT NOT NULL ,
+  `id_tesis` INT NOT NULL ,
   INDEX `area_idx` (`id_area` ASC) ,
   INDEX `proyecto_idx` (`id_tesis` ASC) ,
   PRIMARY KEY (`id_tesis`, `id_area`) ,

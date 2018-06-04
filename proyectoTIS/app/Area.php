@@ -39,4 +39,24 @@ class Area extends Model
         $id = $codigo[count($codigo) - 1];
         return $id->idArea;
     }
+
+    public function getFilter($string){
+        $areas = $this->getAll();
+        foreach($areas as $area){
+            if(strlen(stristr($area->nombre_area,$string))>0){
+                return $area;
+            }
+        }
+        return NULL;
+    }
+    public function getByFilter($string){
+        $area = $this->getFilter($string);
+        if($area !== NULL){
+            $profesionales = \DB::table('areasprofesional')
+            ->join('profesional', 'profesional.codigo', 'areasprofesional.id_profesional')
+            ->select('profesional.*')->distinct()->where('areasprofesional.id_area', $area->idArea)->get();
+            return $profesionales;
+        }
+        return NULL;
+    }
 }

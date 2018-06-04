@@ -26,7 +26,7 @@ class Sesion extends Model
 
     public function getUser($nivel, $correo){
         if($nivel == 1){
-            $usuario = \DB::table('sesion')->select('correo', 'usuario', 'nivel')->where('nivel', $nivel)
+            $usuario = \DB::table('sesion')->select('correo', 'usuario as codigo', 'nivel')->where('nivel', $nivel)
             ->where('correo', $correo)->get();
             return $usuario;
         }
@@ -34,7 +34,7 @@ class Sesion extends Model
             $profesionales=\DB::table('profesional')->join('sesion', 'sesion.correo', 'profesional.correo')
             ->join('docente', 'docente.codigo', '=', 'profesional.cod_docente')
             ->join('titulo', 'titulo.codigo', 'profesional.titulo')
-            ->select('profesional.*', 'docente.*', 'sesion.nivel', 'titulo.nombre as titulo')
+            ->select('docente.*', 'profesional.*', 'sesion.nivel', 'titulo.nombre as titulo', 'docente.codigo as cod_doc')
             ->where('profesional.correo', '=', $correo)->get();
             return $profesionales;
         }

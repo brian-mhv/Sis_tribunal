@@ -10,15 +10,11 @@ use App\Http\Requests;
 
 class EstudiantesController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('admin');
-    }
     public function index(){
         $estudiante = new Estudiante;
         return view('estudiantes.index', compact('estudiantes'), ['estudiantes'=>$estudiante->all(), 'user'=>$this->getUser()]);
     }
-    public function add(){
+    /*public function add(){
         $carrera = new Carrera;
         return view('estudiantes.registrar', compact('estudiantes'), ['carreras'=>$carrera->all(), 'user'=>$this->getUser()]);
     }
@@ -42,5 +38,5 @@ class EstudiantesController extends Controller
         $estudiante->addEstCarrera($request);
         $estudiante->addSesion();
         return view('estudiantes.index', compact('estudiantes'), ['estudiantes'=>$estudiante->all(), 'user'=>$this->getUser()]);
-    }
+    }*/
 }

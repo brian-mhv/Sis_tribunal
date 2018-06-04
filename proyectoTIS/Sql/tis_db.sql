@@ -116,11 +116,11 @@ ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `Profesional` (
   `codigo` INT NOT NULL AUTO_INCREMENT ,
   `nombre` VARCHAR(45) NOT NULL ,
-  `apellido_paterno` VARCHAR(45) NOT NULL ,
-  `apellido_materno` VARCHAR(45) NOT NULL ,
+  `apellido_paterno` VARCHAR(45) NULL ,
+  `apellido_materno` VARCHAR(45) NULL ,
   `titulo` INT NOT NULL ,
   `cod_docente` INT NULL,
-  `correo` VARCHAR(45) NULL ,
+  `correo` VARCHAR(45) NULL,
   PRIMARY KEY (`codigo`) ,
   UNIQUE INDEX `id_UNIQUE` (`codigo` ASC) ,
   INDEX `titulo_idx` (`titulo` ASC) ,
@@ -257,7 +257,7 @@ CREATE  TABLE IF NOT EXISTS `Estudiante` (
   `telefono` INT NULL ,
   `direccion` VARCHAR(45) NULL ,
   `cod_cue` VARCHAR(45) NULL ,
-  `correo` VARCHAR(45) NULL ,
+  `correo` VARCHAR(45) NULL,
   `ci` VARCHAR(45) NULL ,
   `dir_fot` INT NULL ,
   PRIMARY KEY (`codigo`) ,
@@ -271,7 +271,7 @@ ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `Sesion` (
   `usuario` INT NOT NULL ,
   `correo` VARCHAR(45) NOT NULL,
-  `pass` VARCHAR(45) NOT NULL DEFAULT 'hashtag',
+  `pass` VARCHAR(45) NULL DEFAULT 'hashtag',
   `nivel` INT NOT NULL ,
   PRIMARY KEY (`usuario`, `pass`, `nivel`) )
 ENGINE = InnoDB;
@@ -281,17 +281,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `Area` (
   `idArea` INT NOT NULL AUTO_INCREMENT ,
-  `nombre_area` VARCHAR(100) NOT NULL ,
+  `nombre_area` VARCHAR(100)  NULL,
   `descripcion` VARCHAR(450) NULL DEFAULT 'Descripcion no disponible' ,
   `id_subarea` INT NULL,
   PRIMARY KEY (`idArea`) ,
   INDEX `id_subarea_idx` (`id_subarea` ASC) ,
-  UNIQUE INDEX `idArea_UNIQUE` (`idArea` ASC) ,
-  CONSTRAINT `id_subarea`
-    FOREIGN KEY (`id_subarea` )
-    REFERENCES `Area` (`idArea` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  UNIQUE INDEX `idArea_UNIQUE` (`idArea` ASC) )
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -319,8 +314,8 @@ ENGINE = InnoDB;
 -- Table `AreaTesis`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `AreaTesis` (
-  `id_tesis` INT NOT NULL ,
   `id_area` INT NOT NULL ,
+  `id_tesis` INT NOT NULL ,
   INDEX `area_idx` (`id_area` ASC) ,
   INDEX `proyecto_idx` (`id_tesis` ASC) ,
   PRIMARY KEY (`id_tesis`, `id_area`) ,

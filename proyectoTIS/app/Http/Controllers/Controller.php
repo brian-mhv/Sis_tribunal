@@ -25,4 +25,8 @@ class Controller extends BaseController
     public function closeSesion(){
         \Session::put('user', null);
     }
+    public function createSesion(){
+        $profesionales = new Profesionales;
+        $prof = $profesionales->all();
+    }
 }

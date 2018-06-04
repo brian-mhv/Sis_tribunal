@@ -32,23 +32,8 @@
         <input name="apMat" class="form-control" placeholder="Introduzca apellido materno">
       </div>
       <div class="form-group">
-        <label>Carnet de Identidad</label>
-        <input name="carnet" class="form-control" placeholder="Introduzca apellido materno">
-      </div>
-      <div class="form-group">
         <label>Correo Electronico</label>
         <input name="correo" type="text" class="form-control" placeholder="Introduzca el email">
-      </div>
-      <div class="form-group">
-        <label>Carga Horaria</label>
-        <select name="carga" class="form-control">
-          <option value="Tiempo Completo">Tiempo Completo</option>
-          <option value="Tiempo Parcial">Tiempo Parcial</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>telefono</label>
-        <input name="telefono" type="text" class="form-control" placeholder="Introduzca el telefono">
       </div>
       <div class="form-group">
         <label>Titulo</label>
@@ -60,10 +45,6 @@
           <option value="5">Msc. Ing.</option>  
           <option value="6">Doc.</option>
         </select>
-      </div>
-      <div class="form-group">
-        <label>Direccion</label>
-        <input name="direccion" type="text" class="form-control" placeholder="Introduzca apellido materno">
       </div>
       <div class="form-group">
       <label>Areas afin</label><a href="../areas/registrar"> <i class="fa fa-plus"> </i></a>

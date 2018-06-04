@@ -69,9 +69,6 @@
                   <li><a href="#">Proyectos para revision</a></li>
                   <li><a href="../misAreas">Anadir areas de interes</a></li>
                   @endif
-                  @if($user[0]->nivel == 2)
-                  <li><a href="#">Anadir areas de conocimiento</a></li>
-                  @endif
                   @if($user[0]->nivel == 1)
                   <li><a href="#">Anadir administrador</a></li>
                   @endif
@@ -109,6 +106,19 @@
             </li>
             
             <li class="treeview">
+              <a href="../tribunales">
+                <i class="fa fa-users"></i>
+                <span>Tribunales</span>
+                 <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="../tribunales"><i class="fa fa-circle-o"></i> Lista de tribunales</a></li>
+                <li><a href="../tribunales/registrar"><i class="fa fa-circle-o"></i> Registrar Tribunal</a></li>
+                
+              </ul>
+            </li>
+
+            <li class="treeview">
               <a href="../docentes">
                 <i class="fa fa-users"></i>
                 <span>Docentes</span>
@@ -143,7 +153,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="../proyectos"><i class="fa fa-circle-o"></i> Lista de proyectos</a></li>
-                <li><a href="../proyectos/registrarProy"><i class="fa fa-circle-o"></i> Registrar Proyecto</a></li>
+                <!--li><a href="../proyectos/registrarProy"><i class="fa fa-circle-o"></i> Registrar Proyecto</a></li!-->
                 <li><a href="../proyectos/registrarProyLote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
               </ul>
             </li>
@@ -162,7 +172,7 @@
               </ul>
             </li>
 
-            <!--li class="treeview">
+            <li class="treeview">
               <a href="/estudiantes">
                 <i class="fa fa-users"></i>
                 <span>Estudiantes</span>
@@ -170,7 +180,8 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="../estudiantes"><i class="fa fa-circle-o"></i> Lista de estudiantes</a></li>
-                <li><a href="../estudiantes/registrar"><i class="fa fa-circle-o"></i> Registrar Estudiante</a></li>
+                <li><a href="../estudiantes/registrarlote"><i class="fa fa-circle-o"></i> Registrar por lote</a></li>
+                <!--li><a href="../estudiantes/registrar"><i class="fa fa-circle-o"></i> Registrar Estudiante</a></li!-->
               </ul>
             </li>
 

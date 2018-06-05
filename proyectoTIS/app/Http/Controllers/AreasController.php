@@ -27,6 +27,13 @@ class AreasController extends Controller
         return view('../home', ['user'=>$this->getUser()]);
     }
     public function save(Request $request){
+        if(count($request->file()) > 0){
+            $area = new Area;
+            $file = $request->file('file');
+            $area->importAreas($file);
+            return view('areas.index', compact('areas'), ['areas'=>$area->getAll(), 'user'=>$this->getUser()]);
+        }
+
         $this->validate($request, [
             'nombre' => 'required|string'
         ]);

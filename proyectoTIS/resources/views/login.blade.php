@@ -25,7 +25,7 @@
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Iniciar Sesion</p>
-        <form id="form" action="/home" method="POST" role="form">
+        <form id="form" action="../home/" method="POST" role="form">
           {{ csrf_field() }}
           @if (count($errors) > 0)
           <div class="alert alert-danger">

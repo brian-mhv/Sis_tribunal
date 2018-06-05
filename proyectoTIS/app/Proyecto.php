@@ -8,11 +8,20 @@ use App\EstTesis;
 use App\ProfTesis;
 use App\Modalidad;
 use App\Http\Requests;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class Proyecto extends Model
 {
     protected $table='tesis';
     public $timestamps=false;
+    protected $fillable =[
+        'codigo',
+        'codigo_tesis',
+        'nombre',
+        'estado',
+        'cod_modalidad'
+    ];
 
     public function getAll(){
         $tesis = \DB::table('tesis')->join('modalidad', 'modalidad.codigo', '=', 'tesis.cod_modalidad')
@@ -23,7 +32,8 @@ class Proyecto extends Model
         ->select('tesis.*',
         'modalidad.nombre as cod_modalidad', 'profesional.nombre as cod_prof', 
         'profesional.apellido_paterno', 'profesional.apellido_materno', 'estudiante.nombre as cod_alumno', 
-        'estudiante.apellido_pat', 'estudiante.apellido_mat')->get();
+        'estudiante.apellido_pat', 'estudiante.apellido_mat')
+        ->where('proftesis.tipo_resp', 1)->get();
         return $tesis;
     }
 
@@ -37,7 +47,7 @@ class Proyecto extends Model
         'modalidad.nombre as cod_modalidad', 'profesional.nombre as cod_prof', 
         'profesional.apellido_paterno', 'profesional.apellido_materno', 'estudiante.nombre as cod_alumno', 
         'estudiante.apellido_pat', 'estudiante.apellido_mat')
-        ->where('tesis.codigo', $idTesis)->get();
+        ->where('tesis.codigo', $idTesis)->where('proftesis.tipo_resp', 1)->get();
         return $tesis;
     }
     public function getAreas($idTesis){
@@ -58,5 +68,21 @@ class Proyecto extends Model
         $profTesis->cod_prof = $request->input('tutor');
         $profTesis->cod_tesis = $id->codigo;
         $profTesis->save();
+    }
+    public function importProyectos($file)
+    {
+    	Excel::load($file, function($reader) {
+ 
+        foreach ($reader->get() as $proyecto) {
+        Proyecto::create([
+            'codigo' => $proyecto->codigo,
+            'codigo_tesis' => $proyecto->codigo_tesis,
+            'nombre' => $proyecto->nombre,
+            'estado' => $proyecto->estado,
+            'cod_modalidad' => $proyecto->cod_modalidad
+            ]);
+        }
+        });
+        return Proyecto::all();
     }
 }

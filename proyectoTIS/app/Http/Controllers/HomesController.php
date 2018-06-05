@@ -12,8 +12,10 @@ class HomesController extends Controller
     public function index(Request $request){
 		return view('home',compact('layouts'), ['user'=>$this->getUser()]);
     }
-    public function index2(){
-        return view('home', ['user'=>$this->getUser()]);
+    public function index2()
+    {
+        return "<h2>Bienvenido al sistema de asignacion de tribunales</h2><br>
+        <a href='home/'>Iniciar</a>";
     }
     public function getSesion(Request $request){
         $this->validate($request, [

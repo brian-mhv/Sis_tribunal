@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Profesional extends Model
 {
@@ -63,6 +64,24 @@ class Profesional extends Model
             $areasprof->id_area = $area;
             $areasprof->save();
         }
+    }
+    public function importProfesionales($file)
+    {
+    	Excel::load($file, function($reader) {
+ 
+     foreach ($reader->get() as $profesional) {
+     Profesional::create([
+        'codigo' => $profesional->codigo,
+        'nombre' => $profesional->nombre,
+        'apellido_paterno' => $profesional->ape_pat,
+        'apellido_materno' => $profesional->ape_mat,
+        'titulo' => $profesional->cod_tit,
+        'correo' => $profesional->correo,
+        'cod_docente' => $profesional->cod_docente
+     ]);
+       }
+ });
+ return Profesional::all();
     }
 
 }

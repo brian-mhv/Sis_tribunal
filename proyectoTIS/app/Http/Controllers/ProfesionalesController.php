@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Profesional;
 use App\Area;
 use App\Http\Requests;
+use App\Http\Controllers\ImportProfesionalController;
 
 class ProfesionalesController extends Controller
 {
@@ -26,7 +27,22 @@ class ProfesionalesController extends Controller
         }
         return view('home', ['user'=>$this->getUser()]);
     }
+
+    public function saveLote(Request $request){
+        $file = $request->file('file');
+        $import = new ImportProfesionalController;
+        $profesionales = $import->importProfesionales($file);
+        print_r($profesionales);
+    }
+
     public function save(Request $request){
+        if(count($request->file()) > 0){
+            $invitado = new Profesional;
+            $file = $request->file('file');
+            $profesionales = $invitado->importProfesionales($file);
+            return view('invitados.index', compact('invitados'), ['invitados'=>$invitado->invitados(), 'user'=>$this->getUser()]);
+        }
+
         $this->validate($request, [
         'nombre' => 'required|string',
         'apPat' => 'required|string',

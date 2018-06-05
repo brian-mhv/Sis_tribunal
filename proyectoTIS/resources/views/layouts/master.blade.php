@@ -49,7 +49,7 @@
               <li class="dropdown user user-menu">
               
               @if($user == null)
-                <a href="../login" class="dropdown-toggle" > 
+                <a href="../login/" class="dropdown-toggle" > 
                   <span class="hidden-xs">Iniciar Sesion</span>                  
                 </a>
               @endif
@@ -100,7 +100,7 @@
             
             <!--pagina INICIO del sistema-->
             <li>
-              <a href="../home">
+              <a href="../home/">
                 <i class="fa fa-home"></i><span>Inicio</span>
               </a>
             </li>
@@ -112,7 +112,7 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../tribunales"><i class="fa fa-circle-o"></i> Lista de tribunales</a></li>
+                <li><a href="../tribunales/"><i class="fa fa-circle-o"></i> Lista de tribunales</a></li>
                 <li><a href="../tribunales/registrar"><i class="fa fa-circle-o"></i> Registrar Tribunal</a></li>
                 
               </ul>
@@ -125,7 +125,7 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../docentes"><i class="fa fa-circle-o"></i> Lista de docentes</a></li>
+                <li><a href="../docentes/"><i class="fa fa-circle-o"></i> Lista de docentes</a></li>
                 <li><a href="../docentes/registrar"><i class="fa fa-circle-o"></i> Registrar Docente</a></li>
                 <li><a href="../docentes/registrarlote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
               </ul>
@@ -138,7 +138,7 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../invitados"><i class="fa fa-circle-o"></i> Lista de invitados</a></li>
+                <li><a href="../invitados/"><i class="fa fa-circle-o"></i> Lista de invitados</a></li>
                 <li><a href="../invitados/registrar"><i class="fa fa-circle-o"></i> Registrar Invitado</a></li>
                 <li><a href="../invitados/registrarlote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
               </ul>
@@ -146,15 +146,14 @@
             
             <!--Pagina de PROYECTO del sistema-->
             <li class="treeview">
-              <a href="#">
+              <a href="../proyectos">
                 <i class="fa fa-folder-open-o"></i>
                 <span>Proyecto Grado</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../proyectos"><i class="fa fa-circle-o"></i> Lista de proyectos</a></li>
-                <!--li><a href="../proyectos/registrarProy"><i class="fa fa-circle-o"></i> Registrar Proyecto</a></li!-->
-                <li><a href="../proyectos/registrarProyLote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
+                <li><a href="../tesis/"><i class="fa fa-circle-o"></i> Lista de proyectos</a></li>
+                <li><a href="../tesis/registrarlote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
               </ul>
             </li>
              
@@ -166,7 +165,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../areas"><i class="fa fa-circle-o"></i> Lista de areas</a></li>
+                <li><a href="../areas/"><i class="fa fa-circle-o"></i> Lista de areas</a></li>
                 <li id="regAreas"><a href="../areas/registrar"><i class="fa fa-circle-o"></i> Registrar area</a></li>
                 <li><a href="../areas/registrarlote"><i class="fa fa-circle-o"></i> Registrar por lote</a></li>
               </ul>
@@ -179,7 +178,7 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../estudiantes"><i class="fa fa-circle-o"></i> Lista de estudiantes</a></li>
+                <li><a href="../estudiantes/"><i class="fa fa-circle-o"></i> Lista de estudiantes</a></li>
                 <li><a href="../estudiantes/registrarlote"><i class="fa fa-circle-o"></i> Registrar por lote</a></li>
                 <!--li><a href="../estudiantes/registrar"><i class="fa fa-circle-o"></i> Registrar Estudiante</a></li!-->
               </ul>
@@ -187,14 +186,14 @@
 
             <!--Pagina de AYUDA del sistema-->
              <li>
-              <a href="../help">
+              <a href="../help/">
                 <i class="fa fa-plus-square"></i> <span>Ayuda</span>
               </a>
             </li>
 
             <!--Pagina de ACER DE del sistema-->
             <li>
-              <a href="../about">
+              <a href="../about/">
                 <i class="fa fa-info-circle"></i> <span>Acerca De</span>
                 <small class="label pull-right bg-blue">HashTag.com</small>
               </a>

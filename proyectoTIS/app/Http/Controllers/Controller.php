@@ -15,16 +15,20 @@ class Controller extends BaseController
     public function __construct(){
         \Session::put('user', null);
     }
+
     public function getUser(){
         $myUser = \Session::get('user');
         return $myUser;
     }
+
     public function addSesion($newUser){
         \Session::put('user', $newUser);
     }
+
     public function closeSesion(){
         \Session::put('user', null);
     }
+
     public function createSesion(){
         $profesionales = new Profesionales;
         $prof = $profesionales->all();

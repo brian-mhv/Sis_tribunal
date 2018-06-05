@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Area extends Model
 {
@@ -58,5 +59,20 @@ class Area extends Model
             return $profesionales;
         }
         return NULL;
+    }
+
+    public function importAreas($file)
+    {
+    	Excel::load($file, function($reader) {
+ 
+            foreach ($reader->get() as $area) {
+                Area::create([
+                    'idArea' =>$area->codigo,
+                    'nombre_area' => $area->nombre,
+                    'descripcion' =>$area->descripcion,
+                    'id_subarea' =>$area->cod_are
+                ]);
+            }
+        });
     }
 }

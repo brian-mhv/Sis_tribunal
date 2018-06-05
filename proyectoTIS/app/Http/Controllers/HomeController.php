@@ -23,7 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return "<h2>Bienvenido al sistema de asignacion de tribunales</h2><br>
+        <a href='home/'>Iniciar</a>";
     }
 
 }

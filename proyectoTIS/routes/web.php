@@ -11,10 +11,10 @@
 |
 */
 //rutas de las diferentes paginas 
-Route::get('/', 'HomesController@index');
-Route::get('/home', 'HomesController@index');
-Route::post('/home', 'HomesController@getSesion');
-Route::get('/logout', 'HomesController@logout');
+Route::get('/', 'HomesController@index2');
+Route::get('home', 'HomesController@index');
+Route::post('home', 'HomesController@getSesion');
+Route::get('logout', 'HomesController@logout');
 
 Route::get('login','AuthsController@index');
 
@@ -30,20 +30,23 @@ Route::get('/docentes/registrarlote', 'DocentesController@addLote');
 Route::get('/invitados', 'ProfesionalesController@invitados');
 Route::post('/invitados', 'ProfesionalesController@save');
 Route::get('/invitados/registrar', 'ProfesionalesController@add');
+Route::post('/invitados/registrarlote', 'ProfesionalesController@saveLote');
 Route::get('/invitados/registrarlote', 'ProfesionalesController@addLote');
 
-Route::get('/proyectos', 'ProyectosController@index');
-//Route::post('/proyectos', 'ProyectosController@save');
+Route::get('tesis', 'ProyectosController@index');
+Route::get('tesis/registrarlote', 'ProyectosController@addLote');
+Route::post('tesis', 'ProyectosController@save');
 //Route::get('/proyectos/registrarProy', 'ProyectosController@add');
 //Route::get('/proyectos/registrarProyLote', 'ProyectosController@addLote');
 
-Route::get('/areas', 'AreasController@index');
-Route::post('/areas', 'AreasController@save');
-Route::get('/areas/registrar', 'AreasController@add');
-Route::get('/areas/registrarlote', 'AreasController@addLote');
+Route::get('areas', 'AreasController@index');
+Route::post('areas', 'AreasController@save');
+Route::get('areas/registrar', 'AreasController@add');
+Route::get('areas/registrarlote', 'AreasController@addLote');
 
-Route::get('/estudiantes', 'EstudiantesController@index');
-//Route::post('/estudiantes', 'EstudiantesController@save');
+Route::get('estudiantes', 'EstudiantesController@index');
+Route::post('/estudiantes', 'EstudiantesController@save');
+Route::get('/estudiantes/registrarlote', 'EstudiantesController@addLote');
 //Route::get('/estudiantes/registrar', 'EstudiantesController@add');
 
 Route::get('help', 'HelpsController@index');
@@ -54,7 +57,7 @@ Route::get('about', 'AboutsController@index');
 Route::get('importArea', 'ImportAreaController@import');
 Route::get('importProfesional', 'ImportProfesionalController@import');
 
-Route::get('/misAreas', 'PerfilDocente@addAreas');
+Route::get('misAreas', 'PerfilDocente@addAreas');
 //Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

@@ -14,12 +14,24 @@ class EstudiantesController extends Controller
         $estudiante = new Estudiante;
         return view('estudiantes.index', compact('estudiantes'), ['estudiantes'=>$estudiante->all(), 'user'=>$this->getUser()]);
     }
+    public function addLote(){
+        if($this->getUser() && $this->getUser()[0]->nivel == 1){
+            return view('estudiantes.registrarLote', ['user'=>$this->getUser()]);
+        }
+        return view('home', ['user'=>$this->getUser()]);
+    }
     /*public function add(){
         $carrera = new Carrera;
         return view('estudiantes.registrar', compact('estudiantes'), ['carreras'=>$carrera->all(), 'user'=>$this->getUser()]);
-    }
+    }*/
     public function save(Request $request){
-        $this->validate($request, [
+        if(count($request->file()) > 0){
+            $file = $request->file('file');
+            $estudiante = new Estudiante;
+            $estudiante->importEstudiantes($file);
+            return view('estudiantes.index', compact('estudiantes'), ['estudiantes'=>$estudiante->all(), 'user'=>$this->getUser()]);
+        }
+        /*$this->validate($request, [
             'nombre' => 'required|string',
             'apPat' => 'required|string',
             'apMat' => 'required|string',
@@ -37,6 +49,6 @@ class EstudiantesController extends Controller
         $estudiante->save();
         $estudiante->addEstCarrera($request);
         $estudiante->addSesion();
-        return view('estudiantes.index', compact('estudiantes'), ['estudiantes'=>$estudiante->all(), 'user'=>$this->getUser()]);
-    }*/
+        return view('estudiantes.index', compact('estudiantes'), ['estudiantes'=>$estudiante->all(), 'user'=>$this->getUser()]);*/
+    }
 }

@@ -5,6 +5,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 CREATE DATABASE  IF NOT EXISTS tis /*!40100 DEFAULT CHARACTER SET latin1*/;
 USE tis;
 
+DROP TABLE IF EXISTS `TipoResponsable` ;
 DROP TABLE IF EXISTS `EstCarrera` ;
 DROP TABLE IF EXISTS `ProfTesis` ;
 DROP TABLE IF EXISTS `EstTesis` ;
@@ -22,6 +23,11 @@ DROP TABLE IF EXISTS `AreasProfesional` ;
 DROP TABLE IF EXISTS `AreaTesis` ;
 DROP TABLE IF EXISTS `Carrera` ;
 
+CREATE  TABLE IF NOT EXISTS `TipoResponsable` (
+  `id_tipo` INT NOT NULL ,
+  `nombre_tipo` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`id_tipo`) )
+ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `EstCarrera`
 -- -----------------------------------------------------
@@ -49,6 +55,7 @@ ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `ProfTesis` (
   `cod_prof` INT NOT NULL ,
   `cod_tesis` INT NOT NULL ,
+  `tipo_resp` INT NOT NULL,
   PRIMARY KEY (`cod_prof`, `cod_tesis`) ,
   INDEX `cod_prof_idx` (`cod_prof` ASC) ,
   INDEX `cod_tesis_idx` (`cod_tesis` ASC) ,
@@ -60,6 +67,11 @@ CREATE  TABLE IF NOT EXISTS `ProfTesis` (
   CONSTRAINT `cod_tesis`
     FOREIGN KEY (`cod_tesis` )
     REFERENCES `Tesis` (`codigo` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `tipo_resp`
+    FOREIGN KEY (`tipo_resp` )
+    REFERENCES `TipoResponsable` (`id_tipo` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -120,7 +132,7 @@ CREATE  TABLE IF NOT EXISTS `Profesional` (
   `apellido_materno` VARCHAR(45) NULL ,
   `titulo` INT NOT NULL ,
   `cod_docente` INT NULL,
-  `correo` VARCHAR(45) NULL,
+  `correo` VARCHAR(100) NULL,
   PRIMARY KEY (`codigo`) ,
   UNIQUE INDEX `id_UNIQUE` (`codigo` ASC) ,
   INDEX `titulo_idx` (`titulo` ASC) ,
@@ -165,10 +177,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `Tesis` (
   `codigo` INT NOT NULL AUTO_INCREMENT ,
-  `codigo_tesis` VARCHAR(45) NOT NULL ,
-  `nombre` VARCHAR(200) NOT NULL ,
+  `codigo_tesis` VARCHAR(45) NULL ,
+  `nombre` VARCHAR(450) NOT NULL ,
   `descripcion` VARCHAR(200) NULL ,
-  `estado` VARCHAR(1) NOT NULL ,
+  `estado` VARCHAR(45) NOT NULL ,
   `dir_form` VARCHAR(45) NULL ,
   `cod_ges_per_ini` INT NULL ,
   `cod_ges_per_fin` INT NULL ,
@@ -176,10 +188,9 @@ CREATE  TABLE IF NOT EXISTS `Tesis` (
   `cod_modalidad` INT NOT NULL ,
   `cod_emp` INT NULL ,
   `obj_gral` VARCHAR(200) NULL ,
-  `carrera` INT NOT NULL,
+  `carrera` INT NULL,
   PRIMARY KEY (`codigo`) ,
   UNIQUE INDEX `idProyecto_UNIQUE` (`codigo` ASC) ,
-  UNIQUE INDEX `codigo_tesis_UNIQUE` (`codigo_tesis` ASC) ,
   INDEX `cod_modalidad_idx` (`cod_modalidad` ASC) ,
   INDEX `cod_ges_per_ini_idx` (`cod_ges_per_ini` ASC) ,
   INDEX `cod_ges_per_fin_idx` (`cod_ges_per_fin` ASC) ,
@@ -252,12 +263,12 @@ CREATE  TABLE IF NOT EXISTS `Estudiante` (
   `codigo` INT NOT NULL AUTO_INCREMENT ,
   `cod_sis` INT NULL ,
   `nombre` VARCHAR(45) NOT NULL ,
-  `apellido_pat` VARCHAR(45) NOT NULL ,
-  `apellido_mat` VARCHAR(45) NOT NULL ,
+  `apellido_pat` VARCHAR(45) NULL ,
+  `apellido_mat` VARCHAR(45) NULL ,
   `telefono` INT NULL ,
   `direccion` VARCHAR(45) NULL ,
   `cod_cue` VARCHAR(45) NULL ,
-  `correo` VARCHAR(45) NULL,
+  `correo` VARCHAR(100) NULL,
   `ci` VARCHAR(45) NULL ,
   `dir_fot` INT NULL ,
   PRIMARY KEY (`codigo`) ,
@@ -281,8 +292,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `Area` (
   `idArea` INT NOT NULL AUTO_INCREMENT ,
-  `nombre_area` VARCHAR(100)  NULL,
-  `descripcion` VARCHAR(450) NULL DEFAULT 'Descripcion no disponible' ,
+  `nombre_area` VARCHAR(1000)  NULL,
+  `descripcion` VARCHAR(1000) NULL DEFAULT 'Descripcion no disponible' ,
   `id_subarea` INT NULL,
   PRIMARY KEY (`idArea`) ,
   INDEX `id_subarea_idx` (`id_subarea` ASC) ,
@@ -361,6 +372,11 @@ INSERT INTO `tis`.`titulo` (`codigo`, `nombre`) VALUES ('3', 'Msc.');
 INSERT INTO `tis`.`titulo` (`codigo`, `nombre`) VALUES ('4', 'Msc. Lic.');
 INSERT INTO `tis`.`titulo` (`codigo`, `nombre`) VALUES ('5', 'Msc. Ing.');
 INSERT INTO `tis`.`titulo` (`codigo`, `nombre`) VALUES ('6', 'Doc.');
+INSERT INTO `tis`.`titulo` (`codigo`, `nombre`) VALUES ('7', 'Prof.');
+
+INSERT INTO `tis`.`tiporesponsable` (`id_tipo`, `nombre_tipo`) VALUES ('1', 'Tutor');
+INSERT INTO `tis`.`tiporesponsable` (`id_tipo`, `nombre_tipo`) VALUES ('2', 'Tribunal');
+INSERT INTO `tis`.`tiporesponsable` (`id_tipo`, `nombre_tipo`) VALUES ('3', 'Tutor-Tribunal');
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

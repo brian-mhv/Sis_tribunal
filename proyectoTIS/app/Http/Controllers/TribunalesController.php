@@ -44,6 +44,7 @@ class TribunalesController extends Controller
         $tribunales->id_profesional3 = $request->input('profesional3');
         $tribunales->fecha_defensa = $request->input('fecha');
         $tribunales->save();
+        //mandar correo 
         $profesionales = $tribunales->getProf();
         return view('tribunales.index', compact('tribunales'), 
         ['tribunal'=>$tribunales->getAll(), 'profesional'=>$profesionales, 'user'=>$this->getUser()]);

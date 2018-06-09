@@ -37,7 +37,7 @@
                     </tr>
                 </tbody>
                 </table>
-                <form action="/tribunales/<?php echo $proyecto[0]->codigo;?>" method='GET'>
+                <form action="../tribunales/<?php echo $proyecto[0]->codigo;?>" method='GET'>
                     <input style="width:50%; background-position:center;" type='text' placeholder=' Buscar profesional por areas de especializacion' name='area'>
                     <input type="submit" class="btn btn-primary" value="Buscar">
                 </form>

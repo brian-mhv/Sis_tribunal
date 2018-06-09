@@ -72,7 +72,7 @@
                   @if($user[0]->nivel == 1)
                   <li><a href="#">Anadir administrador</a></li>
                   @endif
-                  <li><a href="/logout">Cerrar sesion</a></li>
+                  <li><a href="../logout/">Cerrar sesion</a></li>
                 </ul>
               @endif
               </li>

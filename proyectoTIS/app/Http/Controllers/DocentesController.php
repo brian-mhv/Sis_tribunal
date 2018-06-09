@@ -29,6 +29,12 @@ class DocentesController extends Controller
         return view('home', ['user'=>$this->getUser()]);
     }
     public function save(Request $request){
+        if(count($request->file()) > 0){
+            $docente = new Docente;
+            $file = $request->file('file');
+            $docentes = $docente->importDocentes($file);
+            return view('docentes.index', compact('docentes'), ['docentes'=>$docente->getAll(), 'user'=>$this->getUser()]);
+        }
         $this->validate($request, [
         'nombre' => 'required|string',
         'apPat' => 'required|string',

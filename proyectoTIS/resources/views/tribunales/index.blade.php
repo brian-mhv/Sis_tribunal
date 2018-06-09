@@ -10,7 +10,7 @@
                 <table class="table">
                     <thread>
                     <tr>
-                        <td>CODIGO</td>
+                        <td>ID</td>
                         <td>PROFESIONAL 1</td>
                         <td>PROFESIONAL 2</td>
                         <td>PROFESIONAL 3</td>

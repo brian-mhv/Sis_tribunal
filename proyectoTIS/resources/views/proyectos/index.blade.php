@@ -10,7 +10,7 @@
                 <table class="table">
                     <thread>
                     <tr>
-                        <td>CODIGO</td>
+                        <td>ID</td>
                         <td>COD. TESIS</td>
                         <td>TUTOR</td>
                         <td>POSTULANTE</td>

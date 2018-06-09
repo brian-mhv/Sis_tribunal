@@ -24,7 +24,6 @@
                     </thread>
                     <tbody>
                         <?php
-
                         foreach($docentes as $rows) {?>
                     <tr>
                         <td><?php echo $rows->codigo; ?></td>

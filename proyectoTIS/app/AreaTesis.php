@@ -30,6 +30,5 @@ class AreaTesis extends Model
             ]);
         }
         });
-        return AreaTesis::all();
     }
 }

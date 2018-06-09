@@ -8,6 +8,7 @@ use App\Profesional;
 use App\Sesion;
 use App\Http\Requests;
 use Illuminate\Database\Eloquent\Model;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Docente extends Model
 {
@@ -15,6 +16,48 @@ class Docente extends Model
     protected $table2='profesional';
     protected $primaryKey='codigo';
     public $timestamps=false;
+    protected $fillable =[
+        'telefono',
+        'direccion',
+        'ci'
+    ];
+
+    public function importDocentes($file)
+    {
+     Excel::load($file, function($reader) {
+      foreach ($reader->get() as $docente) {
+         Docente::create([
+            'telefono' => $docente->telefono,
+            'direccion' => $docente->direccion,
+            'ci' => $docente->ci
+            ]);
+         $prof = \DB:: table('profesional')->select('profesional.*')
+         ->where('profesional.nombre', $docente->nombre)
+         ->where('profesional.apellido_paterno', $docente->ape_pat)->get();
+         if(count($prof) == 0){$this->createProfesional($docente);}
+         else{$this->compareProfesional($docente);}
+      }
+     });
+    }
+
+    public function compareProfesional($docente){
+      $profesional = new Profesional;
+      foreach ($profesional->invitados() as $prof ){
+        if ($docente->nombre == $prof->nombre && $docente->ape_pat == $prof->apellido_paterno 
+        && $docente->ape_mat == $prof->apellido_materno && is_null($prof->cod_docente)){
+            $inv = Profesional::find($prof->codigo);
+            $inv->correo = $docente->correo;
+            $inv->cod_docente = $this->generateCode();
+            $inv->save();
+        }
+      }
+    }
+
+    public function generateCode(){
+        $codigo = \DB::table('docente')->select('codigo')->get();
+        $id = $codigo[count($codigo) - 1];
+        return $id->codigo;        
+    }
 
     public function getAll(){
         $profesionales=\DB::table('profesional')->join('titulo', 'titulo.codigo', '=', 'profesional.titulo')
@@ -54,5 +97,16 @@ class Docente extends Model
         $sesion->pass = "hashtag";
         $sesion->nivel = 2;
         $sesion->save();
+    }
+
+    public function createProfesional($profesional){
+        Profesional::create([
+            'nombre' => $profesional->nombre,
+            'apellido_paterno' => $profesional->ape_pat,
+            'apellido_materno' => $profesional->ape_mat,
+            'titulo' => $profesional->cod_tit,
+            'correo' => $profesional->correo,
+            'cod_docente' => $this->generateCode()
+        ]);
     }
 }

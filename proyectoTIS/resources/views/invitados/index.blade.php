@@ -10,7 +10,7 @@
                 <table class="table">
                     <thread>
                     <tr>
-                        <td>CODIGO</td>
+                        <td>ID</td>
                         <td>NOMBRE</td>
                         <td>APELLIDO P</td>
                         <td>APELLIDO M</td>

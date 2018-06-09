@@ -8,7 +8,7 @@ use Maatwebsite\Excel\Facades\Excel;
 class Profesional extends Model
 {
     protected $table='profesional';
-    protected $primaryKey='idProfesional';
+    protected $primaryKey='codigo';
     public $timestamps=false;
 
     protected $fillable =[
@@ -67,20 +67,20 @@ class Profesional extends Model
     }
     public function importProfesionales($file)
     {
-    	Excel::load($file, function($reader) {
+      Excel::load($file, function($reader) {
  
-     foreach ($reader->get() as $profesional) {
-     Profesional::create([
-        'codigo' => $profesional->codigo,
-        'nombre' => $profesional->nombre,
-        'apellido_paterno' => $profesional->ape_pat,
-        'apellido_materno' => $profesional->ape_mat,
-        'titulo' => $profesional->cod_tit,
-        'correo' => $profesional->correo,
-        'cod_docente' => $profesional->cod_docente
-     ]);
-       }
- });
+        foreach ($reader->get() as $profesional) {
+            Profesional::create([
+            'codigo' => $profesional->codigo,
+            'nombre' => $profesional->nombre,
+            'apellido_paterno' => $profesional->ape_pat,
+            'apellido_materno' => $profesional->ape_mat,
+            'titulo' => $profesional->cod_tit,
+            'correo' => $profesional->correo,
+            'cod_docente' => $profesional->cod_docente
+            ]);
+        }
+      });
  return Profesional::all();
     }
 

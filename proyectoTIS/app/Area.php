@@ -50,17 +50,34 @@ class Area extends Model
         }
         return NULL;
     }
-    public function getByFilter($string){
+    public function getByFilter($string, $tesis){
+        $proftesis = \DB::table('proftesis')
+            ->select('proftesis.*')->distinct()
+            ->where('proftesis.cod_tesis', $tesis)
+            ->where('proftesis.tipo_resp', 1)->get();
         $area = $this->getFilter($string);
         if($area !== NULL){
             $profesionales = \DB::table('areasprofesional')
             ->join('profesional', 'profesional.codigo', 'areasprofesional.id_profesional')
-            ->select('profesional.*')->distinct()->where('areasprofesional.id_area', $area->idArea)->get();
-            return $profesionales;
+            ->select('profesional.*', 'areasprofesional.*')->distinct()
+            ->where('areasprofesional.id_area', $area->idArea)
+            ->where('profesional.codigo', '<>', $proftesis[0]->cod_prof)
+            ->orderBy('profesional.codigo', 'asc')->get();
+            return $this->cantProyectos($profesionales);
         }
         return NULL;
     }
 
+    public function cantProyectos($profesionales){
+        foreach($profesionales as $prof){
+            $proftesis = \DB::table('proftesis')
+            ->select('*')->distinct()
+            ->where('proftesis.tipo_resp', 2)
+            ->where('proftesis.cod_prof', $prof->codigo)->get();
+            $prof->id_profesional = count($proftesis);
+            }
+        return $profesionales;
+    }
     public function importAreas($file)
     {
     	Excel::load($file, function($reader) {

@@ -21,7 +21,6 @@ class Docente extends Model
         'direccion',
         'ci'
     ];
-
     public function importDocentes($file)
     {
      Excel::load($file, function($reader) {
@@ -39,7 +38,6 @@ class Docente extends Model
       }
      });
     }
-
     public function compareProfesional($docente){
       $profesional = new Profesional;
       foreach ($profesional->invitados() as $prof ){
@@ -52,17 +50,26 @@ class Docente extends Model
         }
       }
     }
-
+    public function createProfesional($profesional){
+        Profesional::create([
+            'nombre' => $profesional->nombre,
+            'apellido_paterno' => $profesional->ape_pat,
+            'apellido_materno' => $profesional->ape_mat,
+            'titulo' => $profesional->cod_tit,
+            'correo' => $profesional->correo,
+            'cod_docente' => $this->generateCode()
+        ]);
+    }
     public function generateCode(){
-        $codigo = \DB::table('docente')->select('codigo')->get();
-        $id = $codigo[count($codigo) - 1];
+        $docente = \DB::table('docente')->select('codigo')->get();
+        $id = $docente[count($docente) - 1];
         return $id->codigo;        
     }
-
     public function getAll(){
         $profesionales=\DB::table('profesional')->join('titulo', 'titulo.codigo', '=', 'profesional.titulo')
         ->join('docente', 'docente.codigo', '=', 'profesional.cod_docente')
-        ->select('docente.*', 'profesional.*', 'titulo.nombre as titulo')->where('cod_docente', '>', 0)->get();
+        ->select('docente.*', 'profesional.*', 'titulo.nombre as titulo')->where('cod_docente', '>', 0)
+        ->orderBy('profesional.codigo', 'asc')->get();
         return $profesionales;
     }
     public function addProfesional(Request $request){
@@ -97,16 +104,5 @@ class Docente extends Model
         $sesion->pass = "hashtag";
         $sesion->nivel = 2;
         $sesion->save();
-    }
-
-    public function createProfesional($profesional){
-        Profesional::create([
-            'nombre' => $profesional->nombre,
-            'apellido_paterno' => $profesional->ape_pat,
-            'apellido_materno' => $profesional->ape_mat,
-            'titulo' => $profesional->cod_tit,
-            'correo' => $profesional->correo,
-            'cod_docente' => $this->generateCode()
-        ]);
     }
 }

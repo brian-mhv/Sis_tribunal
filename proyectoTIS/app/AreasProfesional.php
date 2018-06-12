@@ -8,6 +8,10 @@ class AreasProfesional extends Model
 {
     protected $table="areasprofesional";
     public $timestamps=false;
+    protected $fillable =[
+        'id_profesional',
+        'id_area'
+    ];
 
     public function getAreas($codigo){
         $areas = \DB::table('areasprofesional')->join('area', 'area.idArea', 'areasprofesional.id_area')

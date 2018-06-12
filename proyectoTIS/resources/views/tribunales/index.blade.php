@@ -7,23 +7,24 @@
                 <h2>Tribunales</h2>
                 <div class="box box-primary">
                 </div>
-                <table class="table">
-                    <thread>
-                    <tr>
-                        <td>ID</td>
-                        <td>PROFESIONAL 1</td>
-                        <td>PROFESIONAL 2</td>
-                        <td>PROFESIONAL 3</td>
-                        <td>TITULO PROYECTO</td>
-                        <td>FECHA DE DEFENSA</td>
+              <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tr class="success">
+                      <th>ID</th>
+                      <th>Proyecto</th>
+                      <th>Profesional 1</th>
+                      <th>Profesional 2</th>
+                      <th>Profesional 3</th>
+                      <th>Fecha de Defensa</th>
+                      <th>Estado</th>
                     </tr>
-                    </thread>
                     <tbody>
                         <?php
                         foreach($tribunal as $rows) {?>
                     <tr>
                     
                         <td><?php echo $rows->idTribunal; ?></td>
+                        <td><?php echo $rows->id_tesis; ?></td>
                         @foreach ($profesional as $prof)
                         @if ($prof->codigo == $rows->id_profesional1)
                             <td><?php echo $rows->id_profesional1; ?></td>
@@ -39,12 +40,13 @@
                             <td><?php echo $rows->id_profesional3; ?></td>
                         @endif
                         @endforeach
-                        <td><?php echo $rows->id_tesis; ?></td>
                         <td><?php echo $rows->fecha_defensa; ?></td>
+                        <td><?php echo $rows->estado; ?></td>
                     </tr>
                     <?php }?>
                 </tbody>
                 </table>
+              </div>
             </div>
         </div>
     </div>

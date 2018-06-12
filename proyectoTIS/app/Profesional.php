@@ -3,6 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\ProfTesis;
+use App\AreaTesis;
+use App\AreasProfesional;
 use Maatwebsite\Excel\Facades\Excel;
 
 class Profesional extends Model
@@ -23,12 +26,15 @@ class Profesional extends Model
     protected $guarded =[];
 
     public function getAll(){
-        $profesionales=\DB::table('profesional')->select('codigo', 'nombre', 'apellido_paterno', 'apellido_materno', 'correo')->get();
+        $profesionales=\DB::table('profesional')
+        ->select('codigo', 'nombre', 'apellido_paterno', 'apellido_materno', 'correo')
+        ->orderBy('profesional.codigo', 'asc')->get();
         return $profesionales;
     }
     public function invitados(){
         $invitados=\DB::table('profesional')->join('titulo', 'titulo.codigo', 'profesional.titulo')
-        ->select('profesional.*', 'titulo.nombre as titulo')->where('cod_docente', '=', null)->get();
+        ->select('profesional.*', 'titulo.nombre as titulo')->where('cod_docente', '=', null)
+        ->orderBy('profesional.codigo', 'asc')->get();
         return $invitados;
     }
 
@@ -83,5 +89,16 @@ class Profesional extends Model
       });
  return Profesional::all();
     }
-
+    public function addAreaLote(){
+        $areas = \DB::table('areatesis')
+        ->join('proftesis', 'proftesis.cod_tesis', 'areatesis.id_tesis')
+        ->select('areatesis.id_area', 'proftesis.cod_prof')->distinct()
+        ->where('proftesis.tipo_resp', 1)->get();
+        foreach($areas as $area){
+            AreasProfesional::create([
+                'id_profesional' => $area->cod_prof,
+                'id_area' => $area->id_area
+            ]);
+        }
+    }
 }

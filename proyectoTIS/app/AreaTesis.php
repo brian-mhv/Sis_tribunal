@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Profesional;
 use Illuminate\Database\Eloquent\Model;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -30,5 +31,7 @@ class AreaTesis extends Model
             ]);
         }
         });
+        $prof = new Profesional;
+        $prof->addAreaLote();
     }
 }

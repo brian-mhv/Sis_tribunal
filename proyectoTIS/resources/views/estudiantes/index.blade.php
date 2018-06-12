@@ -7,10 +7,10 @@
                 <h2>Estudiantes</h2>
                 <div class="box box-primary">
                 </div>
-                <table class="table">
+                <table class="table table-hover">
                     <thread>
                     <tr>
-                        <td>CODIGO</td>
+                        <td>ID</td>
                         <td>COD. SISS</td>
                         <td>NOMBRE</td>
                         <td>AP. PATERNO</td>

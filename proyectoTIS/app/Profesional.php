@@ -3,12 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\ProfTesis;
+use App\AreaTesis;
+use App\AreasProfesional;
 use Maatwebsite\Excel\Facades\Excel;
 
 class Profesional extends Model
 {
     protected $table='profesional';
-    protected $primaryKey='idProfesional';
+    protected $primaryKey='codigo';
     public $timestamps=false;
 
     protected $fillable =[
@@ -23,12 +26,15 @@ class Profesional extends Model
     protected $guarded =[];
 
     public function getAll(){
-        $profesionales=\DB::table('profesional')->select('codigo', 'nombre', 'apellido_paterno', 'apellido_materno', 'correo')->get();
+        $profesionales=\DB::table('profesional')
+        ->select('codigo', 'nombre', 'apellido_paterno', 'apellido_materno', 'correo')
+        ->orderBy('profesional.codigo', 'asc')->get();
         return $profesionales;
     }
     public function invitados(){
         $invitados=\DB::table('profesional')->join('titulo', 'titulo.codigo', 'profesional.titulo')
-        ->select('profesional.*', 'titulo.nombre as titulo')->where('cod_docente', '=', null)->get();
+        ->select('profesional.*', 'titulo.nombre as titulo')->where('cod_docente', '=', null)
+        ->orderBy('profesional.codigo', 'asc')->get();
         return $invitados;
     }
 
@@ -67,21 +73,32 @@ class Profesional extends Model
     }
     public function importProfesionales($file)
     {
-    	Excel::load($file, function($reader) {
+      Excel::load($file, function($reader) {
  
-     foreach ($reader->get() as $profesional) {
-     Profesional::create([
-        'codigo' => $profesional->codigo,
-        'nombre' => $profesional->nombre,
-        'apellido_paterno' => $profesional->ape_pat,
-        'apellido_materno' => $profesional->ape_mat,
-        'titulo' => $profesional->cod_tit,
-        'correo' => $profesional->correo,
-        'cod_docente' => $profesional->cod_docente
-     ]);
-       }
- });
+        foreach ($reader->get() as $profesional) {
+            Profesional::create([
+            'codigo' => $profesional->codigo,
+            'nombre' => $profesional->nombre,
+            'apellido_paterno' => $profesional->ape_pat,
+            'apellido_materno' => $profesional->ape_mat,
+            'titulo' => $profesional->cod_tit,
+            'correo' => $profesional->correo,
+            'cod_docente' => $profesional->cod_docente
+            ]);
+        }
+      });
  return Profesional::all();
     }
-
+    public function addAreaLote(){
+        $areas = \DB::table('areatesis')
+        ->join('proftesis', 'proftesis.cod_tesis', 'areatesis.id_tesis')
+        ->select('areatesis.id_area', 'proftesis.cod_prof')->distinct()
+        ->where('proftesis.tipo_resp', 1)->get();
+        foreach($areas as $area){
+            AreasProfesional::create([
+                'id_profesional' => $area->cod_prof,
+                'id_area' => $area->id_area
+            ]);
+        }
+    }
 }

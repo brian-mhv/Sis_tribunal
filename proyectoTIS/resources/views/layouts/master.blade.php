@@ -72,7 +72,7 @@
                   @if($user[0]->nivel == 1)
                   <li><a href="#">Anadir administrador</a></li>
                   @endif
-                  <li><a href="/logout">Cerrar sesion</a></li>
+                  <li><a href="../logout/">Cerrar sesion</a></li>
                 </ul>
               @endif
               </li>
@@ -106,7 +106,7 @@
             </li>
             
             <li class="treeview">
-              <a href="../tribunales">
+              <a href="../tribunales/">
                 <i class="fa fa-users"></i>
                 <span>Tribunales</span>
                  <i class="fa fa-angle-left pull-right"></i>
@@ -119,7 +119,7 @@
             </li>
 
             <li class="treeview">
-              <a href="../docentes">
+              <a href="../docentes/">
                 <i class="fa fa-users"></i>
                 <span>Docentes</span>
                  <i class="fa fa-angle-left pull-right"></i>
@@ -132,7 +132,7 @@
             </li>
 
             <li class="treeview">
-              <a href="/invitados">
+              <a href="../invitados/">
                 <i class="fa fa-users"></i>
                 <span>Invitados</span>
                  <i class="fa fa-angle-left pull-right"></i>
@@ -146,7 +146,7 @@
             
             <!--Pagina de PROYECTO del sistema-->
             <li class="treeview">
-              <a href="../proyectos">
+              <a href="../tesis/">
                 <i class="fa fa-folder-open-o"></i>
                 <span>Proyecto Grado</span>
                  <i class="fa fa-angle-left pull-right"></i>
@@ -159,7 +159,7 @@
              
             <!--Pagina de AREA del sistema-->
             <li class="treeview">
-              <a href="../areas">
+              <a href="../areas/">
                 <i class="fa fa-th"></i>
                 <span>Areas</span>
                 <i class="fa fa-angle-left pull-right"></i>
@@ -172,7 +172,7 @@
             </li>
 
             <li class="treeview">
-              <a href="/estudiantes">
+              <a href="../estudiantes/">
                 <i class="fa fa-users"></i>
                 <span>Estudiantes</span>
                  <i class="fa fa-angle-left pull-right"></i>

@@ -7,7 +7,7 @@
                 <h2>Docentes</h2>
                 <div class="box box-primary">
                 </div>
-                <table class="table">
+                <table class="table table-hover">
                     <thread>
                     <tr>
                         <td>ID</td>
@@ -24,7 +24,6 @@
                     </thread>
                     <tbody>
                         <?php
-
                         foreach($docentes as $rows) {?>
                     <tr>
                         <td><?php echo $rows->codigo; ?></td>

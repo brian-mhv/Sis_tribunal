@@ -9,6 +9,7 @@ use App\Estudiante;
 use App\Carrera;
 use App\Area;
 use App\ProfTesis;
+use App\EstTesis;
 use App\AreaTesis;
 use App\Http\Requests;
 
@@ -38,30 +39,26 @@ class ProyectosController extends Controller
     public function save(Request $request){
         $proyecto = new Proyecto;
         $profTesis = new ProfTesis;
+        $estTesis = new EstTesis;
         $areaTesis = new AreaTesis;
         if(count($request->file()) > 0){
-
-            $proftesis = $request->file('proftesis');
-            $profTesis->importProfTesis($proftesis);
+            if($request->file('proyectos') != NULL){
+                $project = $request->file('proyectos');
+                $proyecto->importProyectos($project);
+            }
+            if($request->file('proftesis') != NULL){
+                $proftesis = $request->file('proftesis');
+                $profTesis->importProfTesis($proftesis);
+            }
+            if($request->file('esttesis') != NULL){
+                $esttesis = $request->file('esttesis');
+                $estTesis->importEstTesis($esttesis);
+            }
+            if($request->file('areastesis') != NULL){
+                $areastesis = $request->file('areastesis');
+                $areaTesis->importAreaTesis($areastesis);
+            }
             return view('proyectos.index', compact('proyectos'), ['proyectos'=>$proyecto->getAll(), 'user'=>$this->getUser()]);
         }
-
-        $this->validate($request, [
-            'proyecto' => 'required|string',
-            'codtesis' => 'required|string',
-            'carrera' => 'required',
-            'modalidad' => 'required'
-            ]);
-            $proyecto->codigo_tesis = $request->input('codtesis');
-            $proyecto->nombre = $request->input('proyecto');
-            $proyecto->descripcion = $request->input('descripcion');
-            $proyecto->estado = $request->input('estado');
-            $proyecto->obj_gral = $request->input('objetivo');
-            $proyecto->fecha_registro = $request->input('fecha');
-            $proyecto->cod_modalidad = $request->input('modalidad');
-            $proyecto->carrera = $request->input('carrera');
-            $proyecto->save();
-            $proyecto->saveProject($request);
-            return view('proyectos.index', compact('proyectos'), ['proyectos'=>$proyecto->all(), 'user'=>$this->getUser()]);
     }
 }

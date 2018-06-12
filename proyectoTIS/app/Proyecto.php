@@ -33,7 +33,7 @@ class Proyecto extends Model
         'modalidad.nombre as cod_modalidad', 'profesional.nombre as cod_prof', 
         'profesional.apellido_paterno', 'profesional.apellido_materno', 'estudiante.nombre as cod_alumno', 
         'estudiante.apellido_pat', 'estudiante.apellido_mat')
-        ->where('proftesis.tipo_resp', 1)->get();
+        ->where('proftesis.tipo_resp', 1)->orderBy('tesis.codigo', 'asc')->get();
         return $tesis;
     }
 

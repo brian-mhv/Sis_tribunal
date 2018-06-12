@@ -7,10 +7,10 @@
                 <h2>Invitados</h2>
                 <div class="box box-primary">
                 </div>
-                <table class="table">
+                <table class="table table-hover">
                     <thread>
                     <tr>
-                        <td>CODIGO</td>
+                        <td>ID</td>
                         <td>NOMBRE</td>
                         <td>APELLIDO P</td>
                         <td>APELLIDO M</td>

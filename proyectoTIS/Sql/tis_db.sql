@@ -56,11 +56,12 @@ CREATE  TABLE IF NOT EXISTS `ProfTesis` (
   `cod_prof` INT NOT NULL ,
   `cod_tesis` INT NOT NULL ,
   `tipo_resp` INT NOT NULL,
-  PRIMARY KEY (`cod_prof`, `cod_tesis`) ,
+  PRIMARY KEY (`cod_prof`, `cod_tesis`, `tipo_resp`) ,
   INDEX `cod_prof_idx` (`cod_prof` ASC) ,
   INDEX `cod_tesis_idx` (`cod_tesis` ASC) ,
+  INDEX `tipo_resp_idx` (`tipo_resp` ASC) ,
   CONSTRAINT `cod_prof`
-    FOREIGN KEY (`cod_prof` )
+    FOREIGN KEY (`cod_prof`)
     REFERENCES `Profesional` (`codigo` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -113,7 +114,7 @@ CREATE  TABLE IF NOT EXISTS `Docente` (
   `codigo` INT NOT NULL AUTO_INCREMENT ,
   `carga_horaria` VARCHAR(45) NULL ,
   `telefono` VARCHAR(8) NULL ,
-  `direccion` VARCHAR(45) NULL ,
+  `direccion` VARCHAR(100) NULL ,
   `ci` VARCHAR(45) NULL ,
   `dir_fot` VARCHAR(45) NULL ,
   `cod_tip` INT NULL ,
@@ -294,7 +295,7 @@ ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `Area` (
   `idArea` INT NOT NULL AUTO_INCREMENT ,
   `nombre_area` VARCHAR(1000)  NULL,
-  `descripcion` VARCHAR(1000) NULL DEFAULT 'Descripcion no disponible' ,
+  `descripcion` VARCHAR(5000) NULL DEFAULT 'Descripcion no disponible' ,
   `id_subarea` INT NULL,
   PRIMARY KEY (`idArea`) ,
   INDEX `id_subarea_idx` (`id_subarea` ASC) ,

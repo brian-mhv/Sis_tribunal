@@ -23,11 +23,11 @@ class TribunalesController extends Controller
         $res = NULL;
         if($request->area != NULL){
             $areas = new Area;
-            $res = $areas->getByFilter($request->area);
+            $res = $areas->getByFilter($request->area, $idTesis);
         }
         return view('tribunales.registrar', compact('tribunales'), 
-        ['profesional'=>$profesionales->all(), 'proyecto'=>$proyectos->getProject($idTesis), 
-         'areas'=>$proyectos->getAreas($idTesis),'user'=>$this->getUser(), 'filter'=>$res]);
+        ['proyecto'=>$proyectos->getProject($idTesis), 'areas'=>$proyectos->getAreas($idTesis),
+        'user'=>$this->getUser(), 'filter'=>$res, 'tribunal'=>new Tribunal]);
     }
     public function save(Request $request){
         $this->validate($request, [

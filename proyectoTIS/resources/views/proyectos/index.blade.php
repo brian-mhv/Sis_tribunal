@@ -7,10 +7,9 @@
                 <h2>Proyectos</h2>
                 <div class="box box-primary">
                 </div>
-                <table class="table">
-                    <thread>
-                    <tr>
-                        <td>CODIGO</td>
+                <table class="table table-hover">
+                    <tr class="success">
+                        <td>ID</td>
                         <td>COD. TESIS</td>
                         <td>TUTOR</td>
                         <td>POSTULANTE</td>
@@ -20,7 +19,6 @@
                         <td>TRIBUNAL</td>
 
                     </tr>
-                    </thread>
                     <tbody>
                         <?php
                         foreach($proyectos as $rows) {?>
@@ -29,8 +27,8 @@
                         <td><?php echo $rows->codigo_tesis; ?></td>
                         <td><?php echo $rows->cod_prof;?> <?php echo $rows->apellido_paterno;?> <?php echo $rows->apellido_materno;?></td>
                         <td><?php echo $rows->cod_alumno;?> <?php echo $rows->apellido_pat;?> <?php echo $rows->apellido_mat;?></td>
-                        <td><?php echo $rows->nombre; ?></td>
-                        <td><?php echo $rows->estado; ?></td>
+                        <td style="width:30%"><?php echo $rows->nombre; ?></td>
+                        <td><span class="label label-warning">Proceso de Revision</span></td>
                         <td><?php echo $rows->cod_modalidad; ?></td>
                         <td><a href="../tribunales/<?php echo $rows->codigo;?>" class="btn btn-primary">Asignar</a></td>
                     </tr>

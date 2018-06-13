@@ -41,7 +41,17 @@
                         @endif
                         @endforeach
                         <td><?php echo $rows->fecha_defensa; ?></td>
-                        <td><?php echo $rows->estado; ?></td>
+                        <td>
+                        @if($rows->estado == 't' || $rows->estado == 'f')
+                        <span class="label label-success">Aprobado para defensa</span>
+                        @endif
+                        @if($rows->estado == 'Proceso de revision')
+                        <span class="label label-warning">Proceso de Revision</span>
+                        @endif
+                        @if($rows->estado == 'finalizado')
+                        <span class="label label-default">Proyeto Defendido</span>
+                        @endif
+                        </td>
                     </tr>
                     <?php }?>
                 </tbody>

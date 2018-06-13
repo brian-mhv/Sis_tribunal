@@ -27,17 +27,17 @@
                         <td><?php echo $rows->id_tesis; ?></td>
                         @foreach ($profesional as $prof)
                         @if ($prof->codigo == $rows->id_profesional1)
-                            <td><?php echo $rows->id_profesional1; ?></td>
+                            <td><?php echo $prof->nombre;?> <?php echo $prof->apellido_paterno;?> <?php echo $prof->apellido_materno;?></td>
                         @endif
                         @endforeach
                         @foreach ($profesional as $prof)
                         @if ($prof->codigo == $rows->id_profesional2)
-                            <td><?php echo $rows->id_profesional2; ?></td>
+                        <td><?php echo $prof->nombre;?> <?php echo $prof->apellido_paterno;?> <?php echo $prof->apellido_materno;?></td>
                         @endif
                         @endforeach
                         @foreach ($profesional as $prof)
                         @if ($prof->codigo == $rows->id_profesional3)
-                            <td><?php echo $rows->id_profesional3; ?></td>
+                        <td><?php echo $prof->nombre;?> <?php echo $prof->apellido_paterno;?> <?php echo $prof->apellido_materno;?></td>
                         @endif
                         @endforeach
                         <td><?php echo $rows->fecha_defensa; ?></td>

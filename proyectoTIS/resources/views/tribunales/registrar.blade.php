@@ -13,7 +13,6 @@
                     <thread>
                     <tr>
                         <td>CODIGO</td>
-                        <td>TESIS</td>
                         <td>TUTOR</td>
                         <td>POSTULANTE</td>
                         <td>ESTADO</td>
@@ -24,7 +23,6 @@
                     <tbody>
                     <tr>
                         <td><?php echo $proyecto[0]->codigo; ?></td>
-                        <td><?php echo $proyecto[0]->codigo_tesis; ?></td>
                         <td><?php echo $proyecto[0]->cod_prof;?> <?php echo $proyecto[0]->apellido_paterno;?> <?php echo $proyecto[0]->apellido_materno;?></td>
                         <td><?php echo $proyecto[0]->cod_alumno;?> <?php echo $proyecto[0]->apellido_pat;?> <?php echo $proyecto[0]->apellido_mat;?></td>
                         <td><?php echo $proyecto[0]->estado; ?></td>
@@ -44,6 +42,34 @@
                 
                 @if($filter !== NULL)
                 <h2><small> Profesionales Candidatos </small></h2>
+
+                <form id="form" action="../tribunales/" method="POST" role="form">
+                    {{ csrf_field() }}
+                    @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+                    
+                    <div>
+                        <input id="candidato1" type="hidden" name="candidato1">
+                        <input id="candidato2" type="hidden" name="candidato2">
+                        <input id="candidato3" type="hidden" name="candidato3">
+                        <input type="hidden" name="tesis" value="<?php echo $proyecto[0]->codigo; ?>">
+                        <label>Fecha de Defensa</label>
+                        <input type="date" name="fecha" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                    <a><input type="submit" id="guardar" class="btn btn-primary right" disabled value="Guardar"></a>
+                    </div>
+
+                </form>
+                                
                 <div class="box box-primary">
                 </div>
                 <table class="table">
@@ -62,7 +88,7 @@
                         <td><?php echo $prof->nombre;?> <?php echo $prof->apellido_paterno;?> <?php echo $prof->apellido_materno;?></td>
                         <td><?php echo $prof->id_profesional;?></td>
                         
-                        <td>  <!-- Single button definir boton para aprobar vacaciones -->
+                        <!--td> 
                         <div role="group" class="btn-group">
                           <button id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-outline-primary dropdown-toggle dropdown-menu-right"><i class="icon-cog3 icon-left"></i>Opciones</button>
                           <div aria-labelledby="btnGroupDrop1" class="dropdown-menu">
@@ -70,9 +96,43 @@
                             <a href="{{url('/vacation/deny')}}" class="dropdown-item">Quitar</a></div>
                           </div>
                          </div>
-                       </td>
-
-                        
+                       </td-->
+                        <td><input class="btn btn-primary" type="submit" id="<?php echo $prof->codigo;?>" value="Añadir"></td>
+                         <script>
+                            $candidatos = [];
+                            document.getElementById("<?php echo $prof->codigo; ?>").addEventListener("click", function( event ) {                        
+                                /*if($candidatos.indexOf(<?php echo $prof->codigo; ?>) >= 0){
+                                    $candidatos.pop(<?php echo $prof->codigo; ?>);
+                                    document.getElementById(<?php echo $prof->codigo; ?>).value = "Añadir";
+                                    document.getElementById(<?php echo $prof->codigo; ?>).className = "btn btn-primary";
+                                    console.log($candidatos);
+                                }*/
+                                if($candidatos.length < 3){ 
+                                                        
+                                    $candidatos.push(<?php echo $prof->codigo; ?>);
+                                    document.getElementById(<?php echo $prof->codigo; ?>).value = "Quitar";
+                                    document.getElementById(<?php echo $prof->codigo; ?>).className = "btn btn-default";
+                                    console.log($candidatos);
+                                    if($candidatos.length == 3){
+                                        document.getElementById("guardar").disabled = null;
+                                        document.getElementById("candidato1").value = $candidatos[0];
+                                        document.getElementById("candidato2").value = $candidatos[1];
+                                        document.getElementById("candidato3").value = $candidatos[2];
+                                    }
+                                }
+                                else{
+                                    if($candidatos.indexOf(<?php echo $prof->codigo; ?>) >= 0){
+                                    $candidatos.pop(<?php echo $prof->codigo; ?>);
+                                    document.getElementById(<?php echo $prof->codigo; ?>).value = "Añadir";
+                                    document.getElementById(<?php echo $prof->codigo; ?>).className = "btn btn-primary";
+                                    console.log($candidatos);
+                                    }
+                                    else{
+                                        alert("Usted selecciono 3 profesionales.");
+                                    }
+                                }
+                            });
+                        </script>
                     </tr>
                     @endforeach
                 </tbody>

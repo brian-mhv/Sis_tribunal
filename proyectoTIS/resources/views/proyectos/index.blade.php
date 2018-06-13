@@ -10,7 +10,7 @@
                 <table class="table table-hover">
                     <tr class="success">
                         <td>ID</td>
-                        <td>COD. TESIS</td>
+                        <td>CODIGO</td>
                         <td>TUTOR</td>
                         <td>POSTULANTE</td>
                         <td>TITULO PROYECTO</td>
@@ -28,7 +28,17 @@
                         <td><?php echo $rows->cod_prof;?> <?php echo $rows->apellido_paterno;?> <?php echo $rows->apellido_materno;?></td>
                         <td><?php echo $rows->cod_alumno;?> <?php echo $rows->apellido_pat;?> <?php echo $rows->apellido_mat;?></td>
                         <td style="width:30%"><?php echo $rows->nombre; ?></td>
-                        <td><span class="label label-warning">Proceso de Revision</span></td>
+                        <td>
+                        @if($rows->estado == 't' || $rows->estado == 'f')
+                        <span class="label label-success">Aprobado para defensa</span>
+                        @endif
+                        @if($rows->estado == 'Proceso de revision')
+                        <span class="label label-warning">Proceso de Revision</span>
+                        @endif
+                        @if($rows->estado == 'finalizado')
+                        <span class="label label-default">Proyeto Defendido</span>
+                        @endif
+                        </td>
                         <td><?php echo $rows->cod_modalidad; ?></td>
                         <td><a href="../tribunales/<?php echo $rows->codigo;?>" class="btn btn-primary">Asignar</a></td>
                     </tr>

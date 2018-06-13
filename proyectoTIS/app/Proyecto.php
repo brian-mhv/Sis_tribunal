@@ -15,6 +15,7 @@ class Proyecto extends Model
 {
     protected $table='tesis';
     public $timestamps=false;
+    protected $primaryKey = 'codigo';
     protected $fillable =[
         'codigo',
         'codigo_tesis',

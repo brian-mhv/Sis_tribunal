@@ -30,21 +30,14 @@ class TribunalesController extends Controller
         'user'=>$this->getUser(), 'filter'=>$res, 'tribunal'=>new Tribunal]);
     }
     public function save(Request $request){
-        $this->validate($request, [
-            'profesional1' => 'required',
-            'profesional2' => 'required',
-            'profesional3' => 'required',
-            'tesis' => 'required',
-            'fecha' => 'required'
-            ]);
         $tribunales = new Tribunal;
         $tribunales->id_tesis = $request->input('tesis');
-        $tribunales->id_profesional1 = $request->input('profesional1');
-        $tribunales->id_profesional2 = $request->input('profesional2');
-        $tribunales->id_profesional3 = $request->input('profesional3');
+        $tribunales->id_profesional1 = $request->input('candidato1');
+        $tribunales->id_profesional2 = $request->input('candidato2');
+        $tribunales->id_profesional3 = $request->input('candidato3');
         $tribunales->fecha_defensa = $request->input('fecha');
         $tribunales->save();
-        //mandar correo 
+        $tribunales->addRelation($request);
         $profesionales = $tribunales->getProf();
         return view('tribunales.index', compact('tribunales'), 
         ['tribunal'=>$tribunales->getAll(), 'profesional'=>$profesionales, 'user'=>$this->getUser()]);

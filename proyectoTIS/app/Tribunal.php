@@ -4,12 +4,22 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Profesional;
+use App\Proyecto;
 use App\ProfTesis;
 
 class Tribunal extends Model
 {
     protected $table='tribunal';
+    protected $primaryKey='idTribunal';
     public $timestamps=false;
+    protected $fillable =[
+        'idTribunal',
+        'id_profesional1',
+        'id_profesional2',
+        'id_profesional3',
+        'id_tesis',
+        'fecha_defensa'
+    ];
 
     public function getAll(){
         $tribunal = \DB::table('tribunal')
@@ -32,5 +42,12 @@ class Tribunal extends Model
             ->join('tesis', 'tesis.codigo', 'tribunal.id_tesis')
             ->select('tribunal.*', 'tesis.*')->get();
         print_r($tribunal);
+    }
+    public function addRelation($request){
+        $proftesis = new ProfTesis;
+        $proftesis->addTribunal($request);
+        $tribunal = Proyecto::find($request->input('tesis'));
+        $tribunal->estado = "Proceso de revision";
+        $tribunal->save();
     }
 }

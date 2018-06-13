@@ -29,4 +29,22 @@ class ProfTesis extends Model
         }
         });
     }
+
+    public function addTribunal($request){
+        ProfTesis::create([
+            'cod_prof' => $request->input('candidato1'),
+            'cod_tesis' => $request->input('tesis'),
+            'tipo_resp' => 2
+        ]);
+        ProfTesis::create([
+            'cod_prof' => $request->input('candidato2'),
+            'cod_tesis' => $request->input('tesis'),
+            'tipo_resp' => 2
+        ]);
+        ProfTesis::create([
+            'cod_prof' => $request->input('candidato3'),
+            'cod_tesis' => $request->input('tesis'),
+            'tipo_resp' => 2
+        ]);
+    }
 }

@@ -6,28 +6,135 @@ CREATE DATABASE  IF NOT EXISTS hashtag_db CHARACTER SET utf8 COLLATE utf8_spanis
 USE hashtag_db;
 
 DROP TABLE IF EXISTS `tiporesponsable` ;
-DROP TABLE IF EXISTS `estcarrera` ;
-DROP TABLE IF EXISTS `proftesis` ;
-DROP TABLE IF EXISTS `esttesis` ;
 DROP TABLE IF EXISTS `titulo` ;
 DROP TABLE IF EXISTS `docente` ;
-DROP TABLE IF EXISTS `profesional` ;
 DROP TABLE IF EXISTS `modalidad` ;
 DROP TABLE IF EXISTS `gestionper` ;
-DROP TABLE IF EXISTS `tesis` ;
-DROP TABLE IF EXISTS `tribunal` ;
 DROP TABLE IF EXISTS `estudiante` ;
 DROP TABLE IF EXISTS `sesion` ;
 DROP TABLE IF EXISTS `area` ;
+DROP TABLE IF EXISTS `carrera` ;
+DROP TABLE IF EXISTS `estcarrera` ;
+DROP TABLE IF EXISTS `proftesis` ;
+DROP TABLE IF EXISTS `esttesis` ;
+DROP TABLE IF EXISTS `profesional` ;
+DROP TABLE IF EXISTS `tesis` ;
+DROP TABLE IF EXISTS `tribunal` ;
 DROP TABLE IF EXISTS `areasprofesional` ;
 DROP TABLE IF EXISTS `areatesis` ;
-DROP TABLE IF EXISTS `carrera` ;
 
 CREATE  TABLE IF NOT EXISTS `tiporesponsable` (
   `id_tipo` INT NOT NULL ,
   `nombre_tipo` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`id_tipo`) )
 ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `titulo`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `titulo` (
+  `codigo` INT NOT NULL ,
+  `nombre` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`codigo`) )
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `docente`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `docente` (
+  `codigo` INT NOT NULL AUTO_INCREMENT ,
+  `carga_horaria` VARCHAR(45) NULL ,
+  `telefono` VARCHAR(8) NULL ,
+  `direccion` VARCHAR(100) NULL ,
+  `ci` VARCHAR(45) NULL ,
+  `dir_fot` VARCHAR(45) NULL ,
+  `cod_tip` INT NULL ,
+  `cod_cue` INT NULL ,
+  PRIMARY KEY (`codigo`) ,
+  UNIQUE INDEX `idDocente_UNIQUE` (`codigo` ASC) )
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `modalidad`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `modalidad` (
+  `codigo` INT NOT NULL AUTO_INCREMENT ,
+  `nombre` VARCHAR(45) NOT NULL ,
+  `descripcion` VARCHAR(1000) NULL ,
+  PRIMARY KEY (`codigo`) ,
+  UNIQUE INDEX `codigo_UNIQUE` (`codigo` ASC) )
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `gestionper`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `gestionper` (
+  `codigo` INT NOT NULL AUTO_INCREMENT ,
+  `fecha_ini` DATE NULL ,
+  `fecha_fin` DATE NULL ,
+  `periodo` INT NULL ,
+  PRIMARY KEY (`codigo`) ,
+  UNIQUE INDEX `codigo_UNIQUE` (`codigo` ASC) )
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `estudiante`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `estudiante` (
+  `codigo` INT NOT NULL AUTO_INCREMENT ,
+  `cod_sis` INT NULL ,
+  `nombre` VARCHAR(45) NOT NULL ,
+  `apellido_pat` VARCHAR(45) NULL ,
+  `apellido_mat` VARCHAR(45) NULL ,
+  `telefono` INT NULL ,
+  `direccion` VARCHAR(45) NULL ,
+  `cod_cue` VARCHAR(45) NULL ,
+  `correo` VARCHAR(100) NULL,
+  `ci` VARCHAR(45) NULL ,
+  `dir_fot` INT NULL ,
+  PRIMARY KEY (`codigo`) ,
+  UNIQUE INDEX `id_estudiante_UNIQUE` (`codigo` ASC) ,
+  UNIQUE INDEX `cod_sis_UNIQUE` (`cod_sis` ASC) )
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `sesion`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `sesion` (
+  `usuario` INT NOT NULL ,
+  `correo` VARCHAR(45) NOT NULL,
+  `pass` VARCHAR(45) NULL DEFAULT 'hashtag',
+  `nivel` INT NOT NULL ,
+  PRIMARY KEY (`correo`),
+  UNIQUE INDEX `correo_UNIQUE` (`correo` ASC) )
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `area`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `area` (
+  `idarea` INT NOT NULL AUTO_INCREMENT ,
+  `nombre_area` VARCHAR(1000)  NULL,
+  `descripcion` VARCHAR(5000) NULL DEFAULT 'Descripcion no disponible' ,
+  `id_subarea` INT NULL,
+  PRIMARY KEY (`idArea`) ,
+  INDEX `id_subarea_idx` (`id_subarea` ASC) ,
+  UNIQUE INDEX `idArea_UNIQUE` (`idArea` ASC) )
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `carrera`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `carrera` (
+  `codigo` INT NOT NULL AUTO_INCREMENT ,
+  `nombre` VARCHAR(50) NOT NULL ,
+  `descripcion` VARCHAR(200) NULL ,
+  `anios_est` INT NOT NULL ,
+  PRIMARY KEY (`codigo`) ,
+  UNIQUE INDEX `codigo_UNIQUE` (`codigo` ASC) ,
+  UNIQUE INDEX `nombre_UNIQUE` (`nombre` ASC) )
+ENGINE = InnoDB;
+
 -- -----------------------------------------------------
 -- Table `estcarrera`
 -- -----------------------------------------------------
@@ -99,31 +206,6 @@ CREATE  TABLE IF NOT EXISTS `esttesis` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `titulo`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `titulo` (
-  `codigo` INT NOT NULL ,
-  `nombre` VARCHAR(45) NOT NULL ,
-  PRIMARY KEY (`codigo`) )
-ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `docente`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `docente` (
-  `codigo` INT NOT NULL AUTO_INCREMENT ,
-  `carga_horaria` VARCHAR(45) NULL ,
-  `telefono` VARCHAR(8) NULL ,
-  `direccion` VARCHAR(100) NULL ,
-  `ci` VARCHAR(45) NULL ,
-  `dir_fot` VARCHAR(45) NULL ,
-  `cod_tip` INT NULL ,
-  `cod_cue` INT NULL ,
-  PRIMARY KEY (`codigo`) ,
-  UNIQUE INDEX `idDocente_UNIQUE` (`codigo` ASC) )
-ENGINE = InnoDB;
-
--- -----------------------------------------------------
 -- Table `profesional`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `profesional` (
@@ -148,29 +230,6 @@ CREATE  TABLE IF NOT EXISTS `profesional` (
     REFERENCES `docente` (`codigo` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `modalidad`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `modalidad` (
-  `codigo` INT NOT NULL AUTO_INCREMENT ,
-  `nombre` VARCHAR(45) NOT NULL ,
-  `descripcion` VARCHAR(1000) NULL ,
-  PRIMARY KEY (`codigo`) ,
-  UNIQUE INDEX `codigo_UNIQUE` (`codigo` ASC) )
-ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `gestionper`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `gestionper` (
-  `codigo` INT NOT NULL AUTO_INCREMENT ,
-  `fecha_ini` DATE NULL ,
-  `fecha_fin` DATE NULL ,
-  `periodo` INT NULL ,
-  PRIMARY KEY (`codigo`) ,
-  UNIQUE INDEX `codigo_UNIQUE` (`codigo` ASC) )
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -258,51 +317,6 @@ CREATE  TABLE IF NOT EXISTS `tribunal` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `estudiante`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `estudiante` (
-  `codigo` INT NOT NULL AUTO_INCREMENT ,
-  `cod_sis` INT NULL ,
-  `nombre` VARCHAR(45) NOT NULL ,
-  `apellido_pat` VARCHAR(45) NULL ,
-  `apellido_mat` VARCHAR(45) NULL ,
-  `telefono` INT NULL ,
-  `direccion` VARCHAR(45) NULL ,
-  `cod_cue` VARCHAR(45) NULL ,
-  `correo` VARCHAR(100) NULL,
-  `ci` VARCHAR(45) NULL ,
-  `dir_fot` INT NULL ,
-  PRIMARY KEY (`codigo`) ,
-  UNIQUE INDEX `id_estudiante_UNIQUE` (`codigo` ASC) ,
-  UNIQUE INDEX `cod_sis_UNIQUE` (`cod_sis` ASC) )
-ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `sesion`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `sesion` (
-  `usuario` INT NOT NULL ,
-  `correo` VARCHAR(45) NOT NULL,
-  `pass` VARCHAR(45) NULL DEFAULT 'hashtag',
-  `nivel` INT NOT NULL ,
-  PRIMARY KEY (`correo`),
-  UNIQUE INDEX `correo_UNIQUE` (`correo` ASC) )
-ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `area`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `area` (
-  `idarea` INT NOT NULL AUTO_INCREMENT ,
-  `nombre_area` VARCHAR(1000)  NULL,
-  `descripcion` VARCHAR(5000) NULL DEFAULT 'Descripcion no disponible' ,
-  `id_subarea` INT NULL,
-  PRIMARY KEY (`idArea`) ,
-  INDEX `id_subarea_idx` (`id_subarea` ASC) ,
-  UNIQUE INDEX `idArea_UNIQUE` (`idArea` ASC) )
-ENGINE = InnoDB;
-
--- -----------------------------------------------------
 -- Table `areasprofesional`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `areasprofesional` (
@@ -342,19 +356,6 @@ CREATE  TABLE IF NOT EXISTS `areatesis` (
     REFERENCES `tesis` (`codigo` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `carrera`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `carrera` (
-  `codigo` INT NOT NULL AUTO_INCREMENT ,
-  `nombre` VARCHAR(50) NOT NULL ,
-  `descripcion` VARCHAR(200) NULL ,
-  `anios_est` INT NOT NULL ,
-  PRIMARY KEY (`codigo`) ,
-  UNIQUE INDEX `codigo_UNIQUE` (`codigo` ASC) ,
-  UNIQUE INDEX `nombre_UNIQUE` (`nombre` ASC) )
 ENGINE = InnoDB;
 
 INSERT INTO `hashtag_db`.`sesion` (`usuario`, `correo`, `pass`, `nivel`) VALUES ('0', 'hashtag.tis2018@gmail.com', 'admin', '1');

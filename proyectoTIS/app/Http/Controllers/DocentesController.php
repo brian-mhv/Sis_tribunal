@@ -32,7 +32,7 @@ class DocentesController extends Controller
         if(count($request->file()) > 0){
             $docente = new Docente;
             $file = $request->file('file');
-            $docentes = $docente->importDocentes($file);
+            $docente->importDocentes($file);
             return view('docentes.index', compact('docentes'), ['docentes'=>$docente->getAll(), 'user'=>$this->getUser()]);
         }
         $this->validate($request, [

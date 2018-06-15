@@ -29,6 +29,15 @@ class TribunalesController extends Controller
         ['proyecto'=>$proyectos->getProject($idTesis), 'areas'=>$proyectos->getAreas($idTesis),
         'user'=>$this->getUser(), 'filter'=>$res, 'tribunal'=>new Tribunal]);
     }
+
+    public function edit($idTesis){
+        $tribunal = new Tribunal;
+        $areas = new Area;
+        $res = $areas->getSustituto($idTesis);
+        return view('tribunales.cambiarTribunal', compact('tribunales'), 
+        ['tribunal'=>$tribunal->getTribunal($idTesis),
+        'user'=>$this->getUser(), 'filter'=>$res]);
+    }
     public function save(Request $request){
         $tribunales = new Tribunal;
         $tribunales->id_tesis = $request->input('tesis');

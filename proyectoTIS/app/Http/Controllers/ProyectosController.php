@@ -41,6 +41,7 @@ class ProyectosController extends Controller
         $profTesis = new ProfTesis;
         $estTesis = new EstTesis;
         $areaTesis = new AreaTesis;
+        set_time_limit(400);
         if(count($request->file()) > 0){
             if($request->file('proyectos') != NULL){
                 $project = $request->file('proyectos');

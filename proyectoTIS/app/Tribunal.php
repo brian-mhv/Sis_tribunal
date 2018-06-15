@@ -47,7 +47,16 @@ class Tribunal extends Model
         $proftesis = new ProfTesis;
         $proftesis->addTribunal($request);
         $tribunal = Proyecto::find($request->input('tesis'));
-        $tribunal->estado = "Proceso de revision";
+        $tribunal->estado = 2;
         $tribunal->save();
+    }
+    public function getTribunal($idTesis){
+        $t = new Tribunal;
+        $tribunales = $t->all();
+        foreach($tribunales as $tribunal){
+            if ($tribunal->id_tesis == $idTesis){
+                return $tribunal;
+            }
+        }
     }
 }

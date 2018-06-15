@@ -79,8 +79,8 @@ class Proyecto extends Model
             'codigo' => $proyecto->codigo,
             'codigo_tesis' => $proyecto->codigo_tesis,
             'nombre' => $proyecto->nombre,
-            'estado' => $proyecto->estado,
-            'cod_modalidad' => $proyecto->cod_modalidad
+            'estado' => 1,
+            'cod_modalidad' => $proyecto->cod_mod
             ]);
         }
         });

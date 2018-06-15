@@ -21,6 +21,7 @@ Route::get('login','AuthsController@index');
 Route::get('/tribunales', 'TribunalesController@index');
 Route::post('/tribunales', 'TribunalesController@save');
 Route::get('/tribunales/{id}', 'TribunalesController@add');
+Route::get('/tesis/{id}', 'TribunalesController@edit');
 
 Route::get('/docentes', 'DocentesController@index');
 Route::post('/docentes', 'DocentesController@save');

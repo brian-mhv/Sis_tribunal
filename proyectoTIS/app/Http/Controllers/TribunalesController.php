@@ -15,6 +15,10 @@ class TribunalesController extends Controller
     public function index(){
         $tribunales = new Tribunal;
         $profesionales = $tribunales->getProf();
+        if(count($tribunales->getAll()) == 0){
+            return view('tribunales.index', compact('tribunales'), 
+            ['tribunal'=>[], 'profesional'=>$profesionales, 'user'=>$this->getUser()]);    
+        }
         return view('tribunales.index', compact('tribunales'), 
         ['tribunal'=>$tribunales->getAll(), 'profesional'=>$profesionales, 'user'=>$this->getUser()]);
     }

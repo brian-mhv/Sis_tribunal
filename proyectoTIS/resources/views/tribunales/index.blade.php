@@ -55,13 +55,15 @@
                 </table>
                 <br>
               </div>
-
+            
+            @if($tribunal != [])
               <div id="filtro" style="display:none;">
                 <form action="../tribunales/" method='GET'>
                     <input style="width:50%; background-position:center;" type='text' value="<?php echo $rows->id_tesis; ?>" name='area'>
                     <input type="submit" class="btn btn-primary" value="Buscar">
                 </form>
               </div>
+            @endif
 
             </div>
         </div>

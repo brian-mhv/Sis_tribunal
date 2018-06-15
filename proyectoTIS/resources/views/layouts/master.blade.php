@@ -180,13 +180,6 @@
                 <!--li><a href="../areas/registrarlote"><i class="fa fa-circle-o"></i> Registrar por lote</a></li-->
               </ul>
             </li>
-
-            <!--Pagina de AYUDA del sistema-->
-             <li>
-              <a href="../help/">
-                <i class="fa fa-plus-square"></i> <span>Ayuda</span>
-              </a>
-            </li>              
           </ul>
         </section>
         <!-- /.sidebar -->

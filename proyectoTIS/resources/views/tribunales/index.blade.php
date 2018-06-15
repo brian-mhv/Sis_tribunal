@@ -28,7 +28,7 @@
                         @foreach ($profesional as $prof)
                         @if ($prof->codigo == $rows->id_profesional1 || $prof->codigo == $rows->id_profesional2 || $prof->codigo == $rows->id_profesional3)
                             <td><?php echo $prof->nombre;?> <?php echo $prof->apellido_paterno;?> <?php echo $prof->apellido_materno;?> 
-                            <a href="../tesis/<?php echo $rows->id_tesis; ?>"><i id="<?php echo $prof->codigo; ?>" class="fa fa-exchange"></i></a>
+                            <a name="<?php echo $prof->codigo; ?>" href="../proyecto/<?php echo $rows->id_tesis; ?>$<?php echo $prof->codigo;?>"><i id="<?php echo $prof->codigo; ?>" class="fa fa-exchange"></i></a>
                             <script>
                                 
                                 document.getElementById("<?php echo $prof->codigo; ?>").addEventListener("click", function( event ) {
@@ -42,13 +42,10 @@
                         @endforeach
                         <td><?php echo $rows->fecha_defensa; ?></td>
                         <td>
-                        @if($rows->estado == 1)
-                        <span class="label label-success">Aprobado para defensa</span>
+                        @if($rows->estado == 2)
+                        <span class="label label-success">Tribunal Asignado</span>
                         @endif
-                        @if($rows->estado == 'Proceso de revision')
-                        <span class="label label-warning">Proceso de Revision</span>
-                        @endif
-                        @if($rows->estado == 'finalizado')
+                        @if($rows->estado == 3)
                         <span class="label label-default">Proyeto Defendido</span>
                         @endif
                         </td>

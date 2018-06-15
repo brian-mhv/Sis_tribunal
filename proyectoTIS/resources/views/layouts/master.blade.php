@@ -132,7 +132,7 @@
             <li class="treeview">
               <a href="../invitados/">
                 <i class="fa fa-users"></i>
-                <span>Profesional</span>
+                <span>Profesionales</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
@@ -185,14 +185,6 @@
              <li>
               <a href="../help/">
                 <i class="fa fa-plus-square"></i> <span>Ayuda</span>
-              </a>
-            </li>
-
-            <!--Pagina de ACER DE del sistema-->
-            <li>
-              <a href="../about/">
-                <i class="fa fa-info-circle"></i> <span>Acerca De</span>
-                <small class="label pull-right bg-blue">HashTag.com</small>
               </a>
             </li>              
           </ul>

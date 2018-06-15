@@ -68,7 +68,7 @@ class Area extends Model
         return NULL;
     }
 
-    public function getSustituto($tesis){
+    public function getSustituto($tesis, $tribunal){
         $proftesis = \DB::table('proftesis')
             ->select('proftesis.*')->distinct()
             ->where('proftesis.cod_tesis', $tesis)
@@ -79,6 +79,9 @@ class Area extends Model
             ->join('profesional', 'profesional.codigo', 'areasprofesional.id_profesional')
             ->select('profesional.*')->distinct()
             ->where('profesional.codigo', '<>', $proftesis[0]->cod_prof)
+            ->where('profesional.codigo', '<>', $tribunal->id_profesional1)
+            ->where('profesional.codigo', '<>', $tribunal->id_profesional2)
+            ->where('profesional.codigo', '<>', $tribunal->id_profesional3)
             ->orderBy('profesional.codigo', 'asc')->get();
             return $this->cantProyectos($profesionales);
     }

@@ -47,4 +47,13 @@ class ProfTesis extends Model
             'tipo_resp' => 2
         ]);
     }
+    public function changeTribunal($request){
+        $updates = \DB::table('proftesis')
+        ->where('cod_prof', $request->input('profesional'))
+        ->where('tipo_resp', 2)
+        ->where('cod_tesis', $request->input('tesis'))
+        ->update([
+            'cod_prof' => $request->input('newprof'),
+        ]);
+    }
 }

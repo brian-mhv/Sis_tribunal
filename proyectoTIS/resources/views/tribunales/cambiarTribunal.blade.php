@@ -1,8 +1,6 @@
 @extends ('layouts.master')
 @section ('contenido')
 
-<div class="box box-primary">
-</div>
               <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
                     <tr class="success">
@@ -15,17 +13,46 @@
                       <th>Estado</th>
                     </tr>
                     <tbody>
-                        <td><?php echo $tribunal->idTribunal; ?></td>
-                        <td><?php echo $tribunal->id_tesis; ?></td>
-                        <td><?php echo $tribunal->id_profesional1; ?></td>
-                        <td><?php echo $tribunal->id_profesional2; ?></td>
-                        <td><?php echo $tribunal->id_profesional3; ?></td>
+                        <td id="tribunal"><?php echo $tribunal->idTribunal; ?></td>
+                        <td id="tesis"><?php echo $tribunal->id_tesis; ?></td>
+                        @foreach ($profesional as $prof)
+                        @if ($prof->codigo == $tribunal->id_profesional1 || $prof->codigo == $tribunal->id_profesional2 || $prof->codigo == $tribunal->id_profesional3)
+                            <td><?php echo $prof->nombre;?> <?php echo $prof->apellido_paterno;?> <?php echo $prof->apellido_materno;?></td>
+                        @endif
+                        @endforeach
                         <td><?php echo $tribunal->fecha_defensa; ?></td>
-
+                        <td><span class="label label-warning">Esperando Asignacion</span></td>
                     </tbody>
+                    </table>
+                <br><br>
+                    <div class="box box-primary">
+                    </div>
 
-<div class="box box-primary">
-                </div>
+                    <form id="form" action="../tribunales/" method="POST" role="form">
+                    {{ csrf_field() }}
+                    @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+                    
+                    <div>
+                        <input id="trib" type="hidden" name="tribunal">
+                        <input id="tes" type="hidden" name="tesis">
+                        <input id="profesional" type="hidden" name="profesional" value="<?php echo $p; ?>">
+                        <input id="newprof" type="hidden" name="newprof">
+                    </div>
+
+                    <div class="form-group">
+                    <a><input type="submit" id="guardar" class="btn btn-primary right" disabled value="Guardar"></a>
+                    </div>
+
+                </form>
+
                 <table class="table">
                     <thread>
                     <tr>
@@ -42,15 +69,6 @@
                         <td><?php echo $prof->nombre;?> <?php echo $prof->apellido_paterno;?> <?php echo $prof->apellido_materno;?></td>
                         <td><?php echo $prof->id_profesional;?></td>
                         
-                        <!--td> 
-                        <div role="group" class="btn-group">
-                          <button id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-outline-primary dropdown-toggle dropdown-menu-right"><i class="icon-cog3 icon-left"></i>Opciones</button>
-                          <div aria-labelledby="btnGroupDrop1" class="dropdown-menu">
-                            <a href="{{ url ('/vacation/aceptado')}}" class="dropdown-item">Añadir</a>
-                            <a href="{{url('/vacation/deny')}}" class="dropdown-item">Quitar</a></div>
-                          </div>
-                         </div>
-                       </td-->
                         <td><input class="btn btn-primary" type="submit" id="<?php echo $prof->codigo;?>" value="Añadir"></td>
                          <script>
                             $candidatos = [];
@@ -61,17 +79,19 @@
                                     document.getElementById(<?php echo $prof->codigo; ?>).className = "btn btn-primary";
                                     console.log($candidatos);
                                 }*/
-                                if($candidatos.length < 3){ 
+                                console.log(document.getElementById('tribunal').innerHTML);
+                                console.log(document.getElementById('tesis').innerHTML);
+                                if($candidatos.length == 0){ 
                                                         
                                     $candidatos.push(<?php echo $prof->codigo; ?>);
                                     document.getElementById(<?php echo $prof->codigo; ?>).value = "Quitar";
                                     document.getElementById(<?php echo $prof->codigo; ?>).className = "btn btn-default";
                                     console.log($candidatos);
-                                    if($candidatos.length == 3){
+                                    if($candidatos.length == 1){
                                         document.getElementById("guardar").disabled = null;
-                                        document.getElementById("candidato1").value = $candidatos[0];
-                                        document.getElementById("candidato2").value = $candidatos[1];
-                                        document.getElementById("candidato3").value = $candidatos[2];
+                                        document.getElementById("trib").value = document.getElementById('tribunal').innerHTML;
+                                        document.getElementById("tes").value = document.getElementById('tribunal').innerHTML;
+                                        document.getElementById("newprof").value = $candidatos[0];
                                     }
                                 }
                                 else{

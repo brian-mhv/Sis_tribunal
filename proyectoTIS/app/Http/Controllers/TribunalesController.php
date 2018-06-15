@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tribunal;
 use App\Profesional;
+use App\ProfTesis;
 use App\Proyecto;
 use App\Area;
 use App\Http\Requests;
@@ -32,18 +33,21 @@ class TribunalesController extends Controller
 
     public function edit($idTesis){
         $tribunal = new Tribunal;
+        $id = $tribunal->getId($idTesis);
         $profesionales = $tribunal->getProf();
         $areas = new Area;
-        $trib = $tribunal->getTribunal($idTesis);
+        $trib = $tribunal->getTribunal($id[0]);
         $res = $areas->getSustituto($idTesis, $trib);
         return view('tribunales.cambiarTribunal', compact('tribunales'), 
         ['tribunal'=>$trib, 'profesional'=>$profesionales,
-        'user'=>$this->getUser(), 'filter'=>$res]);
+        'user'=>$this->getUser(), 'filter'=>$res, 'p'=>$id[1]]);
     }
     public function save(Request $request){
         $tribunales = new Tribunal;
-        if($request->input('tesis') != NULL){
-            print_r($request->input());
+        if($request->input('newprof') != NULL){
+            $proftesis = new ProfTesis;
+            $proftesis->changeTribunal($request);   
+            $tribunales->editTribunal($request);
             return view('tribunales.index', compact('tribunales'), 
             ['tribunal'=>$tribunales->getAll(), 'profesional'=>$tribunales->getProf(), 'user'=>$this->getUser()]);
         }

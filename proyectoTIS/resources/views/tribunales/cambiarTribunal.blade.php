@@ -43,7 +43,7 @@
                     <div>
                         <input id="trib" type="hidden" name="tribunal">
                         <input id="tes" type="hidden" name="tesis">
-                        <input id="profesional" type="hidden" name="profesional">
+                        <input id="profesional" type="hidden" name="profesional" value="<?php echo $p; ?>">
                         <input id="newprof" type="hidden" name="newprof">
                     </div>
 

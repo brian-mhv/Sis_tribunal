@@ -59,4 +59,21 @@ class Tribunal extends Model
             }
         }
     }
+    public function getId($idTesis){
+        $id = explode("$", $idTesis);  
+        return $id;
+    }  
+    public function editTribunal($request){
+        $tribunal = Tribunal::find($request->input('tribunal'));
+        if($tribunal->id_profesional1 == $request->input('profesional')){
+            $tribunal->id_profesional1 = $request->input('newprof');
+        }
+        if($tribunal->id_profesional2 == $request->input('profesional')){
+            $tribunal->id_profesional2 = $request->input('newprof');
+        } 
+        if($tribunal->id_profesional3 == $request->input('profesional')){
+            $tribunal->id_profesional3 = $request->input('newprof');
+        } 
+        $tribunal->save();
+    }  
 }

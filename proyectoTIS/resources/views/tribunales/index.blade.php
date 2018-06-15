@@ -26,23 +26,23 @@
                         <td><?php echo $rows->idTribunal; ?></td>
                         <td><?php echo $rows->id_tesis; ?></td>
                         @foreach ($profesional as $prof)
-                        @if ($prof->codigo == $rows->id_profesional1)
-                            <td><?php echo $prof->nombre;?> <?php echo $prof->apellido_paterno;?> <?php echo $prof->apellido_materno;?></td>
-                        @endif
-                        @endforeach
-                        @foreach ($profesional as $prof)
-                        @if ($prof->codigo == $rows->id_profesional2)
-                        <td><?php echo $prof->nombre;?> <?php echo $prof->apellido_paterno;?> <?php echo $prof->apellido_materno;?></td>
-                        @endif
-                        @endforeach
-                        @foreach ($profesional as $prof)
-                        @if ($prof->codigo == $rows->id_profesional3)
-                        <td><?php echo $prof->nombre;?> <?php echo $prof->apellido_paterno;?> <?php echo $prof->apellido_materno;?></td>
+                        @if ($prof->codigo == $rows->id_profesional1 || $prof->codigo == $rows->id_profesional2 || $prof->codigo == $rows->id_profesional3)
+                            <td><?php echo $prof->nombre;?> <?php echo $prof->apellido_paterno;?> <?php echo $prof->apellido_materno;?> 
+                            <a href="../tesis/<?php echo $rows->id_tesis; ?>"><i id="<?php echo $prof->codigo; ?>" class="fa fa-exchange"></i></a>
+                            <script>
+                                
+                                document.getElementById("<?php echo $prof->codigo; ?>").addEventListener("click", function( event ) {
+                                // display the current click count inside the clicked div
+                                    console.log("<?php echo $prof->codigo; ?>");
+                                    document.getElementById("filtro").style= " ";
+                                });
+                            </script>
+                            </td>
                         @endif
                         @endforeach
                         <td><?php echo $rows->fecha_defensa; ?></td>
                         <td>
-                        @if($rows->estado == 't' || $rows->estado == 'f')
+                        @if($rows->estado == 1)
                         <span class="label label-success">Aprobado para defensa</span>
                         @endif
                         @if($rows->estado == 'Proceso de revision')
@@ -56,7 +56,16 @@
                     <?php }?>
                 </tbody>
                 </table>
+                <br>
               </div>
+
+              <div id="filtro" style="display:none;">
+                <form action="../tribunales/" method='GET'>
+                    <input style="width:50%; background-position:center;" type='text' value="<?php echo $rows->id_tesis; ?>" name='area'>
+                    <input type="submit" class="btn btn-primary" value="Buscar">
+                </form>
+              </div>
+
             </div>
         </div>
     </div>

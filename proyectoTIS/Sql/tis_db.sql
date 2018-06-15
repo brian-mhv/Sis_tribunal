@@ -238,9 +238,9 @@ ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `tesis` (
   `codigo` INT NOT NULL AUTO_INCREMENT ,
   `codigo_tesis` VARCHAR(45) NULL ,
-  `nombre` VARCHAR(450) NOT NULL ,
-  `descripcion` VARCHAR(200) NULL ,
-  `estado` VARCHAR(45) NOT NULL ,
+  `nombre` VARCHAR(500) NOT NULL ,
+  `descripcion` VARCHAR(1000) NULL ,
+  `estado` INT NOT NULL ,
   `dir_form` VARCHAR(45) NULL ,
   `cod_ges_per_ini` INT NULL ,
   `cod_ges_per_fin` INT NULL ,
@@ -281,10 +281,10 @@ ENGINE = InnoDB;
 -- Table `tribunal`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `tribunal` (
-  `idtribunal` INT NOT NULL AUTO_INCREMENT ,
-  `id_profesional1` INT NOT NULL ,
-  `id_profesional2` INT NOT NULL ,
-  `id_profesional3` INT NOT NULL ,
+  `idTribunal` INT NOT NULL AUTO_INCREMENT ,
+  `id_profesional1` INT NULL ,
+  `id_profesional2` INT NULL ,
+  `id_profesional3` INT NULL ,
   `id_tesis` INT NOT NULL ,
   `fecha_defensa` DATE NOT NULL ,
   PRIMARY KEY (`idTribunal`) ,

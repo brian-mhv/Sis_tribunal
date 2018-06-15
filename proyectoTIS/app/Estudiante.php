@@ -45,6 +45,7 @@ class Estudiante extends Model
 
     public function importEstudiantes($file)
     {
+        set_time_limit(400);
     	Excel::load($file, function($reader) {
  
         foreach ($reader->get() as $estudiante) {

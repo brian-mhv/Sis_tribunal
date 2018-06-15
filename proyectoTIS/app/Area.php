@@ -68,6 +68,21 @@ class Area extends Model
         return NULL;
     }
 
+    public function getSustituto($tesis){
+        $proftesis = \DB::table('proftesis')
+            ->select('proftesis.*')->distinct()
+            ->where('proftesis.cod_tesis', $tesis)
+            ->where('proftesis.tipo_resp', 1)->get();
+            $profesionales = \DB::table('areatesis')
+            ->join('tesis', 'tesis.codigo', 'areatesis.id_tesis')
+            ->join('areasprofesional', 'areasprofesional.id_area', 'areatesis.id_area')
+            ->join('profesional', 'profesional.codigo', 'areasprofesional.id_profesional')
+            ->select('profesional.*')->distinct()
+            ->where('profesional.codigo', '<>', $proftesis[0]->cod_prof)
+            ->orderBy('profesional.codigo', 'asc')->get();
+            return $this->cantProyectos($profesionales);
+    }
+
     public function cantProyectos($profesionales){
         foreach($profesionales as $prof){
             $proftesis = \DB::table('proftesis')

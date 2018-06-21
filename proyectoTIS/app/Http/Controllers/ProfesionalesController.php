@@ -36,7 +36,6 @@ class ProfesionalesController extends Controller
         $file = $request->file('file');
         $import = new ImportProfesionalController;
         $profesionales = $import->importProfesionales($file);
-        print_r($profesionales);
     }
 
     public function save(Request $request){

@@ -37,11 +37,17 @@ class ProyectosController extends Controller
         return view('home', ['user'=>$this->getUser()]);
     }
     public function save(Request $request){
+        $this->validate($request, [
+            'proyectos' => 'required',
+            'proftesis' => 'required',
+            'esttesis' => 'required',
+            'areastesis' => 'required',
+            ]);
         $proyecto = new Proyecto;
         $profTesis = new ProfTesis;
         $estTesis = new EstTesis;
         $areaTesis = new AreaTesis;
-        set_time_limit(400);
+        set_time_limit(1000);
         if(count($request->file()) > 0){
             if($request->file('proyectos') != NULL){
                 $project = $request->file('proyectos');

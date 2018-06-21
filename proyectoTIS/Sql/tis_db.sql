@@ -256,7 +256,8 @@ CREATE  TABLE IF NOT EXISTS `Sesion` (
   `correo` VARCHAR(45) NOT NULL,
   `pass` VARCHAR(45) NULL DEFAULT 'hashtag',
   `nivel` INT NOT NULL ,
-  PRIMARY KEY (`usuario`, `correo`, `nivel`) )
+  PRIMARY KEY (`correo`),
+  UNIQUE INDEX `correo_UNIQUE` (`correo` ASC) )
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------

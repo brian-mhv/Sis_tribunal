@@ -21,8 +21,8 @@ class Docente extends Model
         'direccion'
     ];
     public function importDocentes($file1, $file2){
-     $file = $file1;
-     if(basename($file2) == "docentes.csv"){$file = $file2;}
+    $file = $file1;
+    if($file2->getClientOriginalName() == "docentes.csv"){$file = $file2;}
      Excel::load($file, function($reader) {
       foreach ($reader->get() as $docente) {
          Docente::create([
@@ -65,9 +65,9 @@ class Docente extends Model
         ]);
     }
     public function generateCode(){
-        $docente = \DB::table('docente')->select('codigo')->get();
-        $id = $docente[count($docente) - 1];
-        return $id->codigo;        
+        $docente = new Docente;
+        $id = $docente->all()->last();
+        return $id->codigo;       
     }
     public function getAll(){
         $profesionales=\DB::table('profesional')->join('titulo', 'titulo.codigo', '=', 'profesional.titulo')

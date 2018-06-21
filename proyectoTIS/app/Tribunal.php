@@ -41,7 +41,6 @@ class Tribunal extends Model
             $tribunal = \DB::table('tribunal')
             ->join('tesis', 'tesis.codigo', 'tribunal.id_tesis')
             ->select('tribunal.*', 'tesis.*')->get();
-        print_r($tribunal);
     }
     public function addRelation($request){
         $proftesis = new ProfTesis;

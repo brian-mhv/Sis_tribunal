@@ -49,6 +49,7 @@ class DocentesController extends Controller
         $docente->save();
         $docente->addProfesional($request);
         $docente->addSesion();
-        return view('docentes.index', compact('docentes'), ['docentes'=>$docente->getAll(), 'user'=>$this->getUser()]);
+        $prof = new Profesional;
+        return view('docentes.index', compact('docentes'), ['docentes'=>$prof->getAll(), 'user'=>$this->getUser()]);
     }
 }

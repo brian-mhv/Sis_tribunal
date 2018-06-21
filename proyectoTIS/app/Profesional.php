@@ -60,7 +60,7 @@ class Profesional extends Model
     }
     public function importProfesionales($file1, $file2){
       $file = $file1;
-      if(basename($file2) == "profesionales.csv"){$file = $file2;}
+      if($file2->getClientOriginalName() == "profesionales.csv"){$file = $file2;}
       Excel::load($file, function($reader) {
  
         foreach ($reader->get() as $profesional) {

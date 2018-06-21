@@ -18,22 +18,25 @@ class Docente extends Model
     public $timestamps=false;
     protected $fillable =[
         'telefono',
-        'direccion',
-        'ci'
+        'direccion'
     ];
-    public function importDocentes($file)
-    {
+    public function importDocentes($file1, $file2){
+     $file = $file1;
+     if(basename($file2) == "docentes.csv"){$file = $file2;}
      Excel::load($file, function($reader) {
       foreach ($reader->get() as $docente) {
          Docente::create([
             'telefono' => $docente->telefono,
-            'direccion' => $docente->direccion,
-            'ci' => $docente->ci
+            'direccion' => $docente->direccion
             ]);
          $prof = \DB:: table('profesional')->select('profesional.*')
          ->where('profesional.nombre', $docente->nombre)
-         ->where('profesional.apellido_paterno', $docente->ape_pat)->get();
-         if(count($prof) == 0){$this->createProfesional($docente);}
+         ->where('profesional.apellido_paterno', $docente->ape_pat)
+         ->where('profesional.apellido_materno', $docente->ape_mat)->get();
+         if(count($prof) == 0){
+             $this->createProfesional($docente);
+             $this->addSesion();
+         }
          else{$this->compareProfesional($docente);}
       }
      });
@@ -46,6 +49,7 @@ class Docente extends Model
             $inv = Profesional::find($prof->codigo);
             $inv->correo = $docente->correo;
             $inv->cod_docente = $this->generateCode();
+            $this->addNewSesion($inv->codigo, $docente->correo);
             $inv->save();
         }
       }
@@ -98,11 +102,23 @@ class Docente extends Model
     public function addSesion(){
         $codigo = \DB::table('profesional')->select('codigo', 'correo')->get();
         $id = $codigo[count($codigo) - 1];
-        $sesion = new Sesion;
-        $sesion->usuario = $id->codigo;
-        $sesion->correo = $id->correo;
-        $sesion->pass = "hashtag";
-        $sesion->nivel = 2;
-        $sesion->save();
+        if($id->correo != NULL){
+            $sesion = new Sesion;
+            $sesion->usuario = $id->codigo;
+            $sesion->correo = $id->correo;
+            $sesion->pass = "hashtag";
+            $sesion->nivel = 2;
+            $sesion->save();
+        }
+    }
+
+    public function addNewSesion($codigo, $correo){
+        if($correo != NULL){
+            $sesion = new Sesion;
+            $sesion->usuario = $codigo;
+            $sesion->correo = $correo;
+            $sesion->nivel = 2;
+            $sesion->save();
+        }
     }
 }

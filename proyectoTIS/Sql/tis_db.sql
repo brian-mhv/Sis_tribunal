@@ -115,10 +115,6 @@ CREATE  TABLE IF NOT EXISTS `Docente` (
   `carga_horaria` VARCHAR(45) NULL ,
   `telefono` VARCHAR(8) NULL ,
   `direccion` VARCHAR(100) NULL ,
-  `ci` VARCHAR(45) NULL ,
-  `dir_fot` VARCHAR(45) NULL ,
-  `cod_tip` INT NULL ,
-  `cod_cue` INT NULL ,
   PRIMARY KEY (`codigo`) ,
   UNIQUE INDEX `idDocente_UNIQUE` (`codigo` ASC) )
 ENGINE = InnoDB;
@@ -178,40 +174,22 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `Tesis` (
   `codigo` INT NOT NULL AUTO_INCREMENT ,
-  `codigo_tesis` VARCHAR(45) NULL ,
   `nombre` VARCHAR(500) NOT NULL ,
   `descripcion` VARCHAR(1000) NULL ,
   `estado` INT NOT NULL ,
-  `dir_form` VARCHAR(45) NULL ,
-  `cod_ges_per_ini` INT NULL ,
-  `cod_ges_per_fin` INT NULL ,
   `fecha_registro` INT NULL ,
   `cod_modalidad` INT NOT NULL ,
-  `cod_emp` INT NULL ,
-  `obj_gral` VARCHAR(200) NULL ,
   `carrera` INT NULL,
   PRIMARY KEY (`codigo`) ,
   UNIQUE INDEX `idProyecto_UNIQUE` (`codigo` ASC) ,
   INDEX `cod_modalidad_idx` (`cod_modalidad` ASC) ,
-  INDEX `cod_ges_per_ini_idx` (`cod_ges_per_ini` ASC) ,
-  INDEX `cod_ges_per_fin_idx` (`cod_ges_per_fin` ASC) ,
   INDEX `carrera_idx` (`carrera` ASC),
   CONSTRAINT `cod_modalidad`
     FOREIGN KEY (`cod_modalidad` )
     REFERENCES `Modalidad` (`codigo` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `cod_ges_per_ini`
-    FOREIGN KEY (`cod_ges_per_ini` )
-    REFERENCES `GestionPer` (`codigo` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `cod_ges_per_fin`
-    FOREIGN KEY (`cod_ges_per_fin` )
-    REFERENCES `GestionPer` (`codigo` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-CONSTRAINT `carrera`
+  CONSTRAINT `carrera`
     FOREIGN KEY (`carrera` )
     REFERENCES `Carrera` (`codigo` )
     ON DELETE NO ACTION
@@ -262,19 +240,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `Estudiante` (
   `codigo` INT NOT NULL AUTO_INCREMENT ,
-  `cod_sis` INT NULL ,
   `nombre` VARCHAR(45) NOT NULL ,
   `apellido_pat` VARCHAR(45) NULL ,
   `apellido_mat` VARCHAR(45) NULL ,
-  `telefono` INT NULL ,
-  `direccion` VARCHAR(45) NULL ,
-  `cod_cue` VARCHAR(45) NULL ,
   `correo` VARCHAR(100) NULL,
-  `ci` VARCHAR(45) NULL ,
-  `dir_fot` INT NULL ,
   PRIMARY KEY (`codigo`) ,
-  UNIQUE INDEX `id_estudiante_UNIQUE` (`codigo` ASC) ,
-  UNIQUE INDEX `cod_sis_UNIQUE` (`cod_sis` ASC) )
+  UNIQUE INDEX `id_estudiante_UNIQUE` (`codigo` ASC))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -332,7 +303,7 @@ CREATE  TABLE IF NOT EXISTS `AreaTesis` (
   INDEX `proyecto_idx` (`id_tesis` ASC) ,
   PRIMARY KEY (`id_tesis`, `id_area`) ,
   CONSTRAINT `area0`
-    FOREIGN KEY (`id_area` )
+    FOREIGN KEY (`id_area`)
     REFERENCES `Area` (`idArea` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,

@@ -46,7 +46,6 @@ class DocentesController extends Controller
         $docente->carga_horaria = $request->input('carga');
         $docente->telefono = $request->input('telefono');
         $docente->direccion = $request->input('direccion');
-        $docente->ci = $request->input('carnet');
         $docente->save();
         $docente->addProfesional($request);
         $docente->addSesion();

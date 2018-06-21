@@ -14,8 +14,7 @@ class HomesController extends Controller
     }
     public function index2()
     {
-        return "<h2>Bienvenido al sistema de asignacion de tribunales</h2><br>
-        <a href='home/'>Iniciar</a>";
+        return view('home',compact('layouts'), ['user'=>$this->getUser()]);
     }
     public function getSesion(Request $request){
         $this->validate($request, [

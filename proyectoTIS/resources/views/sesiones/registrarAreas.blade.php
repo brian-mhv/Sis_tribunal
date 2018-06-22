@@ -2,56 +2,50 @@
 @section ('contenido')
 
 <h2>Mis Areas</h2>
-    
-    <table class="table">
-        <thread>
-            @foreach ($areasProf as $area)
-            <tr>
-                <td><?php echo$area->idArea ?></td>
-                <td><?php echo$area->nombre_area?></td>
-                <td><?php echo$area->descripcion?></td>
-                <td><i class="fa fa-close"></i></td>
-            </tr>
-            @endforeach
-        </thread>
-    </table>
-    
-    <ul id="newArea">
-    
-        @foreach ($areas as $area)
-            @if ($area->id_subarea == null)
-            <li><a name="<?php echo$area->idArea; ?>"><?php echo$area->nombre_area; ?></a></li>
-                <ul>
-                @foreach ($areas as $subarea)
-                    @if ($area->idArea == $subarea->id_subarea)
-                    <li><?php echo $subarea->nombre_area;?></li>
-                    @endif
-                @endforeach
-            @endif
-        @endforeach
-    
-    </ul>
-    <div class="form-group">
-        <a href="#dialogo" class="btn btn-primary left" data-toggle="modal">Registrar</a>
-        <div class="modal fade" id="dialogo">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4>Desea registrar el area</h4>
+                    <div class="box box-primary"></div>             
+                        <table class="table table-hover">
+                            <thread>
+                                <tr class="bg-purple color-palette">
+                                    <td>ID</td>
+                                    <td>NOMBRE</td>
+                                    <td>DESCRIPCION</td>
+                                    <td>SUBAREAS</td>
+                                </tr>
+                            </thread>
+                            <tbody>
+                                <?php
+                                foreach($areasProf as $rows) {
+                                if($rows->id_subarea == null){?>
+                                <tr id="<?php echo $rows->nombre_area; ?>">
+                                    <td><?php echo $rows->idArea; ?></td>
+                                    <td>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <span class="hidden-xs"><?php echo $rows->nombre_area; ?><i class="fa fa-angle-down pull-right"></i></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                        <?php foreach($areasProf as $subareas) { ?>
+                                            <?php if($rows->idArea == $subareas->id_subarea){?>
+                                            <a href="#">
+                                                <li><?php echo $subareas->nombre_area;?></li>
+                                            </a>
+                                            <?php } ?>
+                                        <?php } ?>
+                                        </ul>
+                                    </td>
+                                    <td style="width: 45%"><?php echo $rows->descripcion; ?></td>
+                                    <td><a class="label label-danger"><i id="<?php echo $rows->idArea; ?>" class="fa fa-remove" ></i></a></td>
+                                    <script>
+                                        $areasEliminar = [];
+                                        document.getElementById("<?php echo $rows->idArea; ?>").addEventListener("click", function( event ) {
+                                            $areasEliminar.push(<?php echo $rows->idArea; ?>);
+                                            document.getElementById("<?php echo $rows->nombre_area; ?>").style = "display:none";
+                                            console.log($areasEliminar);
+                                        });
+                                    </script>
+                                    </tr>
+                                <?php }
+                             } ?>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <input type="submit" class="btn btn-primary" value="Guardar">
-                    </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        var myList;
-        myList = [];
-        document.getElementById("newArea").addEventListener("click", function( event ) {
-            console.log(event);
-        });
-    </script>
-
 @endsection

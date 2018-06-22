@@ -59,6 +59,7 @@ Route::get('about', 'AboutsController@index');
 //Route::get('importProfesional', 'ImportProfesionalController@import');
 
 Route::get('misAreas', 'PerfilController@addAreas');
+Route::get('misTribunales', 'PerfilController@index');
 //Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

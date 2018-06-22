@@ -39,6 +39,21 @@ class Tribunal extends Model
         $tribunales = $this->getDate($tribunal);
         return $tribunales;
     }
+
+    public function getSome($codigo){
+        $tribunal1 = \DB::table('tribunal')
+        ->join('tesis', 'tesis.codigo', 'tribunal.id_tesis')
+        ->select('tribunal.*', 'tesis.*')->where('tribunal.id_profesional1', $codigo)->get();
+        $tribunal2 = \DB::table('tribunal')
+        ->join('tesis', 'tesis.codigo', 'tribunal.id_tesis')
+        ->select('tribunal.*', 'tesis.*')->where('tribunal.id_profesional2', $codigo)->get();
+        $tribunal3 = \DB::table('tribunal')
+        ->join('tesis', 'tesis.codigo', 'tribunal.id_tesis')
+        ->select('tribunal.*', 'tesis.*')->where('tribunal.id_profesional3', $codigo)->get();
+        $tribunales = [];
+        //array_merge($tribunal1, $tribunal2, $tribunal3);
+        return $tribunal1;
+    }
     
     public function getProf(){
         $profesional = new Profesional;

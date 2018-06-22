@@ -65,9 +65,9 @@
                   <li><a href="#">Estado de proyecto</a></li>
                   @endif
                   @if($user[0]->nivel == 2 || $user[0]->nivel == 3)
-                  <li><a href="#">Tribunales asignados</a></li>
-                  <li><a href="#">Proyectos para revision</a></li>
-                  <li><a href="../misAreas">Anadir areas de interes</a></li>
+                  <li><a href="../misTribunales/">Mis Tribunales</a></li>
+                  <li><a href="#">Proyectos Asignados</a></li>
+                  <li><a href="../misAreas/">Mis Areas</a></li>
                   @endif
                   @if($user[0]->nivel == 1)
                   <li><a href="#">Anadir administrador</a></li>

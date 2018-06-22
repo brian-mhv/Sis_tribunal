@@ -105,7 +105,7 @@ class Docente extends Model
             $sesion->usuario = $id->codigo;
             $sesion->correo = $id->correo;
             $sesion->pass = "hashtag";
-            $sesion->nivel = 2;
+            $sesion->nivel = 3;
             $sesion->save();
         }
     }

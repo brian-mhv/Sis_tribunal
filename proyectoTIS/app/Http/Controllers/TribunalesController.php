@@ -23,6 +23,7 @@ class TribunalesController extends Controller
         ['tribunal'=>$tribunales->getAll(), 'profesional'=>$profesionales, 'user'=>$this->getUser()]);
     }
     public function add($idTesis, Request $request){
+      if($this->getUser() && $this->getUser()[0]->nivel <= 2){
         $profesionales = new Profesional;
         $proyectos = new Proyecto;
         $res = NULL;
@@ -33,9 +34,12 @@ class TribunalesController extends Controller
         return view('tribunales.registrar', compact('tribunales'), 
         ['proyecto'=>$proyectos->getProject($idTesis), 'areas'=>$proyectos->getAreas($idTesis),
         'user'=>$this->getUser(), 'filter'=>$res, 'tribunal'=>new Tribunal]);
+      }
+      return view('help', ['user'=>$this->getUser()]);
     }
 
     public function edit($idTesis){
+      if($this->getUser() && $this->getUser()[0]->nivel <= 2){
         $tribunal = new Tribunal;
         $id = $tribunal->getId($idTesis);
         $profesionales = $tribunal->getProf();
@@ -45,8 +49,11 @@ class TribunalesController extends Controller
         return view('tribunales.cambiarTribunal', compact('tribunales'), 
         ['tribunal'=>$trib, 'profesional'=>$profesionales,
         'user'=>$this->getUser(), 'filter'=>$res, 'p'=>$id[1]]);
+      }
+      return view('help', ['user'=>$this->getUser()]);
     }
     public function save(Request $request){
+      if($this->getUser() && $this->getUser()[0]->nivel <= 2){
         $tribunales = new Tribunal;
         if($request->input('newprof') != NULL){
             $proftesis = new ProfTesis;
@@ -71,5 +78,7 @@ class TribunalesController extends Controller
         $profesionales = $tribunales->getProf();
         return view('tribunales.index', compact('tribunales'), 
         ['tribunal'=>$tribunales->getAll(), 'profesional'=>$profesionales, 'user'=>$this->getUser()]);
+      }
+      return view('help', ['user'=>$this->getUser()]);
     }
 }

@@ -16,24 +16,27 @@ class DocentesController extends Controller
         return view('docentes.index', compact('docentes'), ['docentes'=>$docente->getAll(), 'user'=>$this->getUser()]);
     }
     public function add(){
-        if($this->getUser() && $this->getUser()[0]->nivel == 1){
+        if($this->getUser() && $this->getUser()[0]->nivel <= 2){
             $area = new Area;
             return view('docentes.registrarProf', compact('docentes'), ['areas'=>$area->all(), 'user'=>$this->getUser()]);
         }
-        return view('home', ['user'=>$this->getUser()]);
+        return view('help', ['user'=>$this->getUser()]);
     }
     public function addLote(){
-        if($this->getUser() && $this->getUser()[0]->nivel == 1){
+        if($this->getUser() && $this->getUser()[0]->nivel <= 2){
             return view('docentes.registrarProfLote', ['user'=>$this->getUser()]);
         }
-        return view('home', ['user'=>$this->getUser()]);
+        return view('help', ['user'=>$this->getUser()]);
     }
     public function save(Request $request){
         if(count($request->file()) > 0){
+          if($this->getUser() && $this->getUser()[0]->nivel <= 2){
             $docente = new Docente;
             $file = $request->file('file');
             $docente->importDocentes($file);
             return view('docentes.index', compact('docentes'), ['docentes'=>$docente->getAll(), 'user'=>$this->getUser()]);
+          }
+          return view('help', ['user'=>$this->getUser()]);
         }
         $this->validate($request, [
         'nombre' => 'required|string',

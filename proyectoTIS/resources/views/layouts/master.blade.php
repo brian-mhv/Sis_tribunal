@@ -104,19 +104,33 @@
                 <i class="fa fa-home"></i><span>Inicio</span>
               </a>
             </li>
-            
+
             <li class="treeview">
-              <a href="../tribunales/">
-                <i class="fa fa-fw fa-bank"></i>
-                <span>Tribunales</span>
+              <a href="../areas/">
+                <i class="fa fa-th"></i>
+                <span>Areas</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="../areas/"><i class="fa fa-circle-o"></i> Lista de Areas</a></li>
+                <li id="regAreas"><a href="../areas/registrar"><i class="fa fa-circle-o"></i> Registrar Area</a></li>
+                <!--li><a href="../areas/registrarlote"><i class="fa fa-circle-o"></i> Registrar por lote</a></li-->
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="../invitados/">
+                <i class="fa fa-users"></i>
+                <span>Profesionales</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../tribunales/"><i class="fa fa-circle-o"></i> Lista de tribunales</a></li>
+                <li><a href="../invitados/"><i class="fa fa-circle-o"></i> Lista de Profesionales</a></li>
+                <li><a href="../invitados/registrar"><i class="fa fa-circle-o"></i> Registrar Invitado</a></li>
+                <li><a href="../docentes/registrar"><i class="fa fa-circle-o"></i> Registrar Docente</a></li>
               </ul>
             </li>
-            
-            <!--Pagina de PROYECTO del sistema-->
+
             <li class="treeview">
               <a href="../tesis/">
                 <i class="fa fa-folder-open-o"></i>
@@ -130,56 +144,17 @@
             </li>
             
             <li class="treeview">
-              <a href="../invitados/">
-                <i class="fa fa-users"></i>
-                <span>Profesionales</span>
+              <a href="../tribunales/">
+                <i class="fa fa-fw fa-bank"></i>
+                <span>Tribunales</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../invitados/"><i class="fa fa-circle-o"></i> Lista de Profesionales</a></li>
-                <li><a href="../invitados/registrar"><i class="fa fa-circle-o"></i> Registrar Profesional</a></li>
-                <!--li><a href="../invitados/registrarlote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li-->
-              </ul>
-            </li>
-
-            <li class="treeview">
-              <a href="../docentes/">
-                <i class="fa fa-users"></i>
-                <span>Docentes</span>
-                 <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="../docentes/"><i class="fa fa-circle-o"></i> Lista de Docentes</a></li>
-                <li><a href="../docentes/registrar"><i class="fa fa-circle-o"></i> Registrar Docente</a></li>
-                <!--li><a href="../docentes/registrarlote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li-->
-              </ul>
-            </li>
-            
-            <li class="treeview">
-              <a href="../estudiantes/">
-                <i class="fa fa-users"></i>
-                <span>Estudiantes</span>
-                 <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="../estudiantes/"><i class="fa fa-circle-o"></i> Lista de estudiantes</a></li>
-                <!--li><a href="../estudiantes/registrarlote"><i class="fa fa-circle-o"></i> Registrar por lote</a></li-->
+                <li><a href="../tribunales/"><i class="fa fa-circle-o"></i> Lista de tribunales</a></li>
               </ul>
             </li>
 
             <!--Pagina de AREA del sistema-->
-            <li class="treeview">
-              <a href="../areas/">
-                <i class="fa fa-th"></i>
-                <span>Areas</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="../areas/"><i class="fa fa-circle-o"></i> Lista de Areas</a></li>
-                <li id="regAreas"><a href="../areas/registrar"><i class="fa fa-circle-o"></i> Registrar Area</a></li>
-                <!--li><a href="../areas/registrarlote"><i class="fa fa-circle-o"></i> Registrar por lote</a></li-->
-              </ul>
-            </li>
           </ul>
         </section>
         <!-- /.sidebar -->

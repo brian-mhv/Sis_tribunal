@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Profesional;
+use App\Docente;
+
 use App\User;
 use App\Http\Controllers\Mail;
 use App\Area;
@@ -14,7 +16,7 @@ class ProfesionalesController extends Controller
 {
     public function invitados(){
         $invitado = new Profesional;
-        return view('invitados.index', compact('invitados'), ['invitados'=>$invitado->invitados(), 'user'=>$this->getUser()]);
+        return view('invitados.index', compact('invitados'), ['invitados'=>$invitado->getAll(), 'user'=>$this->getUser()]);
     }
     public function add(){
         if($this->getUser() && $this->getUser()[0]->nivel == 1){
@@ -34,15 +36,15 @@ class ProfesionalesController extends Controller
         $file = $request->file('file');
         $import = new ImportProfesionalController;
         $profesionales = $import->importProfesionales($file);
-        print_r($profesionales);
     }
 
     public function save(Request $request){
-        if(count($request->file()) > 0){
+        if($request->file('file') and $request->file('file2')){
             $invitado = new Profesional;
-            $file = $request->file('file');
-            $profesionales = $invitado->importProfesionales($file);
-            return view('invitados.index', compact('invitados'), ['invitados'=>$invitado->invitados(), 'user'=>$this->getUser()]);
+            $invitado->importProfesionales($request->file('file'), $request->file('file2'));
+            $docente = new Docente;
+            $docente->importDocentes($request->file('file'), $request->file('file2'));
+            return view('invitados.index', compact('invitados'), ['invitados'=>$invitado->getAll(), 'user'=>$this->getUser()]);
         }
         
         $this->validate($request, [

@@ -51,12 +51,10 @@ class Estudiante extends Model
         foreach ($reader->get() as $estudiante) {
         Estudiante::create([
             'codigo' => $estudiante->codigo,
-            'cod_sis' => $estudiante->codigo_sis,
             'nombre' => $estudiante->nombre,
             'apellido_pat' => $estudiante->ape_pat,
             'apellido_mat' => $estudiante->ape_mat,
             'correo' => $estudiante->correo,
-            'ci' => $estudiante->ci
             ]);
         }
         });

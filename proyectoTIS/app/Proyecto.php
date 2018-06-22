@@ -18,7 +18,6 @@ class Proyecto extends Model
     protected $primaryKey = 'codigo';
     protected $fillable =[
         'codigo',
-        'codigo_tesis',
         'nombre',
         'estado',
         'cod_modalidad'
@@ -77,10 +76,9 @@ class Proyecto extends Model
         foreach ($reader->get() as $proyecto) {
         Proyecto::create([
             'codigo' => $proyecto->codigo,
-            'codigo_tesis' => $proyecto->codigo_tesis,
             'nombre' => $proyecto->nombre,
             'estado' => 1,
-            'cod_modalidad' => $proyecto->cod_modalidad
+            'cod_modalidad' => $proyecto->cod_mod
             ]);
         }
         });

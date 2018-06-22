@@ -26,9 +26,8 @@ class Profesional extends Model
     protected $guarded =[];
 
     public function getAll(){
-        $profesionales=\DB::table('profesional')
-        ->select('codigo', 'nombre', 'apellido_paterno', 'apellido_materno', 'correo')
-        ->orderBy('profesional.codigo', 'asc')->get();
+        $profesionales=\DB::table('profesional')->join('titulo', 'titulo.codigo', 'profesional.titulo')
+        ->select('profesional.*', 'titulo.nombre as titulo')->orderBy('profesional.codigo', 'asc')->get();
         return $profesionales;
     }
     public function invitados(){
@@ -38,19 +37,6 @@ class Profesional extends Model
         return $invitados;
     }
 
-    public function up()
-    {
-        Schema::create('profesional', function (Blueprint $table) {
-            $table->increments('codigo');
-            $table->string('nombre');
-            $table->string('apellido_paterno');
-            $table->string('apellido_materno');
-            $table->integer('titulo');
-            $table->string('correo');
-            $table->integer('cod_docente');
-            $table->timestamps();
-        });
-    }
     public function addSesion(){
         $codigo = \DB::table('profesional')->select('codigo', 'correo')->get();
         $id = $codigo[count($codigo) - 1];
@@ -61,6 +47,7 @@ class Profesional extends Model
         $sesion->nivel = 3;
         $sesion->save();
     }
+
     public function addArea($area){
         $codigo = \DB::table('profesional')->select('codigo')->get();
         $id = $codigo[count($codigo) - 1];
@@ -71,8 +58,9 @@ class Profesional extends Model
             $areasprof->save();
         }
     }
-    public function importProfesionales($file)
-    {
+    public function importProfesionales($file1, $file2){
+      $file = $file1;
+      if($file2->getClientOriginalName() == "profesionales.csv"){$file = $file2;}
       Excel::load($file, function($reader) {
  
         foreach ($reader->get() as $profesional) {
@@ -85,10 +73,21 @@ class Profesional extends Model
             'correo' => $profesional->correo,
             'cod_docente' => $profesional->cod_docente
             ]);
+            $this->addNewSesion($profesional->codigo, $profesional->correo);
         }
       });
- return Profesional::all();
     }
+
+    public function addNewSesion($codigo, $correo){
+        if($correo != ""){
+            $sesion = new Sesion;
+            $sesion->usuario = $codigo;
+            $sesion->correo = $correo;
+            $sesion->nivel = 3;
+            $sesion->save();
+        }
+    }
+
     public function addAreaLote(){
         $areas = \DB::table('areatesis')
         ->join('proftesis', 'proftesis.cod_tesis', 'areatesis.id_tesis')

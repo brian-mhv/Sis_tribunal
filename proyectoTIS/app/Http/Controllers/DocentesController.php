@@ -46,10 +46,10 @@ class DocentesController extends Controller
         $docente->carga_horaria = $request->input('carga');
         $docente->telefono = $request->input('telefono');
         $docente->direccion = $request->input('direccion');
-        $docente->ci = $request->input('carnet');
         $docente->save();
         $docente->addProfesional($request);
         $docente->addSesion();
-        return view('docentes.index', compact('docentes'), ['docentes'=>$docente->getAll(), 'user'=>$this->getUser()]);
+        $prof = new Profesional;
+        return view('docentes.index', compact('docentes'), ['docentes'=>$prof->getAll(), 'user'=>$this->getUser()]);
     }
 }

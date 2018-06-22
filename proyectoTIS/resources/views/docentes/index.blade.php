@@ -83,8 +83,6 @@
                         <td>A. PATERNO</td>
                         <td>A. MATERNO</td>
                         <td>CORREO</td>
-                        <td>CARGA HORARIA</td>
-                        <td>CI</td>
                         <td>TELEFONO</td>
                         <td>DIRECCION</td>
                         <td>TITULO</td>
@@ -99,8 +97,6 @@
                         <td><?php echo $rows->apellido_paterno; ?></td>
                         <td><?php echo $rows->apellido_materno; ?></td>
                         <td><?php echo $rows->correo; ?></td>
-                        <td><?php echo $rows->carga_horaria; ?></td>
-                        <td><?php echo $rows->ci; ?></td>
                         <td><?php echo $rows->telefono; ?></td>
                         <td><?php echo $rows->direccion; ?></td>
                         <td><?php echo $rows->titulo; ?></td>

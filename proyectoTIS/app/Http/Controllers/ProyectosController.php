@@ -39,9 +39,9 @@ class ProyectosController extends Controller
     public function save(Request $request){
         $this->validate($request, [
             'proyectos' => 'required',
-            'proftesis' => 'required',
+            /*'proftesis' => 'required',
             'esttesis' => 'required',
-            'areastesis' => 'required',
+            'areastesis' => 'required',*/
             ]);
         $proyecto = new Proyecto;
         $profTesis = new ProfTesis;
@@ -53,7 +53,7 @@ class ProyectosController extends Controller
                 $project = $request->file('proyectos');
                 $proyecto->importProyectos($project);
             }
-            if($request->file('proftesis') != NULL){
+            /*if($request->file('proftesis') != NULL){
                 $proftesis = $request->file('proftesis');
                 $profTesis->importProfTesis($proftesis);
             }
@@ -64,7 +64,7 @@ class ProyectosController extends Controller
             if($request->file('areastesis') != NULL){
                 $areastesis = $request->file('areastesis');
                 $areaTesis->importAreaTesis($areastesis);
-            }
+            }*/
             return view('proyectos.index', compact('proyectos'), ['proyectos'=>$proyecto->getAll(), 'user'=>$this->getUser()]);
         }
     }

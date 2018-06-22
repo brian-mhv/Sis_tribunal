@@ -21,10 +21,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return "<h2>Bienvenido al sistema de asignacion de tribunales</h2><br>
-        <a href='home/'>Iniciar</a>";
+    public function index(Request $request){
+		return view('home',compact('layouts'), ['user'=>$this->getUser()]);
     }
 
 }

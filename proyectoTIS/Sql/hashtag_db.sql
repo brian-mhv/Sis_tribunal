@@ -2,8 +2,8 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-CREATE DATABASE  IF NOT EXISTS tis CHARACTER SET utf8 COLLATE utf8_spanish2_ci;
-USE tis;
+CREATE DATABASE  IF NOT EXISTS hashtag_db CHARACTER SET utf8 COLLATE utf8_spanish2_ci;
+USE hashtag_db;
 
 DROP TABLE IF EXISTS `tiporesponsable` ;
 DROP TABLE IF EXISTS `titulo` ;
@@ -358,28 +358,28 @@ CREATE  TABLE IF NOT EXISTS `areatesis` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `tis`.`sesion` (`usuario`, `correo`, `pass`, `nivel`) VALUES ('0', 'hashtag.tis2018@gmail.com', 'admin', '1');
+INSERT INTO `hashtag_db`.`sesion` (`usuario`, `correo`, `pass`, `nivel`) VALUES ('0', 'hashtag.tis2018@gmail.com', 'admin', '1');
 
-INSERT INTO `tis`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('1', 'Trabajo Dirigido', 'Consiste en trabajos prácticos evaluados y supervisados en instituciones, empresas públicas o privadas, encargadas de proyectar o implementar obras para lo cual y sobre la base de un temario se proyecta, dirige o fiscaliza bajo la dirección de un supervisor o guía de la institución o empresa, también otro campo de acción es el de verificar las soluciones de problemas específicos, demostrando dominio amplio del tema y capacidad para resolver.');
-INSERT INTO `tis`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('2', 'Proyecto de Grado', 'Es el trabajo de investigación, análisis y diseño de <b>objetos de fin social</b> y que cumple con exigencias de metodología cientifica con profundidad similar al de un proyecto de investigación (tesis).');
-INSERT INTO `tis`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('3', 'Adscripcion', 'Se establece la Adscripción como la incorporación de estudiantes de la UMSS a la realización de actividades en los ámbitos académico, de investigación, interacción, y/o de gestión universitaria. La Adscripción consiste en la realización de un Trabajo Dirigido y/o una práctica profesional supervisada (internado) dentro de la Universidad Mayor de San Simón, que desarrollado dentro del marco de las disposiciones del presente reglamento, habilita al estudiante a presentar como Proyecto Final.<p> Para las Carreras de Informática y Sistemas, se plantea clasificar esta modalidad en dos:<br><ul><li><b>Adscripción a la Catedra,</b> si las actividades a realizar persiguen fines netamente académicos y de investigación enmarcadas en el proceso enseñanza-aprendizaje de las carreras de Informática y Sistemas.</li><li><b>Adscripción,</b> si las actividades a realizar no están enmarcadas en el ámbito de la Adscripción a la Cátedra.</li></ul>');
-INSERT INTO `tis`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('4', 'Proyecto de investigacion', 'Es un trabajo de investigación, que cumple con exigencias de metodología científica, a objeto de conocer y dar respuestas a un problema, planteando alternativas aplicables o proponiendo soluciones prácticas y/o teóricas.');
-INSERT INTO `tis`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('5', 'Excelencia', 'Es una modalidad en donde el estudiante obtiene su titulo directamente debido a su desempeno a lo largo de la carrera.');
+INSERT INTO `hashtag_db`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('1', 'Trabajo Dirigido', 'Consiste en trabajos prácticos evaluados y supervisados en instituciones, empresas públicas o privadas, encargadas de proyectar o implementar obras para lo cual y sobre la base de un temario se proyecta, dirige o fiscaliza bajo la dirección de un supervisor o guía de la institución o empresa, también otro campo de acción es el de verificar las soluciones de problemas específicos, demostrando dominio amplio del tema y capacidad para resolver.');
+INSERT INTO `hashtag_db`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('2', 'Proyecto de Grado', 'Es el trabajo de investigación, análisis y diseño de <b>objetos de fin social</b> y que cumple con exigencias de metodología cientifica con profundidad similar al de un proyecto de investigación (tesis).');
+INSERT INTO `hashtag_db`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('3', 'Adscripcion', 'Se establece la Adscripción como la incorporación de estudiantes de la UMSS a la realización de actividades en los ámbitos académico, de investigación, interacción, y/o de gestión universitaria. La Adscripción consiste en la realización de un Trabajo Dirigido y/o una práctica profesional supervisada (internado) dentro de la Universidad Mayor de San Simón, que desarrollado dentro del marco de las disposiciones del presente reglamento, habilita al estudiante a presentar como Proyecto Final.<p> Para las Carreras de Informática y Sistemas, se plantea clasificar esta modalidad en dos:<br><ul><li><b>Adscripción a la Catedra,</b> si las actividades a realizar persiguen fines netamente académicos y de investigación enmarcadas en el proceso enseñanza-aprendizaje de las carreras de Informática y Sistemas.</li><li><b>Adscripción,</b> si las actividades a realizar no están enmarcadas en el ámbito de la Adscripción a la Cátedra.</li></ul>');
+INSERT INTO `hashtag_db`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('4', 'Proyecto de investigacion', 'Es un trabajo de investigación, que cumple con exigencias de metodología científica, a objeto de conocer y dar respuestas a un problema, planteando alternativas aplicables o proponiendo soluciones prácticas y/o teóricas.');
+INSERT INTO `hashtag_db`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('5', 'Excelencia', 'Es una modalidad en donde el estudiante obtiene su titulo directamente debido a su desempeno a lo largo de la carrera.');
 
-INSERT INTO `tis`.`carrera` (`codigo`, `nombre`, `descripcion`, `anios_est`) VALUES ('1', 'Licenciatura en Ingenieria de Sistemas', '', '5');
-INSERT INTO `tis`.`carrera` (`codigo`, `nombre`, `descripcion`, `anios_est`) VALUES ('2', 'Licenciatura en Ingenieria Informatica', '', '5');
+INSERT INTO `hashtag_db`.`carrera` (`codigo`, `nombre`, `descripcion`, `anios_est`) VALUES ('1', 'Licenciatura en Ingenieria de Sistemas', '', '5');
+INSERT INTO `hashtag_db`.`carrera` (`codigo`, `nombre`, `descripcion`, `anios_est`) VALUES ('2', 'Licenciatura en Ingenieria Informatica', '', '5');
 
-INSERT INTO `tis`.`titulo` (`codigo`, `nombre`) VALUES ('1', 'Lic.');
-INSERT INTO `tis`.`titulo` (`codigo`, `nombre`) VALUES ('2', 'Ing.');
-INSERT INTO `tis`.`titulo` (`codigo`, `nombre`) VALUES ('3', 'Msc.');
-INSERT INTO `tis`.`titulo` (`codigo`, `nombre`) VALUES ('4', 'Msc. Lic.');
-INSERT INTO `tis`.`titulo` (`codigo`, `nombre`) VALUES ('5', 'Msc. Ing.');
-INSERT INTO `tis`.`titulo` (`codigo`, `nombre`) VALUES ('6', 'Doc.');
-INSERT INTO `tis`.`titulo` (`codigo`, `nombre`) VALUES ('7', 'Prof.');
+INSERT INTO `hashtag_db`.`titulo` (`codigo`, `nombre`) VALUES ('1', 'Lic.');
+INSERT INTO `hashtag_db`.`titulo` (`codigo`, `nombre`) VALUES ('2', 'Ing.');
+INSERT INTO `hashtag_db`.`titulo` (`codigo`, `nombre`) VALUES ('3', 'Msc.');
+INSERT INTO `hashtag_db`.`titulo` (`codigo`, `nombre`) VALUES ('4', 'Msc. Lic.');
+INSERT INTO `hashtag_db`.`titulo` (`codigo`, `nombre`) VALUES ('5', 'Msc. Ing.');
+INSERT INTO `hashtag_db`.`titulo` (`codigo`, `nombre`) VALUES ('6', 'Doc.');
+INSERT INTO `hashtag_db`.`titulo` (`codigo`, `nombre`) VALUES ('7', 'Prof.');
 
-INSERT INTO `tis`.`tiporesponsable` (`id_tipo`, `nombre_tipo`) VALUES ('1', 'Tutor');
-INSERT INTO `tis`.`tiporesponsable` (`id_tipo`, `nombre_tipo`) VALUES ('2', 'Tribunal');
-INSERT INTO `tis`.`tiporesponsable` (`id_tipo`, `nombre_tipo`) VALUES ('3', 'Tutor-Tribunal');
+INSERT INTO `hashtag_db`.`tiporesponsable` (`id_tipo`, `nombre_tipo`) VALUES ('1', 'Tutor');
+INSERT INTO `hashtag_db`.`tiporesponsable` (`id_tipo`, `nombre_tipo`) VALUES ('2', 'Tribunal');
+INSERT INTO `hashtag_db`.`tiporesponsable` (`id_tipo`, `nombre_tipo`) VALUES ('3', 'Tutor-Tribunal');
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

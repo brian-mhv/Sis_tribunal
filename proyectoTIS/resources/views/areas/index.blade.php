@@ -58,25 +58,7 @@
                                                         <input type="submit" class="btn btn-sm btn-info btn-flat" value="Guardar">
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                                                     </div>
-                                                </div>
-
-                                                <!--div class="form-group has-warning">
-                                                    <label class="control-label" for="inputWarning"> <i class="fa fa-warning"></i> Advertencia !!!...</label>                                                    
-                                                </div>
-                                                <div class="form-group">
-                                                  <input name="file" type="file" placeholder="Ingrese el archivo que desea importar">
-
-                                                   <p class="help-block">Solo se permite : "archivo.csv"</p>
-                                                  
-                                                </div>
-                                                
-                                                <div class="form-group">
-                                                    <div class="modal-footer">     
-                                                     <div class="box box-primary"></div>                                
-                                                        <input type="submit" class="btn btn-sm btn-info btn-flat" value="Guardar">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                                    </div>
-                                                </div-->                                              
+                                                </div>                               
                                               </form>
                                           </div>
                                      </div>                                     

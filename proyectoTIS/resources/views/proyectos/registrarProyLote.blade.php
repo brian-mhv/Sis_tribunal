@@ -93,30 +93,6 @@
                           </div> 
                     </div>  
 
-
-
-                    <!--####################################################################################-->
-
-                    <!--div class="form-group">
-                      <label>Ingrese archivo .csv de los proyectos de grado</label>
-                      <input name="proyectos" type="file" placeholder="Ingrese el archivo que desea importar">
-                    </div>
-
-                    <div class="form-group">
-                      <label>Ingrese archivo .csv de la tabla profesionales/tesis</label>
-                      <input name="proftesis" type="file" placeholder="Ingrese el archivo que desea importar">
-                    </div>
-
-                    <div class="form-group">
-                      <label>Ingrese archivo .csv de la tabla estudiantes/tesis</label>
-                      <input name="esttesis" type="file" placeholder="Ingrese el archivo que desea importar">
-                    </div>
-
-                    <div class="form-group">
-                      <label>Ingrese archivo .csv de la tabla areas/tesis</label>
-                      <input name="areastesis" type="file" placeholder="Ingrese el archivo que desea importar">
-                    </div-->
-                
                     <div class="form-group">
                       <a href="#dialogo" class="btn btn-primary" data-toggle="modal">Registrar</a>
                       <div class="modal fade" id="dialogo">

@@ -206,7 +206,7 @@ CREATE  TABLE IF NOT EXISTS `Tribunal` (
   `id_profesional3` INT NULL ,
   `id_tesis` INT NOT NULL ,
   `fecha_defensa` DATE NOT NULL ,
-  'nro_hcc' VARCHAR(45) NOT NULL,
+  `nro_hcc` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idTribunal`) ,
   INDEX `id_proyecto_idx` (`id_tesis` ASC) ,
   UNIQUE INDEX `id_proyecto_UNIQUE` (`id_tesis` ASC) ,
@@ -330,7 +330,7 @@ CREATE  TABLE IF NOT EXISTS `Carrera` (
 ENGINE = InnoDB;
 
 INSERT INTO `tis`.`sesion` (`usuario`, `correo`, `pass`, `nivel`) VALUES ('0', 'hashtag.tis2018@gmail.com', 'admin', '1');
-INSERT INTO `tis`.`sesion` (`usuario`, `correo`, `pass`, `nivel`) VALUES ('0', 'jhojannjr@gmail.com', 'admin', '1');
+INSERT INTO `tis`.`sesion` (`usuario`, `correo`, `pass`, `nivel`) VALUES ('0', 'jhojannjr@gmail.com', 'admin', '2');
 
 INSERT INTO `tis`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('1', 'Trabajo Dirigido', 'Consiste en trabajos prácticos evaluados y supervisados en instituciones, empresas públicas o privadas, encargadas de proyectar o implementar obras para lo cual y sobre la base de un temario se proyecta, dirige o fiscaliza bajo la dirección de un supervisor o guía de la institución o empresa, también otro campo de acción es el de verificar las soluciones de problemas específicos, demostrando dominio amplio del tema y capacidad para resolver.');
 INSERT INTO `tis`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('2', 'Proyecto de Grado', 'Es el trabajo de investigación, análisis y diseño de <b>objetos de fin social</b> y que cumple con exigencias de metodología cientifica con profundidad similar al de un proyecto de investigación (tesis).');

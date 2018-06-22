@@ -46,7 +46,8 @@
             <input type="submit" class="btn btn-primary" value="Iniciar Sesion">
           </div>
         </form>
-        <div class="social-auth-links">
+        <!-------------------------------->
+        <!--div class="social-auth-links">
           <a href="#reestablecer" data-toggle="modal">Olvidé mi contraseña</a><br>     
           <div class="modal fade" id="reestablecer">
             <div class="modal-dialog">
@@ -83,7 +84,9 @@
         <div class="social-auth-links text-center">
           <p>¿No tienes Cuenta?</p>
         <a href="register.html" class="text-center">Registrate</a>
-        </div><!-- /.social-auth-links -->
+        </div-->
+        <!-------------------------------->
+        <!-- /.social-auth-links -->
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
     <!-- jQuery 2.1.4 -->

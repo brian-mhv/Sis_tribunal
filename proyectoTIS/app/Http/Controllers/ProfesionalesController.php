@@ -23,13 +23,13 @@ class ProfesionalesController extends Controller
             $area = new Area;
             return view('invitados.registrar' , compact('invitados'), ['areas'=>$area->all(), 'user'=>$this->getUser()]);
         }
-        return view('home', ['user'=>$this->getUser()]);
+        return view('help', ['user'=>$this->getUser()]);
     }
     public function addLote(){
         if($this->getUser() && $this->getUser()[0]->nivel == 1){
             return view('invitados.registrarLote', ['user'=>$this->getUser()]);
         }
-        return view('home', ['user'=>$this->getUser()]);
+        return view('help', ['user'=>$this->getUser()]);
     }
 
     public function saveLote(Request $request){
@@ -39,7 +39,9 @@ class ProfesionalesController extends Controller
     }
 
     public function save(Request $request){
+      
         if(count($request->file()) > 0){
+          if($this->getUser() && $this->getUser()[0]->nivel == 1){
             $this->validate($request, [
                 'profesionales' => 'required',
                 'docentes' => 'required',
@@ -49,8 +51,9 @@ class ProfesionalesController extends Controller
             $docente = new Docente;
             $docente->importDocentes($request->file('docentes'));
             return view('invitados.index', compact('invitados'), ['invitados'=>$invitado->getAll(), 'user'=>$this->getUser()]);
+          }
+          return view('help', ['user'=>$this->getUser()]);
         }
-        
         $this->validate($request, [
             'nombre' => 'required|string',
             'apPat' => 'required|string',

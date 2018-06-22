@@ -82,7 +82,7 @@ class Profesional extends Model
             $sesion = new Sesion;
             $sesion->usuario = $codigo;
             $sesion->correo = $correo;
-            $sesion->nivel = 3;
+            $sesion->nivel = 4;
             $sesion->save();
         }
     }

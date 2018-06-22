@@ -58,9 +58,8 @@ class Profesional extends Model
             $areasprof->save();
         }
     }
-    public function importProfesionales($file1, $file2){
-      $file = $file1;
-      if($file2->getClientOriginalName() == "profesionales.csv"){$file = $file2;}
+    public function importProfesionales($file){
+      
       Excel::load($file, function($reader) {
  
         foreach ($reader->get() as $profesional) {

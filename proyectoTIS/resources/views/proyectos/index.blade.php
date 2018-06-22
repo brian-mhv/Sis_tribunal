@@ -32,7 +32,6 @@
                         @endif
                         @if($rows->estado == 2)
                         <td><span  class="label label-success">Tribunal Asignado</span></td>
-                        <td><a class="btn btn-primary">Editar</a></td>
                         @endif
                         @if($rows->estado == 'finalizado')
                         <td><span class="label label-default">Proyecto Defendido</span></td>

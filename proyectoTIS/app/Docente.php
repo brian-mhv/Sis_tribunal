@@ -20,9 +20,7 @@ class Docente extends Model
         'telefono',
         'direccion'
     ];
-    public function importDocentes($file1, $file2){
-    $file = $file1;
-    if($file2->getClientOriginalName() == "docentes.csv"){$file = $file2;}
+    public function importDocentes($file){
      Excel::load($file, function($reader) {
       foreach ($reader->get() as $docente) {
          Docente::create([

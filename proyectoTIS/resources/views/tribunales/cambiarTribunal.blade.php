@@ -81,18 +81,12 @@
                                 }*/
                                 console.log(document.getElementById('tribunal').innerHTML);
                                 console.log(document.getElementById('tesis').innerHTML);
-                                if($candidatos.length == 0){ 
+                                if($candidatos.length == 0  && $candidatos.indexOf(<?php echo $prof->codigo; ?>) < 0){ 
                                                         
                                     $candidatos.push(<?php echo $prof->codigo; ?>);
                                     document.getElementById(<?php echo $prof->codigo; ?>).value = "Quitar";
                                     document.getElementById(<?php echo $prof->codigo; ?>).className = "btn btn-default";
                                     console.log($candidatos);
-                                    if($candidatos.length == 1){
-                                        document.getElementById("guardar").disabled = null;
-                                        document.getElementById("trib").value = document.getElementById('tribunal').innerHTML;
-                                        document.getElementById("tes").value = document.getElementById('tribunal').innerHTML;
-                                        document.getElementById("newprof").value = $candidatos[0];
-                                    }
                                 }
                                 else{
                                     if($candidatos.indexOf(<?php echo $prof->codigo; ?>) >= 0){
@@ -102,9 +96,16 @@
                                     console.log($candidatos);
                                     }
                                     else{
-                                        alert("Usted selecciono 3 profesionales.");
+                                        alert("Ya existe un profesional seleccionado.");
                                     }
                                 }
+                                if($candidatos.length == 1){
+                                        document.getElementById("guardar").disabled = null;
+                                        document.getElementById("trib").value = document.getElementById('tribunal').innerHTML;
+                                        document.getElementById("tes").value = document.getElementById('tribunal').innerHTML;
+                                        document.getElementById("newprof").value = $candidatos[0];
+                                    }
+                                else{document.getElementById("guardar").disabled = 'disabled';}
                             });
                         </script>
                     </tr>

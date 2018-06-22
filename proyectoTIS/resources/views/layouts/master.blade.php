@@ -147,11 +147,7 @@
               <a href="../tribunales/">
                 <i class="fa fa-fw fa-bank"></i>
                 <span>Tribunales</span>
-                 <i class="fa fa-angle-left pull-right"></i>
               </a>
-              <ul class="treeview-menu">
-                <li><a href="../tribunales/"><i class="fa fa-circle-o"></i> Lista de tribunales</a></li>
-              </ul>
             </li>
 
             <!--Pagina de AREA del sistema-->

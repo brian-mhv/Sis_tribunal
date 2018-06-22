@@ -58,7 +58,7 @@ Route::get('about', 'AboutsController@index');
 //Route::get('importArea', 'ImportAreaController@import');
 //Route::get('importProfesional', 'ImportProfesionalController@import');
 
-Route::get('misAreas', 'PerfilDocente@addAreas');
+Route::get('misAreas', 'PerfilController@addAreas');
 //Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

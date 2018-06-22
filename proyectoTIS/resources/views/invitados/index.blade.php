@@ -46,16 +46,16 @@
                                                     <br><label class="control-label" for="inputWarning"> <i class="fa fa-warning"></i> Profesionales y Docentes </label>
                                                 </div>
                                                 <div class="form-group">
-                                                  <input name="file" type="file" placeholder="Ingrese el archivo 'Profesionales'">
+                                                  <input name="profesionales" type="file" placeholder="Ingrese el archivo 'Profesionales'">
 
-                                                   <p class="help-block">Solo se permite : "archivo.csv"</p>
+                                                   <p class="help-block">Solo se permite : "profesionales.csv"</p>
                                                   
                                                 </div>
                                                 
                                                 <div class="form-group">
-                                                  <input name="file2" type="file" placeholder="Ingrese el archivo 'Docentes'">
+                                                  <input name="docentes" type="file" placeholder="Ingrese el archivo 'Docentes'">
 
-                                                   <p class="help-block">Solo se permite : "archivo.csv"</p>
+                                                   <p class="help-block">Solo se permite : "docentes.csv"</p>
                                                   
                                                 </div>
 

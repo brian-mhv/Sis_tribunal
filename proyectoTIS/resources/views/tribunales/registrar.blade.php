@@ -61,7 +61,9 @@
                         <input id="candidato3" type="hidden" name="candidato3">
                         <input type="hidden" name="tesis" value="<?php echo $proyecto[0]->codigo; ?>">
                         <label>Fecha de Defensa</label>
-                        <input type="date" name="fecha" class="form-control">
+                        <input type="date" name="fecha" class="form-control"><br>
+                        <label>Nro de Sesion del HCC</label>
+                        <input type="text" name="hcc" class="form-control">
                     </div>
 
                     <div class="form-group">
@@ -107,18 +109,12 @@
                                     document.getElementById(<?php echo $prof->codigo; ?>).className = "btn btn-primary";
                                     console.log($candidatos);
                                 }*/
-                                if($candidatos.length < 3){ 
+                                if($candidatos.length < 3 && $candidatos.indexOf(<?php echo $prof->codigo; ?>) < 0){ 
                                                         
                                     $candidatos.push(<?php echo $prof->codigo; ?>);
                                     document.getElementById(<?php echo $prof->codigo; ?>).value = "Quitar";
                                     document.getElementById(<?php echo $prof->codigo; ?>).className = "btn btn-default";
                                     console.log($candidatos);
-                                    if($candidatos.length == 3){
-                                        document.getElementById("guardar").disabled = null;
-                                        document.getElementById("candidato1").value = $candidatos[0];
-                                        document.getElementById("candidato2").value = $candidatos[1];
-                                        document.getElementById("candidato3").value = $candidatos[2];
-                                    }
                                 }
                                 else{
                                     if($candidatos.indexOf(<?php echo $prof->codigo; ?>) >= 0){
@@ -131,6 +127,13 @@
                                         alert("Usted selecciono 3 profesionales.");
                                     }
                                 }
+                                if($candidatos.length == 3){
+                                        document.getElementById("guardar").disabled = null;
+                                        document.getElementById("candidato1").value = $candidatos[0];
+                                        document.getElementById("candidato2").value = $candidatos[1];
+                                        document.getElementById("candidato3").value = $candidatos[2];
+                                    }
+                                else{document.getElementById("guardar").disabled = 'disabled';}
                             });
                         </script>
                     </tr>

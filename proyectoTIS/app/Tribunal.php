@@ -21,11 +21,23 @@ class Tribunal extends Model
         'fecha_defensa'
     ];
 
+    public function getDate($tribunales){
+        foreach($tribunales as $tribunal){
+            if($tribunal->fecha_defensa == date("Y-m-d")){
+                $tesis = Proyecto::find($tribunal->id_tesis);
+                $tesis->estado = 3;
+                $tesis->save();
+            }
+        }
+        return $tribunales;
+    }
+
     public function getAll(){
         $tribunal = \DB::table('tribunal')
         ->join('tesis', 'tesis.codigo', 'tribunal.id_tesis')
         ->select('tribunal.*', 'tesis.*')->get();
-        return $tribunal;
+        $tribunales = $this->getDate($tribunal);
+        return $tribunales;
     }
     
     public function getProf(){

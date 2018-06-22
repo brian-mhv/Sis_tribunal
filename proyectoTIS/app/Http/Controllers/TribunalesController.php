@@ -55,11 +55,17 @@ class TribunalesController extends Controller
             return view('tribunales.index', compact('tribunales'), 
             ['tribunal'=>$tribunales->getAll(), 'profesional'=>$tribunales->getProf(), 'user'=>$this->getUser()]);
         }
+        $this->validate($request, [
+            'fecha' => 'required',
+            'hcc' => 'required'
+            
+        ]);
         $tribunales->id_tesis = $request->input('tesis');
         $tribunales->id_profesional1 = $request->input('candidato1');
         $tribunales->id_profesional2 = $request->input('candidato2');
         $tribunales->id_profesional3 = $request->input('candidato3');
         $tribunales->fecha_defensa = $request->input('fecha');
+        $tribunales->nro_hcc = $request->input('hcc');
         $tribunales->save();
         $tribunales->addRelation($request);
         $profesionales = $tribunales->getProf();

@@ -206,6 +206,7 @@ CREATE  TABLE IF NOT EXISTS `Tribunal` (
   `id_profesional3` INT NULL ,
   `id_tesis` INT NOT NULL ,
   `fecha_defensa` DATE NOT NULL ,
+  'nro_hcc' VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idTribunal`) ,
   INDEX `id_proyecto_idx` (`id_tesis` ASC) ,
   UNIQUE INDEX `id_proyecto_UNIQUE` (`id_tesis` ASC) ,

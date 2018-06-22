@@ -39,11 +39,15 @@ class ProfesionalesController extends Controller
     }
 
     public function save(Request $request){
-        if($request->file('file') and $request->file('file2')){
+        if(count($request->file()) > 0){
+            $this->validate($request, [
+                'profesionales' => 'required',
+                'docentes' => 'required',
+            ]);    
             $invitado = new Profesional;
-            $invitado->importProfesionales($request->file('file'), $request->file('file2'));
+            $invitado->importProfesionales($request->file('profesionales'));
             $docente = new Docente;
-            $docente->importDocentes($request->file('file'), $request->file('file2'));
+            $docente->importDocentes($request->file('docentes'));
             return view('invitados.index', compact('invitados'), ['invitados'=>$invitado->getAll(), 'user'=>$this->getUser()]);
         }
         

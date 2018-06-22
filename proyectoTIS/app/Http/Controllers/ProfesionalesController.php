@@ -63,7 +63,8 @@ class ProfesionalesController extends Controller
             $user->name = $request->input('nombre');
             $user->email = $request->input('correo');
             $user->password = "hashtag";
-        Mail::to(input('correo'))->send(new RegistroUsuario($user));
+        
+            Mail::to(input('correo'))->send(new RegistroUsuario($user));
         return view('invitados.index', compact('invitados'), ['invitados'=>$invitado->invitados(), 'user'=>$this->getUser()]);
     }
 }

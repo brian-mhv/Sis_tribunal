@@ -30,6 +30,6 @@ class RegistroUsuario extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.registroUsuario');
+        return $this->view('mail.registroUsuario');
     }
 }

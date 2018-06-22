@@ -18,20 +18,23 @@ class AreasController extends Controller
         if($this->getUser() && $this->getUser()[0]->nivel <= 3){
             return view('areas.registrarArea', compact('areas'), ['var'=>0, 'user'=>$this->getUser()]);
         }
-        return view('home', ['user'=>$this->getUser()]);
+        return view('help', ['user'=>$this->getUser()]);
     }
     public function addLote(){
-        if($this->getUser() && $this->getUser()[0]->nivel <= 3){
+        if($this->getUser() && $this->getUser()[0]->nivel <= 2){
             return view('areas.registrarAreaLote', ['user'=>$this->getUser()]);
         }
-        return view('../home', ['user'=>$this->getUser()]);
+        return view('help', ['user'=>$this->getUser()]);
     }
     public function save(Request $request){
         if(count($request->file()) > 0){
+          if($this->getUser() && $this->getUser()[0]->nivel <= 2){
             $area = new Area;
             $file = $request->file('file');
             $area->importAreas($file);
             return view('areas.index', compact('areas'), ['areas'=>$area->getAll(), 'user'=>$this->getUser()]);
+          }
+          return view('help', ['user'=>$this->getUser()]);
         }
 
         $this->validate($request, [

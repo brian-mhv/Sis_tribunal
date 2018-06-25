@@ -31,7 +31,5 @@ class AreaTesis extends Model
             ]);
         }
         });
-        $prof = new Profesional;
-        $prof->addAreaLote();
     }
 }

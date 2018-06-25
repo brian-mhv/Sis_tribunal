@@ -17,7 +17,7 @@
                       <th>Profesional 2</th>
                       <th>Profesional 3</th>
                       <th>Fecha de Defensa</th>
-                      <th>Estado</th>
+                      <th>NRO. HCC.</th>
                     </tr>
                     </thread>
                     <tbody>

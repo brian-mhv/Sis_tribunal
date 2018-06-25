@@ -73,7 +73,13 @@
                       </div>
                 </div>
             </div>  
-                
+
+            <div class="panel-body">
+                <form action="../tesis/" method="GET" role="form">
+                    <input name="filtro" type="text" class="form-control" placeholder="Buscar proyecto">
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </form>
+            </div>    
 
                 <div class="box box-primary">
                 </div>

@@ -7,7 +7,7 @@
 <div class="box box-primary"></div>
 <div class="container-fluid">                       
     <!--Añadir contenido-->
-    <form id="form" action="/proyectos" method="POST" role="form">
+    <form id="form" action="../proyectos/" method="POST" role="form">
         {{ csrf_field() }}
         @if (count($errors) > 0)
         <div class="alert alert-danger">

@@ -66,7 +66,6 @@
                   @endif
                   @if($user[0]->nivel == 2 || $user[0]->nivel == 3)
                   <li><a href="../misTribunales/">Mis Tribunales</a></li>
-                  <li><a href="#">Proyectos Asignados</a></li>
                   <li><a href="../misAreas/">Mis Areas</a></li>
                   @endif
                   @if($user[0]->nivel == 1)
@@ -139,7 +138,6 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="../tesis/"><i class="fa fa-circle-o"></i> Lista de Proyectos</a></li>
-                <li><a href="../tesis/registrarlote"><i class="fa fa-circle-o"></i> Registrar por Lote</a></li>
               </ul>
             </li>
             

@@ -103,7 +103,7 @@
                                         <?php } ?>
                                         </ul>
                                     </td>
-                                    <td><?php echo $rows->descripcion; ?></td>
+                                    <td style="width:50%"><?php echo $rows->descripcion; ?></td>
                                     <td><a><i class="fa fa-plus" ></i></a></td>
                                     </tr>
                                 <?php }

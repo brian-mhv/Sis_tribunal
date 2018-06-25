@@ -60,16 +60,6 @@ CREATE  TABLE IF NOT EXISTS `ProfTesis` (
   INDEX `cod_prof_idx` (`cod_prof` ASC) ,
   INDEX `cod_tesis_idx` (`cod_tesis` ASC) ,
   INDEX `tipo_resp_idx` (`tipo_resp` ASC) ,
-  CONSTRAINT `cod_prof`
-    FOREIGN KEY (`cod_prof`)
-    REFERENCES `Profesional` (`codigo` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `cod_tesis`
-    FOREIGN KEY (`cod_tesis` )
-    REFERENCES `Tesis` (`codigo` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `tipo_resp`
     FOREIGN KEY (`tipo_resp` )
     REFERENCES `TipoResponsable` (`id_tipo` )
@@ -85,17 +75,7 @@ CREATE  TABLE IF NOT EXISTS `EstTesis` (
   `cod_tes` INT NOT NULL ,
   PRIMARY KEY (`cod_alumno`, `cod_tes`) ,
   INDEX `cod_tes_idx` (`cod_tes` ASC) ,
-  INDEX `cod_alumno_idx` (`cod_alumno` ASC) ,
-  CONSTRAINT `cod_alumno`
-    FOREIGN KEY (`cod_alumno` )
-    REFERENCES `Estudiante` (`codigo` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `cod_tes`
-    FOREIGN KEY (`cod_tes` )
-    REFERENCES `Tesis` (`codigo` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  INDEX `cod_alumno_idx` (`cod_alumno` ASC))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -303,17 +283,7 @@ CREATE  TABLE IF NOT EXISTS `AreaTesis` (
   `id_tesis` INT NOT NULL ,
   INDEX `area_idx` (`id_area` ASC) ,
   INDEX `proyecto_idx` (`id_tesis` ASC) ,
-  PRIMARY KEY (`id_tesis`, `id_area`) ,
-  CONSTRAINT `area0`
-    FOREIGN KEY (`id_area`)
-    REFERENCES `Area` (`idArea` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `proyecto`
-    FOREIGN KEY (`id_tesis` )
-    REFERENCES `Tesis` (`codigo` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id_tesis`, `id_area`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -330,7 +300,7 @@ CREATE  TABLE IF NOT EXISTS `Carrera` (
 ENGINE = InnoDB;
 
 INSERT INTO `tis`.`sesion` (`usuario`, `correo`, `pass`, `nivel`) VALUES ('0', 'hashtag.tis2018@gmail.com', 'admin', '1');
-INSERT INTO `tis`.`sesion` (`usuario`, `correo`, `pass`, `nivel`) VALUES ('0', 'jhojannjr@gmail.com', 'admin', '2');
+INSERT INTO `tis`.`sesion` (`usuario`, `correo`, `pass`, `nivel`) VALUES ('0', 'jhojannjr@gmail.com', 'admin', '1');
 
 INSERT INTO `tis`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('1', 'Trabajo Dirigido', 'Consiste en trabajos prácticos evaluados y supervisados en instituciones, empresas públicas o privadas, encargadas de proyectar o implementar obras para lo cual y sobre la base de un temario se proyecta, dirige o fiscaliza bajo la dirección de un supervisor o guía de la institución o empresa, también otro campo de acción es el de verificar las soluciones de problemas específicos, demostrando dominio amplio del tema y capacidad para resolver.');
 INSERT INTO `tis`.`modalidad` (`codigo`, `nombre`, `descripcion`) VALUES ('2', 'Proyecto de Grado', 'Es el trabajo de investigación, análisis y diseño de <b>objetos de fin social</b> y que cumple con exigencias de metodología cientifica con profundidad similar al de un proyecto de investigación (tesis).');

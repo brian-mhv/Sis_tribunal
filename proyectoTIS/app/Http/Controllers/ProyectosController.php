@@ -15,8 +15,20 @@ use App\Http\Requests;
 
 class ProyectosController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         $proyecto = new Proyecto;
+        if($request->input('filtro')){
+            $proy = [];
+            foreach($proyecto->getAll() as $tesis){
+                if(stristr($tesis->codigo, $request->input('filtro')) || 
+                stristr("{$tesis->cod_prof} {$tesis->apellido_paterno} {$tesis->apellido_materno}", $request->input('filtro')) || 
+                stristr("{$tesis->cod_alumno} {$tesis->apellido_pat} {$tesis->apellido_mat}", $request->input('filtro')) || 
+                stristr($tesis->nombre, $request->input('filtro')) || stristr($tesis->cod_modalidad, $request->input('filtro'))){
+                    array_push( $proy , $tesis);   
+                }
+            }
+            return view('proyectos.index', ['proyectos'=>$proy, 'user'=>$this->getUser()]);
+        }
         return view('proyectos.index', ['proyectos'=>$proyecto->getAll(), 'user'=>$this->getUser()]);
     }
     public function add(){
@@ -38,7 +50,7 @@ class ProyectosController extends Controller
     }
     public function save(Request $request){
         $this->validate($request, [
-            'proyectos' => 'required',
+            //'proyectos' => 'required',
             /*'proftesis' => 'required',
             'esttesis' => 'required',
             'areastesis' => 'required',*/
@@ -54,7 +66,7 @@ class ProyectosController extends Controller
                 $project = $request->file('proyectos');
                 $proyecto->importProyectos($project);
             }
-            /*if($request->file('proftesis') != NULL){
+            if($request->file('proftesis') != NULL){
                 $proftesis = $request->file('proftesis');
                 $profTesis->importProfTesis($proftesis);
             }
@@ -65,7 +77,7 @@ class ProyectosController extends Controller
             if($request->file('areastesis') != NULL){
                 $areastesis = $request->file('areastesis');
                 $areaTesis->importAreaTesis($areastesis);
-            }*/
+            }
             return view('proyectos.index', compact('proyectos'), ['proyectos'=>$proyecto->getAll(), 'user'=>$this->getUser()]);
           }
           return view('help', ['user'=>$this->getUser()]);

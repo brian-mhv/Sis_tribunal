@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\EstTesis;
 use App\ProfTesis;
 use App\Modalidad;
+use App\Profesional;
 use App\Http\Requests;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -82,6 +83,8 @@ class Proyecto extends Model
             ]);
         }
         });
-        return Proyecto::all();
+        $prof = new Profesional;
+        $prof->addAreaLote();
+
     }
 }

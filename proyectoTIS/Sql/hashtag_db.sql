@@ -84,7 +84,7 @@ CREATE  TABLE IF NOT EXISTS `estudiante` (
   `apellido_mat` VARCHAR(45) NULL ,
   `correo` VARCHAR(100) NULL,
   PRIMARY KEY (`codigo`) ,
-  UNIQUE INDEX `id_estudiante_UNIQUE` (`codigo` ASC) ,
+  UNIQUE INDEX `id_estudiante_UNIQUE` (`codigo` ASC))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -157,16 +157,6 @@ CREATE  TABLE IF NOT EXISTS `proftesis` (
   INDEX `cod_prof_idx` (`cod_prof` ASC) ,
   INDEX `cod_tesis_idx` (`cod_tesis` ASC) ,
   INDEX `tipo_resp_idx` (`tipo_resp` ASC) ,
-  CONSTRAINT `cod_prof`
-    FOREIGN KEY (`cod_prof`)
-    REFERENCES `profesional` (`codigo` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `cod_tesis`
-    FOREIGN KEY (`cod_tesis` )
-    REFERENCES `tesis` (`codigo` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `tipo_resp`
     FOREIGN KEY (`tipo_resp` )
     REFERENCES `tiporesponsable` (`id_tipo` )
@@ -182,17 +172,7 @@ CREATE  TABLE IF NOT EXISTS `esttesis` (
   `cod_tes` INT NOT NULL ,
   PRIMARY KEY (`cod_alumno`, `cod_tes`) ,
   INDEX `cod_tes_idx` (`cod_tes` ASC) ,
-  INDEX `cod_alumno_idx` (`cod_alumno` ASC) ,
-  CONSTRAINT `cod_alumno`
-    FOREIGN KEY (`cod_alumno` )
-    REFERENCES `estudiante` (`codigo` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `cod_tes`
-    FOREIGN KEY (`cod_tes` )
-    REFERENCES `tesis` (`codigo` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  INDEX `cod_alumno_idx` (`cod_alumno` ASC))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -319,17 +299,7 @@ CREATE  TABLE IF NOT EXISTS `areatesis` (
   `id_tesis` INT NOT NULL ,
   INDEX `area_idx` (`id_area` ASC) ,
   INDEX `proyecto_idx` (`id_tesis` ASC) ,
-  PRIMARY KEY (`id_tesis`, `id_area`) ,
-  CONSTRAINT `area0`
-    FOREIGN KEY (`id_area` )
-    REFERENCES `area` (`idArea` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `proyecto`
-    FOREIGN KEY (`id_tesis` )
-    REFERENCES `tesis` (`codigo` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id_tesis`, `id_area`))
 ENGINE = InnoDB;
 
 INSERT INTO `hashtag_db`.`sesion` (`usuario`, `correo`, `pass`, `nivel`) VALUES ('0', 'hashtag.tis2018@gmail.com', 'admin', '1');
